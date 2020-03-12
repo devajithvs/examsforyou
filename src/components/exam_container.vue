@@ -33,16 +33,18 @@
               </v-card-title>
 
               <v-card-text class="subtitle-2 right overflow-y-auto mt-4" style="max-height: 25vh" id="question" >                
-                <p v-for="block in quiz" v-bind:key="block._id"> {{quiz[0].question}} </p>
+                <!-- v-for="block in quiz" v-bind:key="block._id" -->
+                <p> {{quiz[0].question}} </p>
               </v-card-text>
 
               <v-card-text class="overflow-y-auto" style="max-height: 35vh">
                 <v-container fluid>
                   <v-radio-group small column>
-                    <v-radio class="subtitle-2" label="A) 1m/s" value="1"></v-radio>
-                    <v-radio class="subtitle-2" label="B) 5m/s" value="2"></v-radio>
-                    <v-radio class="subtitle-2" label="C) 10m/s" value="3"></v-radio>
-                    <v-radio class="subtitle-2" label="D) 15m/s" value="4"></v-radio>
+                    <v-radio class="subtitle-2"
+                      v-for="(item, index) in quiz[0].options" v-bind:key="item._id"
+                      :label="`${String.fromCharCode(index+65)}) ${item.option}`"
+                      :value="index"
+                    ></v-radio>
                   </v-radio-group>
                 </v-container>
               </v-card-text>
