@@ -15,16 +15,15 @@
                 <span>Y</span>
             </v-toolbar-title> -->
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
-                <img :src="img" style="margin-top:2vh; width:200px; height: auto; filter: invert(100%);"/>
+                <img :src="img" style="margin-top:1vh; width:200px; height: auto; filter: invert(100%);"/>
             </v-toolbar-title>
             <v-toolbar-title class="text-uppercase hidden-md-and-up">
-                <img :src="logo" style="margin-top:2vh; width:25px; height: auto; filter: invert(100%);"/>
+                <img :src="logo" style="margin-top:1vh; width:25px; height: auto; filter: invert(100%);"/>
             </v-toolbar-title>
             
             <v-toolbar-title class="text-uppercase hidden-sm-and-down pl-5">
                 <span id="exam-name" class="subtitle-2">{{exam_name}}</span>
             </v-toolbar-title>
-            
             
             <v-spacer></v-spacer>
 

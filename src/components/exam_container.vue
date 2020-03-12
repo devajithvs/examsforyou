@@ -24,24 +24,26 @@
             <v-card class="mx-auto">
               
               <v-card-title class="primary">
-                <span class="subtitle-1 font-weight-light white--text">Question 1 - Single choice question</span>
+                <span class="subtitle-1 font-weight-light white--text">Question {{question_no + 1}} - Single choice question</span>
                 <v-spacer></v-spacer>
                 <div class="subtitle-1 white--text right">
-                  <v-icon class="white--text">bookmark_outline</v-icon>
+                  <v-icon v-on:click="attempt[question_no].code = 4" class="white--text">bookmark_outline</v-icon>
                   <span class="font-weight-light">Mark for review</span>
                 </div>
               </v-card-title>
 
-              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" style="max-height: 25vh" id="question" >                
+              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" style="height: 20vh" id="question" >                
                 <!-- v-for="block in quiz" v-bind:key="block._id" -->
-                <p> {{quiz[0].question}} </p>
+                <p> {{question_object.question}} </p>
               </v-card-text>
 
-              <v-card-text class="overflow-y-auto" style="max-height: 35vh">
-                <v-container fluid>
+              <v-divider :inset="inset"></v-divider>
+
+              <v-card-text class="overflow-y-auto" style="height: 35vh">  
+                <v-container fluid>                   
                   <v-radio-group small column>
                     <v-radio class="subtitle-2"
-                      v-for="(item, index) in quiz[0].options" v-bind:key="item._id"
+                      v-for="(item, index) in question_object.options" v-bind:key="item._id"
                       :label="`${String.fromCharCode(index+65)}) ${item.option}`"
                       :value="index"
                     ></v-radio>
@@ -50,10 +52,10 @@
               </v-card-text>
 
               <v-card-actions class="card-action">
-                <v-btn class="white primary--text">Previous</v-btn>
+                <v-btn v-on:click="question_no --" class="white primary--text">Previous</v-btn>
                 <v-btn class="white primary--text">Clear Slection</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn class="primary">Save and Next</v-btn> 
+                <v-btn v-on:click="question_no ++" class="primary">Next</v-btn> 
               </v-card-actions>
 
             </v-card>
@@ -68,55 +70,16 @@
                 <v-spacer></v-spacer>
               </v-card-title>
 
-              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" id="question" style="max-height: 25vh">
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>
-                <div class="status-icon marked-for-review pallet">
-                  <span>1</span>
-                </div>  
-                <div class="status-icon not-answered pallet">
-                  <span>2</span>
-                </div>
-                <div class="status-icon answered-and-marked-for-review pallet">
-                  <div class="ans-review-tick">
-                    <div class="status-icon-img-review-tick material-icons white-text">done</div>
+              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" id="question" style="height: 20vh">
+                <div v-on:click="question_no = block.id" v-for="block in attempt" v-bind:key="block.id" class="status-icon pallet" v-bind:class="{ 'current-question': (block.id === question_no), 'answered': (block.code === 1), 'not-answered': (block.code === 2), 'not-visited': (block.code === 3), 'marked-for-review': (block.code === 4 || block.code === 5)}">
+                  <span>{{block.id+1}}</span>
+                  <div class="ans-and-review" v-if="block.code === 5">
+                    <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
                   </div>
-                  <span>3</span>
-                </div>
-                <div class="status-icon answered pallet">
-                  <span>4</span>
-                </div>
-                <div class="status-icon not-visited pallet">
-                  <span>5</span>
                 </div>
               </v-card-text>
-
-              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" id="question-stats">
+              <v-divider :inset="inset"></v-divider>
+              <v-card-text class="subtitle-2 right overflow-y-auto mt-4" id="question-stats" style="height: 35vh">
                 <v-layout rows id="exam-info" wrap>
                   <v-flex md6 class="status-container">
                     <div class="status-icon answered">
@@ -147,16 +110,14 @@
                   </v-flex>
 
                   <v-flex md12 class="status-container">
-                    <div class="status-icon answered-and-marked-for-review">
+                    <div class="status-icon marked-for-review">
                       <div>0</div>
-                      <div class="ans-review-tick">
-                        <div class="status-icon-img-review-tick material-icons white-text">done</div>
+                      <div class="ans-and-review">
+                        <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
                       </div>
                     </div>
                     <div class="status-label">Answered and Marked for Review</div>
                   </v-flex>
-
-                  <div class="divider"></div>
                 </v-layout>
               </v-card-text>
 
@@ -169,10 +130,19 @@
 </template>
 
 <style lang="scss">
-  .status-icon .ans-review-tick {
-  background: #3abb9c;
-  width: 14px;
-  height: 14px;
+body{
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.status-icon .ans-and-review {
+  background: #6ee5c5;
+  width: 15px;
+  height: 15px;
   border: 2px solid #fff;
   border-radius: 50%;
   position: absolute;
@@ -182,14 +152,16 @@
   align-items: center;
   justify-content: center;
 }
-.status-icon.answered-and-marked-for-review, .status-icon.marked-for-review {
-  background-color: #5960b7;
+.status-icon.marked-for-review {
+  background-color: #6d60b5;
 }
 .pallet {
+  cursor:pointer;
   float: left;
+  margin-top: 0.5rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .status-label {
@@ -204,8 +176,8 @@
   flex-direction: column;
 }
 .status-icon {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   position: relative;
   border-radius: 50%;
   flex-shrink: 0;
@@ -218,9 +190,15 @@
   align-items: center;
   padding: 1.5rem 0 0;
 }
-.status-icon-img-review-tick {
+.status-icon-ans-and-review {
   object-fit: contain;
-  font-size: 0.9rem;
+  font-size: 0.6rem;
+  position: relative;
+  bottom: 0;
+  right: -0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .status-icon.marked-for-review {
@@ -228,18 +206,13 @@
   color: white;
 }
 
-.status-icon.answered-and-marked-for-review {
-  background-color: #5960b7;
-  color: white;
-}
-
 .status-icon.answered {
-  background-color: green;
+  background-color: #63d1b4;
   color: white;
 }
 
 .status-icon.not-answered {
-  background-color: red;
+  background-color: #ed5f5f;
   color: white;
 }
 
@@ -248,62 +221,73 @@
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
+.status-icon.current-question {
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px 2px
+  rgba(0,0,0,.24);
+}
+
 </style>
 
 <script>
+import json from '@/assets/data.json'
 export default {
     data (){
-        return{
-            exam_name:'JEE Advanced 2020',
-            timerCount: '',
-            expire_date: new Date("Mar 12, 2020 17:37:25").getTime(),
-            quiz: [
-              {
-                "solution": {
-                  "images": [],
-                  "solution": ""
-                },
-                "marking": {
-                  "correct": "4",
-                  "incorrect": "-2"
-                },
-                "mcqma": true,
-                "numericalAnswers": [],
-                "numericalAnswerType": "Range",
-                "_bonus": false,
-                "images": [],
-                "options": [
-                  {
-                    "_onlyImage": false,
-                    "_correct": true,
-                    "option": "If 𝐼₁ = 𝐼₂, then 𝐵⃗⃗ cannot be equal to zero at the origin (0, 0, 0)",
-                    "_id": "5b0520933daddf758d480a63"
-                  },
-                  {
-                    "_onlyImage": false,
-                    "_correct": true,
-                    "option": "If 𝐼₁ > 0 and 𝐼₂ < 0, then 𝐵⃗⃗ can be equal to zero at the origin (0, 0, 0)",
-                    "_id": "5b0520933daddf758d480a62"
-                  },
-                  {
-                    "_onlyImage": false,
-                    "_correct": false,
-                    "option": "If 𝐼₁ < 0 and 𝐼₂ > 0, then 𝐵⃗⃗ can be equal to zero at the origin (0, 0, 0)",
-                    "_id": "5b0520933daddf758d480a61"
-                  },
-                  {
-                    "_onlyImage": false,
-                    "_correct": true,
-                    "option": "If 𝐼₁ = 𝐼₂, then the 𝑧-component of the magnetic field at the centre of the loop is (−𝜇₀ 𝐼/2𝑅)",
-                    "_id": "5b0520933daddf758d480a60"
-                  }
-                ],
-                "type": "mcq",
-                "question": "Two infinitely long straight wires lie in the 𝑥𝑦-plane along the lines 𝑥 = ±𝑅. The wire located at 𝑥 = +𝑅 carries a constant current 𝐼1 and the wire located at 𝑥 = −𝑅 carries a constant current 𝐼₂. A circular loop of radius 𝑅 is suspended with its centre at (0, 0, √3𝑅) and in a plane parallel to the 𝑥𝑦-plane. This loop carries a constant current 𝐼 in the clockwise direction as seen from above the loop. The current in the wire is taken to be positive if it is in the +𝑗̂direction. Which of the following statements regarding the magnetic field 𝐵⃗⃗ is (are) true?",
-                "_id": "5b0520933daddf758d480a5f"
-              }
-            ]
-        }
-    }    
+      return{
+        question_no: 1-1,
+        exam_details: json,
+        exam_name:'JEE Advanced 2020',
+        timerCount: '',
+        expire_date: new Date("Mar 12, 2020 17:37:25").getTime(),
+        attempt: [
+          {
+            id: 0,
+            code: 1,
+            answer: ''
+          },
+          {
+            id:1,
+            code:2,
+            answer: ''
+          },
+          {
+            id:2,
+            code:3,
+            answer: ''
+          },
+          {
+            id:3,
+            code:4,
+            answer: ''
+          },
+          {
+            id:4,
+            code:5,
+            answer: ''
+          },
+          {
+            id:5,
+            code:1,
+            answer: ''
+          },
+          {
+            id:6,
+            code:2,
+            answer: ''
+          },
+          {
+            id:7,
+            code:1,
+            answer: ''
+          }
+        ]
+      }
+    },
+    computed:  {
+      question_object: function(){
+        console.log(this.exam_details.length)
+        return this.exam_details[this.question_no].questions[0]
+      }
+    }
 }
 </script>
