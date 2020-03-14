@@ -1,7 +1,5 @@
 <template>
     <nav>
-        
-
         <v-app-bar app class="primary" dense dark >            
             <v-app-bar-nav-icon class="primary_text--text hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
@@ -23,7 +21,7 @@
             <v-btn text class="success hidden-xs-only ml-5">
                 <span class="white--text">Submit</span>
             </v-btn>
-            <i class="material-icons primary_text--text ml-n12 hidden-xs-only" v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark">md_brightness_medium</i> 
+            <i class="material-icons primary_text--text ml-n12 hidden-xs-only" v-on:click="swapMode">md_brightness_medium</i> 
         </v-app-bar>
 
         <v-navigation-drawer app 
@@ -50,10 +48,32 @@ export default {
             img: require('@/assets/logo_with_text.svg'),
             logo: require('@/assets/logo.svg'),
             drawer: false,
+            night_mode_status: false,
             exam_name:'JEE Advanced 2020',
             timerCount: '',
             expire_date: new Date("Mar 12, 2020 17:37:25").getTime()
         }
+    },
+    methods: {
+        initialize: function(){
+            // localStorage.removeItem("night_mode_status");
+            var mode = JSON.parse(localStorage.getItem("night_mode_status"));
+
+            if(mode===null) {
+                mode = {"night_mode_status": false}
+                localStorage.setItem("night_mode_status", JSON.stringify(mode));
+            }
+            this.$vuetify.theme.dark = mode.night_mode_status;
+        },
+        swapMode: function () {
+            this.night_mode_status = !this.night_mode_status
+            this.$vuetify.theme.dark = this.night_mode_status
+            localStorage.setItem("night_mode_status", JSON.stringify({"night_mode_status": this.night_mode_status}));
+        },
+        
+    },
+    beforeMount(){
+            this.initialize()
     },
     watch: {
 
