@@ -25,25 +25,57 @@
         </v-app-bar>
 
         <v-navigation-drawer app 
-        clipped
-        fixed
-        floating
-        white 
+        absolute
+        temporary
         disable-resize-watcher 
         v-model="drawer">
-            <template v-slot:append>
-                <div class="pa-2">
-                <v-btn block>Logout</v-btn>
-                </div>
-            </template>
+        <template v-slot:prepend>
+            <v-list-item two-line>
+            
+
+            <v-list-item-content>
+                
+                <v-list-item-title class="title text-center">
+                    <span class="subtitle-2 primary_text--text" id="exam-name">{{exam_name}}</span>
+                </v-list-item-title>
+
+                <v-btn text class="success">       
+                    <span class="white--text">Submit</span>
+                </v-btn>
+                <v-list-item-subtitle class="mt-3">
+                    <a class="primary_text--text text-center pr-5"><v-icon small class="accent--text">assignment</v-icon>&nbsp;Instructions</a>
+                    <a class="primary_text--text"><v-icon small class="accent--text">book</v-icon>&nbsp;Question Paper</a>
+                </v-list-item-subtitle>
+
+            
+            </v-list-item-content>
+            </v-list-item>
+        </template>
+
+        <v-divider></v-divider>
+
+        <v-list dense>
+            <v-list-item
+            >
+            <v-list-item-content>
+                
+                <v-list-item-title class="mt-n4">
+                    <v-switch right class="ml-1"
+                        v-model="$vuetify.theme.dark" label="Night Mode">
+                    </v-switch>
+                    
+                </v-list-item-title>
+            </v-list-item-content>
+            </v-list-item>
+        </v-list>
         </v-navigation-drawer>
     </nav>
 </template>
 
 <script>
-
 export default {
-    data (){
+
+    data () {
         return{
             img: require('@/assets/logo_with_text.svg'),
             logo: require('@/assets/logo.svg'),
@@ -58,12 +90,24 @@ export default {
         initialize: function(){
             // localStorage.removeItem("night_mode_status");
             var mode = JSON.parse(localStorage.getItem("night_mode_status"));
-
             if(mode===null) {
                 mode = {"night_mode_status": false}
                 localStorage.setItem("night_mode_status", JSON.stringify(mode));
             }
             this.$vuetify.theme.dark = mode.night_mode_status;
+            // localStorage.removeItem("time");
+            var time = JSON.parse(localStorage.getItem("time"));
+            if(time===null) {
+                let endTime = new Date();
+                endTime.setHours(endTime.getHours() + 3);
+                this.expire_date = endTime.getTime();
+                time = {"expire_date": this.expire_date};
+                localStorage.setItem("time", JSON.stringify(time));
+            }
+            console.log(time.expire_date);
+            this.expire_date = time.expire_date;
+                
+            
         },
         swapMode: function () {
             this.night_mode_status = !this.night_mode_status
