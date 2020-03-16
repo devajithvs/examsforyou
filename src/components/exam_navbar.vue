@@ -88,6 +88,11 @@ export default {
     },
     methods: {
         initialize: function(){
+            this.setNightMode();
+            this.updateTime();
+                      
+        },
+        setNightMode: function(){
             // localStorage.removeItem("night_mode_status");
             var mode = JSON.parse(localStorage.getItem("night_mode_status"));
             if(mode===null) {
@@ -95,19 +100,26 @@ export default {
                 localStorage.setItem("night_mode_status", JSON.stringify(mode));
             }
             this.$vuetify.theme.dark = mode.night_mode_status;
+            return this.$vuetify.theme.dark;
+        },
+        updateTime: function() {
             // localStorage.removeItem("time");
             var time = JSON.parse(localStorage.getItem("time"));
+            let endTime = new Date();
             if(time===null) {
-                let endTime = new Date();
+                
                 endTime.setHours(endTime.getHours() + 3);
                 this.expire_date = endTime.getTime();
                 time = {"expire_date": this.expire_date};
                 localStorage.setItem("time", JSON.stringify(time));
             }
             console.log(time.expire_date);
-            this.expire_date = time.expire_date;
-                
-            
+            this.expire_date = time.expire_date; 
+            if (this.expire_date < endTime.getTime()){
+                alert("Time's up! Restart?");
+                localStorage.removeItem("time");
+                this.updateTime();
+            }
         },
         swapMode: function () {
             this.night_mode_status = !this.night_mode_status

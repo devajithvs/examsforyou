@@ -393,6 +393,9 @@ export default {
       }
     },
     computed:  {
+      data(){
+        return this.$store.state.data
+      },
       question_object: function(){
         return this.exam_details[this.question_no].questions[0]
       },
