@@ -1,0 +1,474 @@
+{
+  "question_paper": {
+    "exam_details": {
+      "exam_code": "",
+      "name": "JEE Main",
+      "exam_date": "",
+      "year": 2018,
+      "duration": 10800,
+      "max_marks": 300,
+      "exam_cutoff": 120,
+      "question_count": 75,
+      "instructions": [
+        "The total duration of the examinaton is 180 minutes",
+        "The clock will be set at the server. The countdown timer in the top right corner of screen will display the remaining time available for you to complete the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination",
+        "There will be only 90 questions in this test. The maximum marks are 360",
+        "Paper is divided into three sections consisting of Chemistry, Mathematics and Physics having 30 questions in each part of equal weightage.",
+        "Each question is allotted 4 (four) marks for correct response",
+        "¼ (one-fourth) marks of the total marks allotted to the question will be deducted for incorrect response"
+      ]
+    },
+    "sections": [
+      {
+        "name": "Physics",
+        "section_code": "0",
+        "questions": [
+          {
+            "images": [
+              "link"
+            ],
+            "question_index": 0,
+            "question": "How are you0",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 1,
+            "images": [
+              "link"
+            ],
+            "question": "How are you",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 2,
+            "images": [
+              "link"
+            ],
+            "question": "How are you2",
+            "type": "mcq",
+            "solution": 2,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hel2lo123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 3,
+            "images": [
+              "link"
+            ],
+            "question": "How are you",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chemistry",
+        "section_code": "1",
+        "questions": [
+          {
+            "images": [
+              "link"
+            ],
+            "question_index": 0,
+            "question": "How are youchem0",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123chem",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 1,
+            "images": [
+              "link"
+            ],
+            "question": "How are you chem",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 2,
+            "images": [
+              "link"
+            ],
+            "question": "Hchemow are you2",
+            "type": "mcq",
+            "solution": 2,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hel2lo123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 3,
+            "images": [
+              "link"
+            ],
+            "question": "cchhhhhhHow are you",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mathematics",
+        "section_code": "2",
+        "questions": [
+          {
+            "images": [
+              "link"
+            ],
+            "question_index": 0,
+            "question": "How are yoummkmk0",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hmlmlello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 1,
+            "images": [
+              "link"
+            ],
+            "question": "mamaHow are you",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 2,
+            "images": [
+              "link"
+            ],
+            "question": "How mbmare you2",
+            "type": "mcq",
+            "solution": 2,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hel2lo123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          },
+          {
+            "question_index": 3,
+            "images": [
+              "link"
+            ],
+            "question": "Hommmmw are you",
+            "type": "mcq",
+            "solution": 3,
+            "numericalAnswer": [],
+            "options": [
+              {
+                "option": "hello123",
+                "id": "0",
+                "correct": false
+              },
+              {
+                "option": "hello234",
+                "id": "1",
+                "correct": false
+              },
+              {
+                "option": "hello579",
+                "id": "2",
+                "correct": false
+              },
+              {
+                "option": "hola345",
+                "id": "3",
+                "correct": true
+              }
+            ],
+            "marking": {
+              "correct": "-1",
+              "incorrect": "4"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

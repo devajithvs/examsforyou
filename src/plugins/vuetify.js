@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
+import colors from 'vuetify/lib/util/colors';
 
 Vue.use(Vuetify);
 
@@ -13,6 +14,8 @@ export default new Vuetify({
 
         pure_complementary: '#000000',
         primary: '#ffffff',
+        navbar:'#ffffff',
+
         secondary: '#747474',
         primary_text: '#747474',
         secondary_text: '#AAB8B8',
@@ -23,8 +26,10 @@ export default new Vuetify({
         error: '#ed5f5f',
       },
       dark: {
+        navbar:'#1e1e1e',
+        success: colors.green.darken2,
         pure_complementary: '#ffffff',
-        primary: '#141414',
+        primary: '#030303',
         primary2: '#000000',
         secondary: '#ffffff',
         primary_text: '#AAB8B8',

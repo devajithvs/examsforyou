@@ -1,20 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import json from '@/assets/data.json';
+import json from '@/assets/sampledata.json';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        data: {
-            question_no: '',
-            exam_details: json,
-            exam_name:'JEE Advanced 2020',
-            timerCount: '',
+        store: {
+            exam_details: json.quesion_paper.exam_details,
+            exam_name: json.quesion_paper.exam_details.exam_name + " " + json.quesion_paper.exam_details.year,
+            current_section: 0,
+            question_no: [],
             expire_date: '',
-            attempt2: '',
+            userAttemptsData: '',
             saveData: '',
-            drawer: false,
             night_mode_status: false,
         },      
     },
