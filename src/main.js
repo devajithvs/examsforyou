@@ -5,37 +5,38 @@ import vuetify from './plugins/vuetify';
 import {store} from './store/store';
 
 Vue.config.productionTip = false
-import json from '@/assets/data.json';
 Vue.mixin({
-  beforeMount(){
-    this.initialize()
-  },
-
   methods: {
     initialize: function(){
-      this.setNightMode();
+      // this.setNightMode();
       this.updateTime();
       this.initializeQuizVariables();
     },
     initializeQuizVariables: function(){
-      // localStorage.removeItem("question_status");
-      // localStorage.removeItem("saveData");
-      this.store.userAttemptsData = JSON.parse(localStorage.getItem("question_status"));
+      localStorage.removeItem("userAttemptsData");
+      localStorage.removeItem("question_no");
+      let i,j;
+      this.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
       this.store.question_no = JSON.parse(localStorage.getItem("question_no"));
       if(this.store.userAttemptsData===null || this.store.question_no===null) {
         this.store.userAttemptsData = [];
-        for (var i = 0; i < json.length; i++) {
-          this.store.userAttemptsData.push({id:i, selected: false ,marked_for_review: false, answer: '', class:"not-visited",code:3});
-          this.store.question_no = 0;
-          localStorage.setItem("question_status", JSON.stringify(this.store.question_no));
+        this.store.question_no = [0,0,0];
+        this.store.userAttemptsData = new Array(this.store.exam_sections.length);
+        for(j=0; j < this.store.exam_sections.length; j++){  
+          this.store.userAttemptsData[j] = new Array(this.store.exam_sections[j].questions.length);
+          for (i = 0; i < this.store.exam_sections[j].questions.length; i++) {
+            this.store.userAttemptsData[j][i] = {id:i, selected: false ,marked_for_review: false, answer: '', class:"not-visited",code:3};
+          }         
         }
       }
       else{
-        this.store.userAttemptsData[0].selected = false;
-        this.store.userAttemptsData[this.store.question_no].selected = true;
+        for(j=0; j < this.store.exam_sections.length; j++) {  
+          this.store.userAttemptsData[j][0].selected = false;
+          this.store.userAttemptsData[j][this.store.question_no[j]].selected = true;
+        }
       }
       localStorage.setItem("question_no", JSON.stringify(this.store.question_no));
-      localStorage.setItem("question_status", JSON.stringify(this.store.userAttemptsData));
+      localStorage.setItem("userAttemptsData", JSON.stringify(this.store.userAttemptsData));
     },
     
     setNightMode: function(){
@@ -47,7 +48,6 @@ Vue.mixin({
       }
       this.$vuetify.theme.dark = mode;
       localStorage.setItem("night_mode_status", JSON.stringify(this.$vuetify.theme.dark));
-      console.log(mode);
     },
     updateTime: function() {
         // localStorage.removeItem("time");
@@ -67,34 +67,34 @@ Vue.mixin({
     
     updateResponse: function() {
           
-      this.store.userAttemptsData[this.store.question_no].selected = false;
-      if(this.store.userAttemptsData[this.store.question_no].answer === '' && this.store.userAttemptsData[this.store.question_no].marked_for_review){
-        this.store.userAttemptsData[this.store.question_no].class = 'marked-for-review';
+      this.$store.commit('selectCurrentQuestion',false);
+     
+      if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].marked_for_review){
+        this.$store.commit('setClass','marked-for-review');
       }
-      else if(this.store.userAttemptsData[this.store.question_no].answer !== '' && this.store.userAttemptsData[this.store.question_no].marked_for_review){
-        this.store.userAttemptsData[this.store.question_no].class = 'marked-for-review';
-      }
-      else if(this.store.userAttemptsData[this.store.question_no].answer === ''){
-        this.store.userAttemptsData[this.store.question_no].class = 'not-answered';
+      else if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer === ''){
+        this.$store.commit('setClass','not-answered');
       }
       else {
-        this.store.userAttemptsData[this.store.question_no].class = 'answered';
+        this.$store.commit('setClass','answered');
       }
     },
     
   },
+
   computed: {
-    store(){
-        return this.$store.state.store
-    },
     isMobile() {
       if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return true
-      } else {
+      } 
+      else {
         return false
       }
     },
-  }
+    store(){
+      return this.$store.state.store;
+    },
+  },
 })
 
 

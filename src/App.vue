@@ -13,11 +13,9 @@ import Navbar from '@/components/exam_navbar'
 import Exam from '@/components/exam_container'
 export default {
   name: 'App',
-  components: { Navbar, Exam
-  },
+  components: { Navbar, Exam },
   data () {
     return {
-
     }
   }
 }

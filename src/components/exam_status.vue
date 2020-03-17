@@ -1,12 +1,12 @@
 <template>
-    <v-card class="mx-auto">            
+    <v-card class="mx-auto" >            
         <v-card-title class="navbar">
-            <span class="subtitle-1">CHEMISTRY (30)</span>
+            <span class="subtitle-1">{{store.exam_sections[store.current_section].name + ' (' + store.exam_sections[store.current_section].questions.length + ')'}}</span>
             <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
-            <div v-on:click="selectQuestion(block)" v-for="block in store.userAttemptsData" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
+            <div v-on:click="selectQuestion(block)" v-for="block in store.userAttemptsData[store.current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
             <span>{{block.id+1}}</span>
             <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer !== ''">
                 <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
@@ -61,17 +61,18 @@
 
 <script>
 export default {
-    
+
     methods: {
       selectQuestion: function(block) {
         this.updateResponse();
-        this.store.question_no = block.id;
+        this.$set(this.store.question_no, this.store.current_section, block.id);
         block.selected = true;
         localStorage.setItem("question_no", JSON.stringify(this.store.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.store.userAttemptsData));
+
       },
       clearSelection: function(){
-        this.store.userAttemptsData[this.store.question_no].answer = '';
+        this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer = '';
       }
     },
 }
