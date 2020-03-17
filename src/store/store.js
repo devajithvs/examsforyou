@@ -9,11 +9,12 @@ export const store = new Vuex.Store({
             exam_sections: json.question_paper.sections,
             exam_name: json.question_paper.exam_details.name + " " + json.question_paper.exam_details.year,
             current_section: 0,
-            question_no: '',
-            expire_date: '',
-            userAttemptsData: '',
-            saveData: '',
+            question_no: [],
+            expire_date: {},
+            userAttemptsData: [],
+            saveData: {},
             night_mode_status: false,
+            forcedRender: 0
         },      
     },
     mutations: {
@@ -33,17 +34,20 @@ export const store = new Vuex.Store({
             Vue.set(state.store.question_no,state.store.current_section,state.store.question_no[state.store.current_section]-1);
         },
         selectCurrentQuestion(state,val){
-            state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]].selected = val;
+            Vue.set(state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]], 'selected', val);
+        },
+        selectQuestion(state,val){
+            Vue.set(state.store.question_no, state.store.current_section, val);
         },
         reviewSwap(state){
             Vue.set(state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]], 'marked_for_review', !state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]].marked_for_review);
         },
         clearSelection(state){
-            
-            state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]].answer = '';
+            Vue.set(state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]], 'answer', '');
         },
         setClass(state, className){
-            state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]].class = className;
+            Vue.set(state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]], 'class', className);
+            
         }
 
     }

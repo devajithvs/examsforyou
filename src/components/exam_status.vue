@@ -5,8 +5,8 @@
             <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
-        <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
-            <div v-on:click="selectQuestion(block)" v-for="block in store.userAttemptsData[store.current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
+        <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh" :key="forcedRender">
+            <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[store.current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
             <span>{{block.id+1}}</span>
             <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer !== ''">
                 <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
@@ -60,19 +60,33 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-
+    computed: mapState({
+        exam_sections: state => state.store.exam_sections,
+        question_no: state => state.store.question_no,
+        userAttemptsData: state => state.store.userAttemptsData,
+    }),
     methods: {
+    
+    forcedRender: {
+        get () {
+          return this.$store.state.store.forcedRender
+        },
+        set (value) {
+          this.$store.state.store.forcedRender = value
+        }
+      },
       selectQuestion: function(block) {
         this.updateResponse();
-        this.$set(this.store.question_no, this.store.current_section, block.id);
+        this.$store.commit('selectQuestion', block.id);
         block.selected = true;
-        localStorage.setItem("question_no", JSON.stringify(this.store.question_no));
-        localStorage.setItem("question_status", JSON.stringify(this.store.userAttemptsData));
+        localStorage.setItem("question_no", JSON.stringify(this.question_no));
+        localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
 
       },
       clearSelection: function(){
-        this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer = '';
+        this.$store.commit('clearSelection')
       }
     },
 }

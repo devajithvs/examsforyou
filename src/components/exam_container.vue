@@ -29,14 +29,14 @@
           >
             <v-layout row>
               <v-flex xs12 md8>
-                <v-container id="examStatus">
+                <v-container id="examStatus" :key="forcedRender">
                   <v-card class="mx-auto">
                     
                     <v-card-title class="navbar">
                       <span class="subtitle-1 text-xs-center justify-center">Question {{question_no[current_section] + 1}} - Single choice question</span>
                       <v-spacer></v-spacer>
                       <div class="subtitle-1 center">
-                        <i class="material-icons vertical-align-middle padding-bottom-3 accent--text" title="Bookmark" v-on:click="reviewSwap">{{ marked_for_review ? 'bookmark': 'bookmark_outline'}}</i>
+                        <i class="material-icons vertical-align-middle padding-bottom-3 accent--text" title="Bookmark" v-on:click="reviewSwap">{{userAttemptsData[current_section][question_no[current_section]].marked_for_review ? 'bookmark': 'bookmark_outline'}}</i>
                         <span class="subtitle-1 hidden-xs-only">Mark for review</span>
                       </div>
                     </v-card-title>
@@ -235,6 +235,14 @@ export default {
       this.initialize()
     },
     computed: {
+      forcedRender: {
+        get () {
+          return this.$store.state.store.forcedRender
+        },
+        set (value) {
+          this.$store.state.store.forcedRender = value
+        }
+      },
       current_section: {
         get () {
           return this.store.current_section
@@ -247,7 +255,6 @@ export default {
         exam_sections: state => state.store.exam_sections,
         question_no: state => state.store.question_no,
         userAttemptsData: state => state.store.userAttemptsData,
-        marked_for_review: state => state.store.userAttemptsData[state.store.current_section][state.store.question_no[state.store.current_section]].marked_for_review,
       })
     },
     methods: {
@@ -266,6 +273,7 @@ export default {
         else {
           this.$store.commit('incrementQuestion');
         }   
+        this.forcedRender += 1;
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
@@ -285,6 +293,7 @@ export default {
         }
         this.$store.commit('selectCurrentQuestion',true);
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
+        this.forcedRender += 1;
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
 
@@ -292,10 +301,11 @@ export default {
         this.$store.commit('reviewSwap')
         console.log(this.marked_for_review)
         this.updateResponse();
-        this.bookMarkKey += 1;
+        this.forcedRender += 1;
       },
       clearSelection: function(){
-         this.$store.commit('clearSelection')
+        this.$store.commit('clearSelection')
+        this.forcedRender += 1;
       }
     },
 }

@@ -19,20 +19,23 @@ Vue.mixin({
       this.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
       this.store.question_no = JSON.parse(localStorage.getItem("question_no"));
       if(this.store.userAttemptsData===null || this.store.question_no===null) {
+        console.log("hellp")
         this.store.userAttemptsData = [];
         this.store.question_no = [0,0,0];
         this.store.userAttemptsData = new Array(this.store.exam_sections.length);
         for(j=0; j < this.store.exam_sections.length; j++){  
           this.store.userAttemptsData[j] = new Array(this.store.exam_sections[j].questions.length);
           for (i = 0; i < this.store.exam_sections[j].questions.length; i++) {
-            this.store.userAttemptsData[j][i] = {id:i, selected: false ,marked_for_review: false, answer: '', class:"not-visited",code:3};
+            Vue.set(this.store.userAttemptsData[j],i,{id:i, selected: false ,marked_for_review: false, answer: '', class:"not-visited",code:3})
           }         
         }
+
       }
       else{
         for(j=0; j < this.store.exam_sections.length; j++) {  
-          this.store.userAttemptsData[j][0].selected = false;
-          this.store.userAttemptsData[j][this.store.question_no[j]].selected = true;
+
+          Vue.set(this.store.userAttemptsData[j][0], 'selected', false);
+          Vue.set(this.store.userAttemptsData[j][this.store.question_no[j]], 'selected', true);
         }
       }
       localStorage.setItem("question_no", JSON.stringify(this.store.question_no));
