@@ -19,21 +19,19 @@ Vue.mixin({
       this.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
       this.store.question_no = JSON.parse(localStorage.getItem("question_no"));
       if(this.store.userAttemptsData===null || this.store.question_no===null) {
-        console.log("hellp")
         this.store.userAttemptsData = [];
         this.store.question_no = [0,0,0];
         this.store.userAttemptsData = new Array(this.store.exam_sections.length);
         for(j=0; j < this.store.exam_sections.length; j++){  
           this.store.userAttemptsData[j] = new Array(this.store.exam_sections[j].questions.length);
           for (i = 0; i < this.store.exam_sections[j].questions.length; i++) {
-            Vue.set(this.store.userAttemptsData[j],i,{id:i, selected: false ,marked_for_review: false, answer: '', class:"not-visited",code:3})
+            Vue.set(this.store.userAttemptsData[j],i,{id:i, selected: false ,marked_for_review: false, answer: false, class:"not-visited"})
           }         
         }
 
       }
       else{
-        for(j=0; j < this.store.exam_sections.length; j++) {  
-
+        for(j=0; j < this.store.exam_sections.length; j++) {
           Vue.set(this.store.userAttemptsData[j][0], 'selected', false);
           Vue.set(this.store.userAttemptsData[j][this.store.question_no[j]], 'selected', true);
         }
@@ -69,13 +67,11 @@ Vue.mixin({
     },
     
     updateResponse: function() {
-          
-      this.$store.commit('selectCurrentQuestion',false);
      
       if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].marked_for_review){
         this.$store.commit('setClass','marked-for-review');
       }
-      else if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer === ''){
+      else if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer === false){
         this.$store.commit('setClass','not-answered');
       }
       else {

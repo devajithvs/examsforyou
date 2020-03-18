@@ -29,7 +29,7 @@
           >
             <v-layout row>
               <v-flex xs12 md8>
-                <v-container id="examStatus" :key="forcedRender">
+                <v-container id="examStatus">
                   <v-card class="mx-auto">
                     
                     <v-card-title class="navbar">
@@ -49,9 +49,9 @@
 
                     <v-card-text class="overflow-y-auto" style="height: 30vh">  
                       <v-container fluid>
-                        <div style="width: 100%;" class="radio-toolbar mb-4" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id">
-                            <input type="radio" class="accent--text" :id='index' name="radio" :value='index' v-model="userAttemptsData[current_section][question_no[current_section]].answer">
-                            <label style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" :for='index'><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
+                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"> <!-- class="radio-toolbar mb-4" -->
+                          <input type="radio" class="accent--text" :id='index' name="radio" :value='index' v-model="answer">
+                          <label style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" :for='index'><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
                         </div>            
                         
                       </v-container>
@@ -235,12 +235,13 @@ export default {
       this.initialize()
     },
     computed: {
-      forcedRender: {
+
+      answer: {
         get () {
-          return this.$store.state.store.forcedRender
+          return this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer
         },
         set (value) {
-          this.$store.state.store.forcedRender = value
+          this.$store.commit('setOption', value)
         }
       },
       current_section: {
@@ -266,16 +267,15 @@ export default {
             return;
           }
           else {
-
             this.$store.commit('incrementSection');
           }
         }
         else {
           this.$store.commit('incrementQuestion');
-        }   
-        this.forcedRender += 1;
+        }
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
+        // this.forcedRender += 1;
       },
       prevQuestion: function () {
         this.updateResponse();
@@ -291,9 +291,8 @@ export default {
         else{
           this.$store.commit('decrementQuestion');
         }
-        this.$store.commit('selectCurrentQuestion',true);
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
-        this.forcedRender += 1;
+        // this.forcedRender += 1;
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
 
@@ -301,11 +300,11 @@ export default {
         this.$store.commit('reviewSwap')
         console.log(this.marked_for_review)
         this.updateResponse();
-        this.forcedRender += 1;
+        // this.forcedRender += 1;
       },
       clearSelection: function(){
         this.$store.commit('clearSelection')
-        this.forcedRender += 1;
+        // this.forcedRender += 1;
       }
     },
 }
