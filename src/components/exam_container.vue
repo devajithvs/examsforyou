@@ -49,8 +49,8 @@
 
                     <v-card-text class="overflow-y-auto" style="height: 30vh">  
                       <v-container fluid>
-                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"> <!-- class="radio-toolbar mb-4" -->
-                          <input type="radio" class="accent--text" :id='index' name="radio" :value='index' v-model="answer">
+                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id" class="radio-toolbar mb-4"> <!--  -->
+                          <input type="radio" class="accent--text" :key='index' :id='index' name="radio" :value='index' :checked="answer == index" v-model="answer">
                           <label style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" :for='index'><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
                         </div>            
                         
@@ -238,7 +238,7 @@ export default {
 
       answer: {
         get () {
-          return this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer
+          return this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer
         },
         set (value) {
           this.$store.commit('setOption', value)
@@ -246,10 +246,12 @@ export default {
       },
       current_section: {
         get () {
-          return this.store.current_section
+          return this.$store.state.store.current_section
         },
         set (value) {
           this.$store.commit('changeSection', value)
+          this.$store.commit('selectCurrentQuestion');
+          console.log(this.answer)
         }
       },
       ...mapState({
@@ -260,6 +262,7 @@ export default {
     },
     methods: {
       nextQuestion: function () {
+        this.$store.commit('deselectCurrentQuestion');
         this.updateResponse();
         if(this.question_no[this.current_section] >= this.userAttemptsData[this.current_section].length - 1) {
           if(this.current_section >= this.exam_sections.length - 1){
@@ -268,16 +271,19 @@ export default {
           }
           else {
             this.$store.commit('incrementSection');
+            this.$store.commit('selectCurrentQuestion');
           }
         }
         else {
           this.$store.commit('incrementQuestion');
         }
+        console.log(this.answer)
+        this.$store.commit('selectCurrentQuestion');
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
-        // this.forcedRender += 1;
       },
       prevQuestion: function () {
+        this.$store.commit('deselectCurrentQuestion');
         this.updateResponse();
         if(this.question_no[this.current_section] == 0){
           if(this.current_section <= 0){
@@ -286,25 +292,26 @@ export default {
           }
           else{
             this.$store.commit('decrementSection');
+            this.$store.commit('selectCurrentQuestion');
           }         
         }
         else{
           this.$store.commit('decrementQuestion');
         }
+        console.log(this.answer)
+        this.$store.commit('selectCurrentQuestion');
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
-        // this.forcedRender += 1;
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
 
       reviewSwap: function () {
         this.$store.commit('reviewSwap')
-        console.log(this.marked_for_review)
         this.updateResponse();
-        // this.forcedRender += 1;
+
       },
       clearSelection: function(){
         this.$store.commit('clearSelection')
-        // this.forcedRender += 1;
+        this.updateResponse();
       }
     },
 }

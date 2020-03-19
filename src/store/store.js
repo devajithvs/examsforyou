@@ -33,8 +33,22 @@ export const store = new Vuex.Store({
         decrementQuestion (state){
             Vue.set(state.store.question_no,state.store.current_section,state.store.question_no[state.store.current_section]-1);
         },
-        selectQuestion(state,val){
-            Vue.set(state.store.question_no, state.store.current_section, val);      
+        deselectCurrentQuestion(state){
+            const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
+            newRow[state.store.question_no[state.store.current_section]].selected = false;
+            Vue.set(state.store.userAttemptsData, state.store.current_section, newRow);
+        },
+        selectCurrentQuestion(state){            
+            const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
+            newRow[state.store.question_no[state.store.current_section]].selected = true;
+            Vue.set(state.store.userAttemptsData, state.store.current_section, newRow);
+        },
+        changeQuestion(state,val){
+            this.commit('deselectCurrentQuestion')
+            Vue.set(state.store.question_no, state.store.current_section, val);
+            const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
+            newRow[state.store.question_no[state.store.current_section]].selected = true;
+            Vue.set(state.store.userAttemptsData, state.store.current_section, newRow);
         },
         reviewSwap(state){
             const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
@@ -43,7 +57,7 @@ export const store = new Vuex.Store({
         },
         clearSelection(state){
             const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
-            newRow[state.store.question_no[state.store.current_section]].answer = ''
+            newRow[state.store.question_no[state.store.current_section]].answer = false
             Vue.set(state.store.userAttemptsData, state.store.current_section, newRow);
         },
         setClass(state, className){

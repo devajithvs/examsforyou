@@ -1,12 +1,12 @@
 <template>
     <v-card class="mx-auto" >            
         <v-card-title class="navbar">
-            <span class="subtitle-1">{{store.exam_sections[store.current_section].name + ' (' + store.exam_sections[store.current_section].questions.length + ')'}}</span>
+            <span class="subtitle-1">{{exam_sections[current_section].name + ' (' + exam_sections[current_section].questions.length + ')'}}</span>
             <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
-            <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[store.current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
+            <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
             <span>{{block.id+1}}</span>
             <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer !== false">
                 <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
@@ -66,14 +66,14 @@ export default {
         ...mapState({
             exam_sections: state => state.store.exam_sections,
             question_no: state => state.store.question_no,
+            current_section: state => state.store.current_section,
             userAttemptsData: state => state.store.userAttemptsData,
         }),
     },
     methods: {
       selectQuestion: function(block) {
         this.updateResponse();
-        this.$store.commit('selectQuestion', block.id);
-        block.selected = true;
+        this.$store.commit('changeQuestion', block.id);
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },

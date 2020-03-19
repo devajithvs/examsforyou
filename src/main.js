@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 Vue.mixin({
   methods: {
     initialize: function(){
-      // this.setNightMode();
+      this.setNightMode();
       this.updateTime();
       this.initializeQuizVariables();
     },
@@ -16,28 +16,36 @@ Vue.mixin({
       localStorage.removeItem("userAttemptsData");
       localStorage.removeItem("question_no");
       let i,j;
-      this.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
-      this.store.question_no = JSON.parse(localStorage.getItem("question_no"));
-      if(this.store.userAttemptsData===null || this.store.question_no===null) {
-        this.store.userAttemptsData = [];
-        this.store.question_no = [0,0,0];
-        this.store.userAttemptsData = new Array(this.store.exam_sections.length);
-        for(j=0; j < this.store.exam_sections.length; j++){  
-          this.store.userAttemptsData[j] = new Array(this.store.exam_sections[j].questions.length);
-          for (i = 0; i < this.store.exam_sections[j].questions.length; i++) {
-            Vue.set(this.store.userAttemptsData[j],i,{id:i, selected: false ,marked_for_review: false, answer: false, class:"not-visited"})
+      this.$store.state.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
+      this.$store.state.store.question_no = JSON.parse(localStorage.getItem("question_no"));
+      this.$store.state.store.current_section = JSON.parse(localStorage.getItem("current_section"));
+      if(this.$store.state.store.userAttemptsData===null || this.$store.state.store.question_no===null) {
+        this.$store.state.store.userAttemptsData = [];
+        this.$store.state.store.question_no = [0,0,0];
+        this.$store.state.store.current_section = 0;
+        this.$store.state.store.userAttemptsData = new Array(this.$store.state.store.exam_sections.length);
+        for(j=0; j < this.$store.state.store.exam_sections.length; j++){  
+          this.$store.state.store.userAttemptsData[j] = new Array(this.$store.state.store.exam_sections[j].questions.length);
+          for (i = 0; i < this.$store.state.store.exam_sections[j].questions.length; i++) {
+            this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: false, class:"not-visited"};
           }         
         }
 
       }
-      else{
-        for(j=0; j < this.store.exam_sections.length; j++) {
-          Vue.set(this.store.userAttemptsData[j][0], 'selected', false);
-          Vue.set(this.store.userAttemptsData[j][this.store.question_no[j]], 'selected', true);
-        }
-      }
-      localStorage.setItem("question_no", JSON.stringify(this.store.question_no));
-      localStorage.setItem("userAttemptsData", JSON.stringify(this.store.userAttemptsData));
+      // else{
+      //   for(j=0; j < this.$store.state.store.exam_sections.length; j++) {
+      //     this.$store.commit('deselectCurrentQuestion');
+      //     this.$store.commit('selectCurrentQuestion');
+
+
+      //     Vue.set(this.$store.state.store.userAttemptsData[j][0], 'selected', false);
+      //     Vue.set(this.$store.state.store.userAttemptsData[j][this.$store.state.store.question_no[j]], 'selected', true);
+      //   }
+      // }
+      this.$store.commit('selectCurrentQuestion');
+      localStorage.setItem("question_no", JSON.stringify(this.$store.state.store.question_no));
+      localStorage.setItem("current_section", JSON.stringify(this.$store.state.store.current_section));
+      localStorage.setItem("userAttemptsData", JSON.stringify(this.$store.state.store.userAttemptsData));
     },
     
     setNightMode: function(){
@@ -52,14 +60,14 @@ Vue.mixin({
     },
     updateTime: function() {
         // localStorage.removeItem("time");
-        this.store.expire_date = JSON.parse(localStorage.getItem("expire_date"));
+        this.$store.state.store.expire_date = JSON.parse(localStorage.getItem("expire_date"));
         let endTime = new Date();
-        if(this.store.expire_date===null) {
+        if(this.$store.state.store.expire_date===null) {
             endTime.setHours(endTime.getHours() + 3);
-            this.store.expire_date = endTime.getTime();
-            localStorage.setItem("expire_date", JSON.stringify(this.store.expire_date));
+            this.$store.state.store.expire_date = endTime.getTime();
+            localStorage.setItem("expire_date", JSON.stringify(this.$store.state.store.expire_date));
         }
-        if (this.store.expire_date < endTime.getTime()){
+        if (this.$store.state.store.expire_date < endTime.getTime()){
             alert("Time's up! Restart?");
             localStorage.removeItem("expire_date");
             this.updateTime();
@@ -67,11 +75,10 @@ Vue.mixin({
     },
     
     updateResponse: function() {
-     
-      if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].marked_for_review){
+      if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].marked_for_review){
         this.$store.commit('setClass','marked-for-review');
       }
-      else if(this.store.userAttemptsData[this.store.current_section][this.store.question_no[this.store.current_section]].answer === false){
+      else if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer === false){
         this.$store.commit('setClass','not-answered');
       }
       else {
