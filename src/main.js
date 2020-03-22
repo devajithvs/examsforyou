@@ -24,13 +24,16 @@ Vue.mixin({
         this.$store.state.store.question_no = [0,0,0];
         this.$store.state.store.current_section = 0;
         this.$store.state.store.userAttemptsData = new Array(this.$store.state.store.exam_sections.length);
+        let totalQuestions = 0;
+
         for(j=0; j < this.$store.state.store.exam_sections.length; j++){  
+          totalQuestions += this.$store.state.store.exam_sections[j].questions.length;
           this.$store.state.store.userAttemptsData[j] = new Array(this.$store.state.store.exam_sections[j].questions.length);
           for (i = 0; i < this.$store.state.store.exam_sections[j].questions.length; i++) {
             this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: [], class:"not-visited"};
           }         
         }
-
+        this.$store.state.store.sessionStats = {answered:0, not_answered:0, not_visited:totalQuestions, marked_for_review:0, answered_and_marked_for_review:0};
       }
 
       this.$store.commit('selectCurrentQuestion');
@@ -67,8 +70,11 @@ Vue.mixin({
     },
     
     updateResponse: function() {
-      if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].marked_for_review){
+      if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].marked_for_review && !this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer.length){
         this.$store.commit('setClass','marked-for-review');
+      }
+      else if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].marked_for_review){
+        this.$store.commit('setClass','answered-and-marked-for-review');
       }
       else if(!this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer.length){
         this.$store.commit('setClass','not-answered');
@@ -76,6 +82,7 @@ Vue.mixin({
       else {
         this.$store.commit('setClass','answered');
       }
+      this.$store.commit('changeStats');
     },
     
   },

@@ -1,7 +1,7 @@
 <template>
     <div class="primary" id="primary">
       <v-container>
-        <v-layout rows id="exam-info">
+        <v-layout rows class="primary" id="exam-info">
           <v-flex xs12 md8 class="pl-0 ml-0">
             <v-tabs 
             class="mx-auto"
@@ -27,7 +27,7 @@
           v-for="(item, index) in exam_sections"
           :key="index"
           >
-            <v-layout row>
+            <v-layout row class="primary">
               <v-flex xs12 md8>
                 <v-container id="examStatus">
                   <v-card class="mx-auto">
@@ -41,39 +41,43 @@
                       </div>
                     </v-card-title>
                     <v-divider></v-divider>
-                    <v-card-text class="subtitle-2 right overflow-y-auto mt-4" style="height: 25vh" id="question" >                
+                    <v-card-text class="navbar subtitle-2 right overflow-y-auto pt-4" style="height: 25vh" id="question" >                
                       <p> {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
                     </v-card-text>
 
                     <v-divider></v-divider>
 
-                    <v-card-text class="overflow-y-auto" style="height: 30vh">
+                    <v-card-text class="navbar overflow-y-auto" style="height: 30vh">
                       <v-container fluid>
-                        
-                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"> 
-                        <!-- class="radio-toolbar mb-4"> -->
-                          <input type="checkbox" class="accent--text" v-bind:key="index" name="radio" v-bind:value="index" v-model="answer">
-                          <label :for='index' style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" ><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
-                        </div>            
-                        
+                        <!-- <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id" class="radio-toolbar mb-4">
+                          <input type="checkbox" id="checkbox" class="accent--text" v-bind:key="index" name="radio" v-bind:value="index" v-model="answer">
+                          <label :for='index' v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" ><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
+                        </div> -->
+                      
+                        <v-checkbox class="checkbox subtitle-2 ma-n2 pa-0"
+                          v-model="answer"
+                          color="success"
+                          v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"
+                          :label="`${String.fromCharCode(index+65)}) ${option.option}`"
+                          :value="index"
+                        ></v-checkbox>
                       </v-container>
                     </v-card-text>
                     
+                    <v-divider></v-divider>
 
-                    <v-card-actions class="primary card-action pt-4" v-if="!isMobile">
+                    <v-card-actions class="navbar card-action pt-4" v-if="!isMobile">
                       <v-btn v-on:click="prevQuestion()" class="secondary primary--text">Previous</v-btn>
                       <v-btn v-on:click="clearSelection()" class="secondary primary--text">Clear Slection</v-btn>
                       <v-spacer></v-spacer>
                       <v-btn v-on:click="nextQuestion()" class="success white--text">Next</v-btn> 
                     </v-card-actions>
-                    <v-card-actions class="primary card-action pt-4" v-else>
+                    <v-card-actions class="navbar card-action pt-4" v-else>
                       <v-btn small v-on:click="prevQuestion()" class="secondary primary--text" style="height:5vh;">Previous</v-btn>
                       <v-btn small v-on:click="clearSelection()" class="secondary primary--text" style="height:5vh;">Clear Slection</v-btn>
                       <v-spacer></v-spacer>
                       <v-btn small v-on:click="nextQuestion()" class="success white--text" style="height:5vh;">Next</v-btn> 
                     </v-card-actions>
-
-
                   </v-card>
                 </v-container>
               </v-flex>
@@ -92,24 +96,39 @@
 
 <style lang="scss">
 
-// .radio-toolbar
-//  input {
-//   // opacity:0;
-//    position:absolute; left:9999px;
+.checkbox {
+  transform: scale(1);
+}
+
+.checkbox label
+{
+  /* Checkbox text */
+  font-size: 100%;
+  display: inline;
+}
+
+// .radio-toolbar input[type="checkbox"] + label {
+//   position: relative;
+//   display: block;
+//   margin: 0.2em;
+//   cursor: pointer;
+//   padding: 0.2em;
 // }
 
-.radio-toolbar label {
-    display: inline-block;
-    background-color: var(--v-secondary-text-base);
-    padding: 10px 20px;
-    border: 2px solid var(--v-secondary-base);
-    border-radius: 4px;
-}
+  // .radio-toolbar label {
+  //     font-weight: 500;
+  //     width: 100%;
+  //     display: inline-block;
+  //     background-color: var(--v-secondary-text-base);
+  //     padding: 10px 20px;
+  //     border: 2px solid var(--v-secondary-base);
+  //     border-radius: 4px;
+  // }
 
-.radio-toolbar input:checked + label {
-    background-color: var(--v-success-base);
-    border-color: var(--v-complementary-base);
-}
+  // .radio-toolbar input[type="checkbox"]:checked + label {
+  //     background-color: var(--v-success-base);
+  //     border-color: var(--v-complementary-base);
+  // }
 
 
 .v-slide-group__prev {
@@ -193,7 +212,7 @@ body{
   justify-content: center;
 }
 
-.status-icon.marked-for-review {
+.status-icon.marked-for-review, .status-icon.answered-and-marked-for-review  {
   background-color: var(--v-review-base);
   color: #fff;
 }

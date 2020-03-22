@@ -5,27 +5,27 @@
             <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
-        <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
+        <v-card-text class="navbar subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
             <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
             <span>{{block.id+1}}</span>
-            <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer.length">
+            <div class="ans-and-review" v-if="block.class === 'answered-and-marked-for-review'">
                 <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
             </div>
             </div>
         </v-card-text>
         <v-divider></v-divider>
-        <v-card-text class="subtitle-2 right overflow-y-auto" id="question-stats" style="height: 35vh">
+        <v-card-text class="navbar subtitle-2 right overflow-y-auto" id="question-stats" style="height: 35vh">
             <v-layout rows id="exam-info" wrap>
             <v-flex md6 class="status-container">
                 <div class="status-icon answered">
-                <div class="status-icon-text">0</div>
+                <div class="status-icon-text">{{ sessionStats.answered }}</div>
                 </div>
                 <div class="status-label">Answered</div>
             </v-flex>
 
             <v-flex md6 class="status-container">
                 <div class="status-icon not-answered">
-                <div class="status-icon-text">0</div>
+                <div class="status-icon-text">{{ sessionStats.not_answered }}</div>
                 </div>
                 <div class="status-label">Not Answered</div>
             </v-flex>
@@ -33,21 +33,21 @@
             <v-layout rows id="exam-info" wrap>
             <v-flex md6 class="status-container">
                 <div class="status-icon not-visited">
-                <div class="status-icon-text">0</div>
+                <div class="status-icon-text">{{ sessionStats.not_visited }}</div>
                 </div>
                 <div class="status-label">Not Visited</div>
             </v-flex>
 
             <v-flex md6 class="status-container">
                 <div class="status-icon marked-for-review">
-                <div class="status-icon-text">0</div>
+                <div class="status-icon-text">{{ sessionStats.marked_for_review }}</div>
                 </div>
                 <div class="status-label">Marked for Review</div>
             </v-flex>
 
             <v-flex md12 class="status-container">
                 <div class="status-icon marked-for-review">
-                <div>0</div>
+                <div>{{ sessionStats.answered_and_marked_for_review }}</div>
                 <div class="ans-and-review">
                     <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
                 </div>
@@ -68,6 +68,7 @@ export default {
             question_no: state => state.store.question_no,
             current_section: state => state.store.current_section,
             userAttemptsData: state => state.store.userAttemptsData,
+            sessionStats: state => state.store.sessionStats,
         }),
     },
     methods: {

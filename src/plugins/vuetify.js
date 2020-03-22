@@ -16,7 +16,7 @@ export default new Vuetify({
         primary: '#ffffff',
         navbar:'#ffffff',
 
-        secondary: '#747474',
+        secondary: '#646464',
         primary_text: '#747474',
         secondary_text: '#AAB8B8',
         
@@ -25,11 +25,23 @@ export default new Vuetify({
         accent: '#0079D3',
         error: '#ed5f5f',
       },
-      dark: {
-        navbar:'#1e1e1e',
+      dark2: {
+        navbar:'#191C20',
         success: colors.green.darken2,
         pure_complementary: '#ffffff',
-        primary: '#030303',
+        primary: '#101010',
+        primary2: '#000000',
+        secondary: '#ffffff',
+        primary_text: '#AAB8B8',
+        secondary_text: '#747474',
+
+        review: '#6b6be5',
+      },
+      dark: {
+        navbar:'#21303D',
+        success: colors.green.darken2,
+        pure_complementary: '#ffffff',
+        primary: '#15202b',
         primary2: '#000000',
         secondary: '#ffffff',
         primary_text: '#AAB8B8',

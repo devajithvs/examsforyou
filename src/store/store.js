@@ -14,10 +14,35 @@ export const store = new Vuex.Store({
             userAttemptsData: [],
             saveData: {},
             night_mode_status: false,
-            forcedRender: 0
+            sessionStats:  {answered:0, not_answered:0, not_visited:'', marked_for_review:0, answered_and_marked_for_review:0},
+
         },      
     },
     mutations: {
+        changeStats(state) {
+            let j,i;
+            state.store.sessionStats.answered = 0;
+            state.store.sessionStats.not_answered = 0;
+            state.store.sessionStats.not_visited = 0;
+            state.store.sessionStats.marked_for_review = 0;
+            state.store.sessionStats.answered_and_marked_for_review = 0;
+
+            for(j=0; j < this.state.store.exam_sections.length; j++) {
+                for (i = 0; i < this.state.store.exam_sections[j].questions.length; i++) {
+                    if(this.state.store.userAttemptsData[j][i].class === "answered")
+                        state.store.sessionStats.answered++;
+                    else if(this.state.store.userAttemptsData[j][i].class === "not-answered")
+                        state.store.sessionStats.not_answered++;
+                    else if(this.state.store.userAttemptsData[j][i].class === "not-visited")
+                        state.store.sessionStats.not_visited++;
+                    else if(this.state.store.userAttemptsData[j][i].class === "marked-for-review")
+                        state.store.sessionStats.marked_for_review++;
+                    else if(this.state.store.userAttemptsData[j][i].class === "answered-and-marked-for-review")
+                        state.store.sessionStats.answered_and_marked_for_review++;
+                    
+                }
+            }            
+        },
         incrementSection (state){
             state.store.current_section++;
         },
