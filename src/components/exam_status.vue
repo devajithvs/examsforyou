@@ -8,7 +8,7 @@
         <v-card-text class="subtitle-2 right overflow-y-auto mt-0" id="question" style="height: 30vh">
             <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
             <span>{{block.id+1}}</span>
-            <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer !== false">
+            <div class="ans-and-review" v-if="block.class === 'marked-for-review' && block.answer.length">
                 <div class="status-icon-ans-and-review material-icons white-text">assignment</div>
             </div>
             </div>
@@ -72,10 +72,10 @@ export default {
     },
     methods: {
       selectQuestion: function(block) {
-        this.updateResponse();
         this.$store.commit('changeQuestion', block.id);
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
+        this.updateResponse();
       },
     },
 }

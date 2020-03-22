@@ -57,7 +57,7 @@ export const store = new Vuex.Store({
         },
         clearSelection(state){
             const newRow = this.state.store.userAttemptsData[state.store.current_section].slice(0);
-            newRow[state.store.question_no[state.store.current_section]].answer = false
+            newRow[state.store.question_no[state.store.current_section]].answer = [];
             Vue.set(state.store.userAttemptsData, state.store.current_section, newRow);
         },
         setClass(state, className){

@@ -27,22 +27,14 @@ Vue.mixin({
         for(j=0; j < this.$store.state.store.exam_sections.length; j++){  
           this.$store.state.store.userAttemptsData[j] = new Array(this.$store.state.store.exam_sections[j].questions.length);
           for (i = 0; i < this.$store.state.store.exam_sections[j].questions.length; i++) {
-            this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: false, class:"not-visited"};
+            this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: [], class:"not-visited"};
           }         
         }
 
       }
-      // else{
-      //   for(j=0; j < this.$store.state.store.exam_sections.length; j++) {
-      //     this.$store.commit('deselectCurrentQuestion');
-      //     this.$store.commit('selectCurrentQuestion');
 
-
-      //     Vue.set(this.$store.state.store.userAttemptsData[j][0], 'selected', false);
-      //     Vue.set(this.$store.state.store.userAttemptsData[j][this.$store.state.store.question_no[j]], 'selected', true);
-      //   }
-      // }
       this.$store.commit('selectCurrentQuestion');
+      this.updateResponse();
       localStorage.setItem("question_no", JSON.stringify(this.$store.state.store.question_no));
       localStorage.setItem("current_section", JSON.stringify(this.$store.state.store.current_section));
       localStorage.setItem("userAttemptsData", JSON.stringify(this.$store.state.store.userAttemptsData));
@@ -78,7 +70,7 @@ Vue.mixin({
       if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].marked_for_review){
         this.$store.commit('setClass','marked-for-review');
       }
-      else if(this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer === false){
+      else if(!this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer.length){
         this.$store.commit('setClass','not-answered');
       }
       else {

@@ -47,11 +47,13 @@
 
                     <v-divider></v-divider>
 
-                    <v-card-text class="overflow-y-auto" style="height: 30vh">  
+                    <v-card-text class="overflow-y-auto" style="height: 30vh">
                       <v-container fluid>
-                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id" class="radio-toolbar mb-4"> <!--  -->
-                          <input type="radio" class="accent--text" :key='index' :id='index' name="radio" :value='index' :checked="answer == index" v-model="answer">
-                          <label style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" :for='index'><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
+                        
+                        <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"> 
+                        <!-- class="radio-toolbar mb-4"> -->
+                          <input type="checkbox" class="accent--text" v-bind:key="index" name="radio" v-bind:value="index" v-model="answer">
+                          <label :for='index' style="font-weight: 500;width: 100%;" v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" ><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
                         </div>            
                         
                       </v-container>
@@ -90,11 +92,11 @@
 
 <style lang="scss">
 
-.radio-toolbar input[type="radio"] {
-  opacity: 0;
-  position: fixed;
-  width: 0;
-}
+// .radio-toolbar
+//  input {
+//   // opacity:0;
+//    position:absolute; left:9999px;
+// }
 
 .radio-toolbar label {
     display: inline-block;
@@ -104,7 +106,7 @@
     border-radius: 4px;
 }
 
-.radio-toolbar input[type="radio"]:checked + label {
+.radio-toolbar input:checked + label {
     background-color: var(--v-success-base);
     border-color: var(--v-complementary-base);
 }
@@ -235,13 +237,16 @@ export default {
       this.initialize()
     },
     computed: {
-
       answer: {
         get () {
           return this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer
         },
         set (value) {
+          if (value.length > 1){
+            value.shift();
+          }
           this.$store.commit('setOption', value)
+          this.updateResponse();
         }
       },
       current_section: {
@@ -251,7 +256,7 @@ export default {
         set (value) {
           this.$store.commit('changeSection', value)
           this.$store.commit('selectCurrentQuestion');
-          console.log(this.answer)
+          this.updateResponse();
         }
       },
       ...mapState({
@@ -263,7 +268,6 @@ export default {
     methods: {
       nextQuestion: function () {
         this.$store.commit('deselectCurrentQuestion');
-        this.updateResponse();
         if(this.question_no[this.current_section] >= this.userAttemptsData[this.current_section].length - 1) {
           if(this.current_section >= this.exam_sections.length - 1){
             alert('That was the last question!');
@@ -272,19 +276,19 @@ export default {
           else {
             this.$store.commit('incrementSection');
             this.$store.commit('selectCurrentQuestion');
+            this.updateResponse();
           }
         }
         else {
           this.$store.commit('incrementQuestion');
         }
-        console.log(this.answer)
         this.$store.commit('selectCurrentQuestion');
+        this.updateResponse();
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
       prevQuestion: function () {
         this.$store.commit('deselectCurrentQuestion');
-        this.updateResponse();
         if(this.question_no[this.current_section] == 0){
           if(this.current_section <= 0){
             alert('There is no question zero, index starts with one here ;p');
@@ -293,13 +297,14 @@ export default {
           else{
             this.$store.commit('decrementSection');
             this.$store.commit('selectCurrentQuestion');
+            this.updateResponse();
           }         
         }
         else{
           this.$store.commit('decrementQuestion');
         }
-        console.log(this.answer)
         this.$store.commit('selectCurrentQuestion');
+        this.updateResponse();
         localStorage.setItem("question_no", JSON.stringify(this.question_no));
         localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
