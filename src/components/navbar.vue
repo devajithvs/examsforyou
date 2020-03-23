@@ -32,7 +32,9 @@
     </nav>
 </template>
 
-
+<style lang="scss">
+    
+</style>
 <script>
 export default {
     data (){

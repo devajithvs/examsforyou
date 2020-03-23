@@ -49,11 +49,7 @@
 
                     <v-card-text class="navbar overflow-y-auto" style="height: 30vh">
                       <v-container fluid>
-                        <!-- <div style="width: 100%;" v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id" class="radio-toolbar mb-4">
-                          <input type="checkbox" id="checkbox" class="accent--text" v-bind:key="index" name="radio" v-bind:value="index" v-model="answer">
-                          <label :for='index' v-bind:style="[isMobile ? 'font-size: 12px;' : 'font-size: 16px;' ]" ><strong>{{String.fromCharCode(index+65) +") "}}</strong>{{option.option}}</label>
-                        </div> -->
-                      
+                        
                         <v-checkbox class="checkbox subtitle-2 ma-n2 pa-0"
                           v-model="answer"
                           color="success"
@@ -82,7 +78,7 @@
                 </v-container>
               </v-flex>
               <v-flex xs12 md4>
-                <v-container id="status" class=" hidden-sm-and-down">
+                <v-container id="status" class="hidden-sm-and-down">
                     <Status/>
                 </v-container>
 
@@ -107,34 +103,9 @@
   display: inline;
 }
 
-// .radio-toolbar input[type="checkbox"] + label {
-//   position: relative;
-//   display: block;
-//   margin: 0.2em;
-//   cursor: pointer;
-//   padding: 0.2em;
-// }
-
-  // .radio-toolbar label {
-  //     font-weight: 500;
-  //     width: 100%;
-  //     display: inline-block;
-  //     background-color: var(--v-secondary-text-base);
-  //     padding: 10px 20px;
-  //     border: 2px solid var(--v-secondary-base);
-  //     border-radius: 4px;
-  // }
-
-  // .radio-toolbar input[type="checkbox"]:checked + label {
-  //     background-color: var(--v-success-base);
-  //     border-color: var(--v-complementary-base);
-  // }
-
-
 .v-slide-group__prev {
 display: none !important;
 }
-
 .vertical-align-middle { 
   vertical-align: middle; 
 }
@@ -252,13 +223,10 @@ export default {
       return{
       }
     },
-    beforeMount(){
-      this.initialize()
-    },
     computed: {
       answer: {
         get () {
-          return this.$store.state.store.userAttemptsData[this.$store.state.store.current_section][this.$store.state.store.question_no[this.$store.state.store.current_section]].answer
+          return this.$store.state.store.userAttemptsData[this.$store.state.store.sessionData.current_section][this.$store.state.store.sessionData.question_no[this.$store.state.store.sessionData.current_section]].answer
         },
         set (value) {
           if (value.length > 1){
@@ -270,7 +238,7 @@ export default {
       },
       current_section: {
         get () {
-          return this.$store.state.store.current_section
+          return this.$store.state.store.sessionData.current_section
         },
         set (value) {
           this.$store.commit('changeSection', value)
@@ -280,11 +248,12 @@ export default {
       },
       ...mapState({
         exam_sections: state => state.store.exam_sections,
-        question_no: state => state.store.question_no,
+        question_no: state => state.store.sessionData.question_no,
         userAttemptsData: state => state.store.userAttemptsData,
       })
     },
     methods: {
+
       nextQuestion: function () {
         this.$store.commit('deselectCurrentQuestion');
         if(this.question_no[this.current_section] >= this.userAttemptsData[this.current_section].length - 1) {
@@ -303,9 +272,8 @@ export default {
         }
         this.$store.commit('selectCurrentQuestion');
         this.updateResponse();
-        localStorage.setItem("question_no", JSON.stringify(this.question_no));
-        localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
+
       prevQuestion: function () {
         this.$store.commit('deselectCurrentQuestion');
         if(this.question_no[this.current_section] == 0){
@@ -324,15 +292,13 @@ export default {
         }
         this.$store.commit('selectCurrentQuestion');
         this.updateResponse();
-        localStorage.setItem("question_no", JSON.stringify(this.question_no));
-        localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
       },
 
       reviewSwap: function () {
         this.$store.commit('reviewSwap')
         this.updateResponse();
-
       },
+
       clearSelection: function(){
         this.$store.commit('clearSelection')
         this.updateResponse();

@@ -10,7 +10,7 @@
             </v-toolbar-title>
             
             <v-toolbar-title class="text-uppercase hidden-sm-and-down pl-5">
-                <span class="subtitle-2 primary_text--text" id="exam-name">{{store.exam_name}}</span>
+                <span class="subtitle-2 primary_text--text" id="exam-name">{{exam_name}}</span>
             </v-toolbar-title>
             
             <v-spacer></v-spacer>
@@ -36,9 +36,11 @@
             <v-list-item two-line>
             <v-list-item-content>
                 
-                <v-list-item-title class="text-center">
-                    <span class="subtitle-2 primary_text--text" id="exam-name">{{store.exam_name}}</span>
-                    <i class="material-icons primary_text--text dark-mode-button vertical-align-middle padding-bottom-3" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i>
+                <v-list-item-title class="mb-4" style="display: flex; flex-wrap: wrap;">
+                <!-- class="text-center"> -->
+                    <span class="subtitle-2 exam-name primary_text--text text-truncate" id="exam-name">{{exam_name}}</span>
+                    <v-spacer></v-spacer>
+                    <i style="" class="material-icons primary_text--text dark-mode-button vertical-align-middle padding-bottom-3" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i>
                     <!-- <span class="subtitle-1">Night Mode</span> -->
                 </v-list-item-title>
 
@@ -81,18 +83,24 @@ display: none !important;
   padding-bottom: 3px;
 }
 
-
+.exam-name {
+    display: inline-block;
+    padding: .15em .15em;
+    cursor: pointer;
+    line-height: 23px !important;
+}
 .dark-mode-button {
     display: inline-block;
     border-radius: 50%;
     // border: 1px solid var(--v-primary_text-base);
     // box-shadow: 1px 1px 1px 1px var(--v-primary_text-base);
     padding: .15em .15em;
+    margin-top: -3px;
     background: transparent;
     cursor: pointer;
     line-height: 23px !important;
     color: var(--v-primary_text-base);
-    }
+}
 </style>
 
 <script>
@@ -102,6 +110,9 @@ import Status from './exam_status'
 export default {
     components: { Status
     },
+    beforeMount(){
+      this.initialize()
+    },
     data () {
         return{
             img: require('@/assets/logo_with_text.svg'),
@@ -110,6 +121,11 @@ export default {
             timerCount: '',
         }
     },
+    computed: {
+        exam_name() {
+            return this.$store.state.store.exam_details.name + " " + this.$store.state.store.exam_details.year
+        },
+    },        
     methods: {
         swapMode: function () {
             this.store.night_mode_status = !this.store.night_mode_status
@@ -123,12 +139,21 @@ export default {
             handler() {
                 setTimeout(() => {
                     let now = new Date().getTime();
-                    let distance = this.store.expire_date - now;
+                    let distance = this.store.sessionData.expire_date - now;
 
                     let hours = ('0' + Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
                     let minutes = ('0' + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
                     let seconds = ('0' + Math.floor((distance % (1000 * 60)) / 1000)).slice(-2);
                     this.timerCount = hours+ ":" + minutes + ":" + seconds;
+
+                    if (distance <= 0) {
+                        alert("Time's up! Restart?");
+                        localStorage.removeItem("expire_date");
+                        localStorage.removeItem("userAttemptsData");
+                        localStorage.removeItem("sessionData");
+                        this.$store.state.store.sessionData.expire_date = null;
+                        this.updateTime();
+                    }
 
                 }, 1000);
 

@@ -1,7 +1,7 @@
 <template>
     <v-card class="mx-auto" >            
         <v-card-title class="navbar">
-            <span class="subtitle-1">{{exam_sections[current_section].name + ' (' + exam_sections[current_section].questions.length + ')'}}</span>
+            <span class="subtitle-1">{{statusTitle}}</span>
             <v-spacer></v-spacer>
         </v-card-title>
         <v-divider></v-divider>
@@ -63,19 +63,21 @@
 import {mapState} from 'vuex'
 export default {
     computed: {
+        
         ...mapState({
             exam_sections: state => state.store.exam_sections,
-            question_no: state => state.store.question_no,
-            current_section: state => state.store.current_section,
+            question_no: state => state.store.sessionData.question_no,
+            current_section: state => state.store.sessionData.current_section,
             userAttemptsData: state => state.store.userAttemptsData,
             sessionStats: state => state.store.sessionStats,
         }),
+        statusTitle() {
+            return this.exam_sections[this.current_section].name + ' (' + this.exam_sections[this.current_section].questions.length + ')';
+        },
     },
     methods: {
       selectQuestion: function(block) {
         this.$store.commit('changeQuestion', block.id);
-        localStorage.setItem("question_no", JSON.stringify(this.question_no));
-        localStorage.setItem("question_status", JSON.stringify(this.userAttemptsData));
         this.updateResponse();
       },
     },
