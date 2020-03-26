@@ -62,8 +62,7 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-    computed: {
-        
+    computed: {     
         ...mapState({
             exam_sections: state => state.store.exam_sections,
             question_no: state => state.store.sessionData.question_no,

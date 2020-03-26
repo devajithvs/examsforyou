@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar app class="navbar" dense dark >            
+        <v-app-bar app class="navbar" dense>            
             <v-app-bar-nav-icon class="primary_text--text hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
                 <img :src="img" style="margin-top:1vh; width:200px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
@@ -17,9 +17,9 @@
 
             <span class="primary_text--text time hidden-sm-and-down pr-2">Time Left:</span>
             <v-icon title="Time Left" class="primary_text--text pr-1 left">access_time</v-icon>
-            <span class="primary_text--text time" id="time-left">{{ timerCount}}</span>
+            <span class="primary_text--text time" id="time-left">{{timerCount}}</span>
             <v-btn text class="success hidden-xs-only ml-5">
-                <span class=    "white--text">Submit</span>
+                <span class="white--text">Submit</span>
             </v-btn>
             <i class="material-icons primary_text--text dark-mode-button hidden-sm-and-down ml-4" style="opacity: 0.9; width: auto;" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i> 
         </v-app-bar>
@@ -71,54 +71,28 @@
     </nav>
 </template>
 <style lang="scss">
-.v-slide-group__prev {
-display: none !important;
-}
-
-.vertical-align-middle { 
-  vertical-align: middle; 
-}
-
-.padding-bottom-3 {
-  padding-bottom: 3px;
-}
-
-.exam-name {
-    display: inline-block;
-    padding: .15em .15em;
-    cursor: pointer;
-    line-height: 23px !important;
-}
-.dark-mode-button {
-    display: inline-block;
-    border-radius: 50%;
-    // border: 1px solid var(--v-primary_text-base);
-    // box-shadow: 1px 1px 1px 1px var(--v-primary_text-base);
-    padding: .15em .15em;
-    margin-top: -3px;
-    background: transparent;
-    cursor: pointer;
-    line-height: 23px !important;
-    color: var(--v-primary_text-base);
-}
+    @import '../sass/exam.scss';
 </style>
 
 <script>
  /*Other component*/
 import Status from './exam_status'
+import Init from '../mixins/exam_init'
+import UpdateResponse from '../mixins/updateResponse'
 
 export default {
-    components: { Status
-    },
+    mixins: [Init, UpdateResponse],
+    components: { Status },
     beforeMount(){
-      this.initialize()
+      this.initialize();
+      this.updateResponse();
     },
     data () {
         return{
             img: require('@/assets/logo_with_text.svg'),
             logo: require('@/assets/logo.svg'),
             drawer: false,
-            timerCount: '',
+            timerCount: '00:00:00',
         }
     },
     computed: {
@@ -128,9 +102,9 @@ export default {
     },        
     methods: {
         swapMode: function () {
-            this.store.night_mode_status = !this.store.night_mode_status
-            this.$vuetify.theme.dark = this.store.night_mode_status
-            localStorage.setItem("night_mode_status", JSON.stringify(this.store.night_mode_status));
+            this.$store.state.store.night_mode_status = !this.$store.state.store.night_mode_status
+            this.$vuetify.theme.dark = this.$store.state.store.night_mode_status
+            localStorage.setItem("night_mode_status", JSON.stringify(this.$store.state.store.night_mode_status));
         },
         
     },
@@ -139,13 +113,13 @@ export default {
             handler() {
                 setTimeout(() => {
                     let now = new Date().getTime();
-                    let distance = this.store.sessionData.expire_date - now;
+                    let distance =this.$store.state.store.sessionData.expire_date - now;
 
                     let hours = ('0' + Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
                     let minutes = ('0' + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
                     let seconds = ('0' + Math.floor((distance % (1000 * 60)) / 1000)).slice(-2);
                     this.timerCount = hours+ ":" + minutes + ":" + seconds;
-
+                    console.log("hello")
                     if (distance <= 0) {
                         alert("Time's up! Restart?");
                         localStorage.removeItem("expire_date");

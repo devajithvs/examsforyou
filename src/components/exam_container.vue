@@ -91,139 +91,24 @@
 </template>
 
 <style lang="scss">
-
-.checkbox {
-  transform: scale(1);
-}
-
-.checkbox label
-{
-  /* Checkbox text */
-  font-size: 100%;
-  display: inline;
-}
-
-.v-slide-group__prev {
-display: none !important;
-}
-.vertical-align-middle { 
-  vertical-align: middle; 
-}
-
-.padding-bottom-3 {
-  padding-bottom: 3px;
-}
-
-body{
-  overflow: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.status-icon .ans-and-review {
-  background: var(--v-success-base);
-  width: 15px;
-  height: 15px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  right: -4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pallet {
-  cursor:pointer;
-  float: left;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.status-label {
-  
-  margin-left: 8px;
-  font-size: 14px;
-  color: var(--v-secondary-base);
-  font-weight: 400;
-  line-height: normal;
-  text-align: left;
-  display: inline-flex;
-  flex-direction: column;
-}
-.status-icon {
-  height: 35px;
-  width: 35px;
-  position: relative;
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.status-container {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem 0 0;
-}
-.status-icon-ans-and-review {
-  object-fit: contain;
-  font-size: 0.6rem;
-  position: relative;
-  bottom: 0;
-  right: -0.7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.status-icon.marked-for-review, .status-icon.answered-and-marked-for-review  {
-  background-color: var(--v-review-base);
-  color: #fff;
-}
-
-.status-icon.answered {
-  // background-color: #63d1b4;
-  background-color: var(--v-success-base);
-  color: #fff;
-}
-
-.status-icon.not-answered {
-  background-color: var(--v-error-base);
-  color: #fff;
-}
-
-.status-icon.not-visited {
-  color: #1b1b1b;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.status-icon.current-question {
-  border: 2px solid #fff;
-  box-shadow: 0 0 8px 2px rgba(0,0,0,.25);
-}
+  @import '../sass/exam.scss';
 </style>
 
 
 <script>
  /*Other component*/
+ import {mapState} from 'vuex'
 import Status from './exam_status'
-import {mapState} from 'vuex'
+import UpdateResponse from '../mixins/updateResponse'
 
 export default {
-    components: { Status },
-    data(){
-      return{
-      }
-    },
-    computed: {
+  mixins: [UpdateResponse],
+  components: { Status },
+  data(){
+    return{
+    }
+  },
+  computed: {
       answer: {
         get () {
           return this.$store.state.store.userAttemptsData[this.$store.state.store.sessionData.current_section][this.$store.state.store.sessionData.question_no[this.$store.state.store.sessionData.current_section]].answer
