@@ -23,7 +23,6 @@
       </v-row>  
     </v-container>
     <v-divider></v-divider>
-    <!--   Icon Section   -->
   </div>
 </template>
 
