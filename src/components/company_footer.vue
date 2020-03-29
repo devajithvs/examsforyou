@@ -1,25 +1,24 @@
 <template>
-  <div>
+  <div style="col">
    
     <v-container>
         <v-row justify="center">
             <v-col cols="12" lg="6" md="9" sm="10">
-                <img :src="img" style="margin-top:1vh; width:200px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
+                <Logo :isTextRequired="true"/>
             </v-col>
             <v-spacer></v-spacer>
             <i title="Time Left" class="material-icons primary_text--text pr-1 left">facebook</i>
         </v-row> 
-    </v-container>	
+    </v-container>
   </div>
 </template>
 
 <script>
+import Logo from '@/components/company_logo'
 export default {
-  name: 'App',
-  data () {
-    return {
-        img: require('@/assets/logo_with_text.svg'),
+    name: 'App',
+    components: { Logo },
+    data () {
     }
-  }
 }
 </script>

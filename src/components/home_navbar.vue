@@ -1,14 +1,12 @@
-
 <template>
     <nav>
-
         <v-app-bar app class="navbar">        
             <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
-                <img v-bind:src="img" style="margin-top:1vh; width:200px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
+                <Logo :isTextRequired="true"/>
             </v-toolbar-title>
             <v-toolbar-title class="text-uppercase hidden-md-and-up">
-                <img v-bind:src="logo" style="margin-top:1vh; width:25px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
+                <Logo :isTextRequired="false"/>
             </v-toolbar-title> 
             <v-toolbar-items transparent class="ml-5">
                 <v-btn text class=" hidden-sm-and-down ml-5">
@@ -41,7 +39,7 @@
             <v-spacer></v-spacer>
             <v-text-field class="mt-5 mr-4 hidden-sm-and-down"
                 color="primary_text--text"
-                append-outer-icon="search"
+                append-outer-icon="mdi-microphone"
                 placeholder="Search">
             </v-text-field>
 
@@ -49,10 +47,9 @@
             <v-btn text class="success hidden-xs-only mr-5 login">
                 <span class="white--text">Login</span>
             </v-btn>
-            <i class="material-icons primary_text--text dark-mode-button hidden-sm-and-down ml-4" style="opacity: 0.9; width: auto;" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i> 
+            <i class="material-icons primary_text--text dark-mode-button hidden-sm-and-down" style="opacity: 0.9; width: auto;" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i> 
         </v-app-bar>
-
-        <v-navigation-drawer class="primary" 
+        <!-- <v-navigation-drawer class="primary" 
         app 
         absolute
         temporary
@@ -66,11 +63,10 @@
             <v-list-item-content>
                 
                 <v-list-item-title class="mb-4" style="display: flex; flex-wrap: wrap;">
-                <!-- class="text-center"> -->
                     <span class="subtitle-2 exam-name primary_text--text text-truncate" id="exam-name">{{exam_name}}</span>
                     <v-spacer></v-spacer>
                     <i style="" class="material-icons primary_text--text dark-mode-button vertical-align-middle padding-bottom-3" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i>
-                    <!-- <span class="subtitle-1">Night Mode</span> -->
+                    
                 </v-list-item-title>
                 <v-list-item-subtitle class="mt-3">
                     <a class="primary_text--text text-center pr-5"><v-icon small class="accent--text">assignment</v-icon>&nbsp;Instructions</a>
@@ -91,7 +87,7 @@
                 </v-list-item-content>
             </v-list-item>
         </v-list>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
     </nav>
 </template>
 <style lang="scss">
@@ -100,14 +96,11 @@
 
 <script>
 import ExamListCard from '@/components/home_navbar_exam_list'
+import Logo from '@/components/company_logo'
 export default {
   name: 'App',
-  components: { ExamListCard },
+  components: {  Logo, ExamListCard,},
   data () {
-        return {
-            img: require('@/assets/logo_with_text.svg'),
-            logo: require('@/assets/logo.svg'),
-        }
     },
     methods: {
         swapMode: function () {

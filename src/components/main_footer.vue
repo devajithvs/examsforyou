@@ -1,4 +1,5 @@
 <template>
+    <div>
         <v-container>
             <v-row justify="center">
                 <v-col cols="12" lg="6" md="9" sm="10">
@@ -30,9 +31,9 @@
                         </span>
                     </div>   
                 </v-col>
-            </v-row>  
-            
+            </v-row>   
         </v-container>
+    </div>
 </template>
 
 <script>

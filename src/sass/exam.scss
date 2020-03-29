@@ -15,22 +15,23 @@ display: none !important;
 }
 
 .exam-name {
-    display: inline-block;
-    padding: .15em .15em;
-    cursor: pointer;
-    line-height: 23px !important;
+  display: inline-block;
+  padding: .15em .15em;
+  cursor: pointer;
+  line-height: 23px !important;
 }
+
 .dark-mode-button {
-    display: inline-block;
-    border-radius: 50%;
-    // border: 1px solid var(--v-primary_text-base);
-    // box-shadow: 1px 1px 1px 1px var(--v-primary_text-base);
-    padding: .15em .15em;
-    margin-top: -3px;
-    background: transparent;
-    cursor: pointer;
-    line-height: 23px !important;
-    color: var(--v-primary_text-base);
+  display: inline-block;
+  border-radius: 50%;
+  // border: 1px solid var(--v-primary_text-base);
+  // box-shadow: 1px 1px 1px 1px var(--v-primary_text-base);
+  padding: .15em .15em;
+  margin-top: -3px;
+  background: transparent;
+  cursor: pointer;
+  line-height: 23px !important;
+  color: var(--v-primary_text-base);
 }
 
 .checkbox {

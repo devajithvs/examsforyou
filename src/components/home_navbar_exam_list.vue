@@ -1,25 +1,47 @@
 <template>
-    <v-card>
-        <v-list>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Entrance and Recruitment Exams</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+    <v-container>
+    <v-card fluid style="width: 100%">
+        <v-row justify="center">
+            <v-col cols="12" lg="6" md="9" sm="10">
+                <div class="text-center subtitle-1">Entrance and Recruitment Exams</div>
+            </v-col>
+        </v-row> 
 
         <v-divider></v-divider>
-
-        <v-list>
-            <v-list-item
-            v-for="(item, index) in items"
-            :key="index"
-            >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                
-            </v-list-item>
-        </v-list>
+        <v-row justify="center">
+            <v-col cols="12" lg="4">
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in items"
+                    :key="index"
+                    >
+                        <v-list-item-title class="text-center">{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+            <v-col cols="12" lg="4">
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in items[0].sub_items1"
+                    :key="index"
+                    >
+                        <v-list-item-title class="text-center">{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+            <v-col cols="12" lg="4">
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in items[0].sub_items1[3].sub_items2 "
+                    :key="index"
+                    >
+                        <v-list-item-title class="text-center">{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+        </v-row>
     </v-card>
+</v-container>
 
 </template>
 

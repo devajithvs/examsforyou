@@ -11,6 +11,7 @@ export default new Vuetify({
     },
     themes: {
       light: {
+        logo_primary: '#009966',
 
         pure_complementary: '#000000',
         primary: '#ffffff',
@@ -21,13 +22,16 @@ export default new Vuetify({
         secondary_text: '#AAB8B8',
         
         review: '#5960b7',
-        success: '#63d1b4',
+        success: '#009966',
+        // success: '#63d1b4',
         accent: '#0079D3',
-        error: '#ed5f5f',
+        // error: '#ed5f5f',
       },
       dark2: {
+        logo_primary: '#ffffff',
+
         navbar:'#191C20',
-        success: colors.green.darken2,
+        success: '#009966',
         pure_complementary: '#ffffff',
         primary: '#101010',
         primary2: '#000000',
@@ -38,11 +42,13 @@ export default new Vuetify({
         review: '#6b6be5',
       },
       dark: {
+        logo_primary: '#ffffff',
+
         navbar:'#21303D',
+        // success: '#009966',
         success: colors.green.darken2,
         pure_complementary: '#ffffff',
         primary: '#15202b',
-        primary2: '#000000',
         secondary: '#ffffff',
         primary_text: '#AAB8B8',
         secondary_text: '#747474',
@@ -51,7 +57,7 @@ export default new Vuetify({
       },
     },
   },
-    icons: {
-        iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-      },
+    // icons: {
+    //     iconfont: 'md', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+    //   },
 });

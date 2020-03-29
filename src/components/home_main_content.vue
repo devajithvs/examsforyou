@@ -22,7 +22,6 @@
         </v-col>
       </v-row>  
     </v-container>
-    <v-divider></v-divider>
   </div>
 </template>
 

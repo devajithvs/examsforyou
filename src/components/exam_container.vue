@@ -9,7 +9,7 @@
             color="accent"
             v-model="current_section"
             >
-              <v-tab class="caption" v-for="item in exam_sections" v-bind:key="item.section_code">{{item.name}}<v-icon>info</v-icon></v-tab>
+              <v-tab class="caption" v-for="item in exam_sections" v-bind:key="item.section_code">{{item.name}}<v-icon size="20" class="accent--text ml-1">info</v-icon></v-tab>
             </v-tabs>
           </v-flex>
 

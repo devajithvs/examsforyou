@@ -1,12 +1,12 @@
 <template>
     <nav>
-        <v-app-bar app class="navbar" dense>            
+        <v-app-bar app class="navbar">            
             <v-app-bar-nav-icon class="primary_text--text hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
-                <img :src="img" style="margin-top:1vh; width:200px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
+                <Logo :isTextRequired="true"/>
             </v-toolbar-title>
             <v-toolbar-title class="text-uppercase hidden-md-and-up">
-                <img :src="logo" style="margin-top:1vh; width:25px; height: auto;" v-bind:style="[$vuetify.theme.dark ? {'filter': 'invert(100%)'} : {}]"/>
+                <Logo :isTextRequired="false"/>
             </v-toolbar-title>
             
             <v-toolbar-title class="text-uppercase hidden-sm-and-down pl-5">
@@ -79,18 +79,17 @@
 import Status from './exam_status'
 import Init from '../mixins/exam_init'
 import UpdateResponse from '../mixins/updateResponse'
+import Logo from '@/components/company_logo'
 
 export default {
     mixins: [Init, UpdateResponse],
-    components: { Status },
+    components: { Status, Logo },
     beforeMount(){
       this.initialize();
       this.updateResponse();
     },
     data () {
         return{
-            img: require('@/assets/logo_with_text.svg'),
-            logo: require('@/assets/logo.svg'),
             drawer: false,
             timerCount: '00:00:00',
         }

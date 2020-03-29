@@ -3,12 +3,14 @@
     <Navbar/>
     <v-content>
         <MainHeader/>
-        <ContentCards/>
+        <ContentCards />
         <ExploreExams/>
     </v-content>
     <FOOTER>
-      <SEOFooter/>
-      <CompanyFooter/>
+      <v-divider></v-divider>
+      <SEOFooter class="navbar"/>
+      <v-divider></v-divider>
+      <CompanyFooter class="navbar"/>
     </FOOTER>
   </v-app>
 </template>

@@ -61,8 +61,10 @@
 
 <script>
 import {mapState} from 'vuex'
+import UpdateResponse from '../mixins/updateResponse'
 export default {
-    computed: {     
+    computed: {
+        mixins: [UpdateResponse],
         ...mapState({
             exam_sections: state => state.store.exam_sections,
             question_no: state => state.store.sessionData.question_no,
