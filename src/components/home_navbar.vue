@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar app class="navbar">        
+        <v-app-bar app class="navbar" elevate-on-scroll>        
             <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
                 <Logo :isTextRequired="true"/>
@@ -8,47 +8,38 @@
             <v-toolbar-title class="text-uppercase hidden-md-and-up">
                 <Logo :isTextRequired="false"/>
             </v-toolbar-title> 
-            <v-toolbar-items transparent class="ml-5">
-                <v-btn text class=" hidden-sm-and-down ml-5">
-                    <span>Blog</span>
-                </v-btn>
-                <v-menu
-                eager
-                open-on-hover
-                :close-on-content-click="false"
-                :close-on-click="true"
-                offset-y
+            <div style="overflow: visible;" @mouseleave="expand = false">
+                <v-col
+                  cols="12"
+                  lg="3"
                 >
-                    <template v-slot:activator="{ on }">
-                        <v-btn text class=" hidden-sm-and-down ml-5" title="Attempt Previous Years Question Papers" v-on="on">Practice</v-btn>
-                    </template>
-                    <ExamListCard/>
-                </v-menu>
+                    <v-btn 
+                    text 
+                    @click="expand = !expand"
+                    @mouseover="expand = true"
+                    class="hidden-xs-only ml-5 mr-5 login explore"
+                    :class="expand ? 'navbar' : 'success'">
+                        <span :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">Explore</span>
+                        <i class="material-icons" :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">expand_more</i>
+                    </v-btn>
+                </v-col>
+                <ExamListCard class="overlay" v-show="expand"/>
+            </div>
 
-                <v-btn text class=" hidden-sm-and-down ml-5" title="Best resources to study from, notes, videos">
-                    <span>Courses</span>
-                </v-btn>
-
-                <v-btn text class=" hidden-sm-and-down ml-5" title="Get all the details of Exams you are qualified for">
-                    <span>Examsforyou</span>
-                </v-btn>
-
-                
-
-            </v-toolbar-items>
-            <v-spacer></v-spacer>
-            <v-text-field class="mt-5 mr-4 hidden-sm-and-down"
+            <v-text-field class="mt-5 ml-4 mr-4 hidden-sm-and-down"
                 color="primary_text--text"
-                append-outer-icon="mdi-microphone"
+                append-outer-icon="search"
                 placeholder="Search">
             </v-text-field>
-
-
+            
+            <v-spacer></v-spacer>
             <v-btn text class="success hidden-xs-only mr-5 login">
                 <span class="white--text">Login</span>
             </v-btn>
             <i class="material-icons primary_text--text dark-mode-button hidden-sm-and-down" style="opacity: 0.9; width: auto;" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i> 
         </v-app-bar>
+        
+        
         <!-- <v-navigation-drawer class="primary" 
         app 
         absolute
@@ -92,6 +83,17 @@
 </template>
 <style lang="scss">
     @import '../sass/exam.scss';
+    .explore:hover::before {
+        opacity: 0 !important;
+      }
+    .overlay{
+        position: absolute;
+        width: 90%;
+        left:0;
+        right:0;
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 
 <script>
@@ -100,8 +102,9 @@ import Logo from '@/components/company_logo'
 export default {
   name: 'App',
   components: {  Logo, ExamListCard,},
-  data () {
-    },
+  data: () => ({
+    expand: false,
+    }),
     methods: {
         swapMode: function () {
             this.$store.state.store.night_mode_status = !this.$store.state.store.night_mode_status

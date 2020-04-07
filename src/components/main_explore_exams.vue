@@ -1,11 +1,13 @@
 <template>
     <div>
+      <v-container>
             <v-row justify="center">
                 <v-col cols="12" lg=6 md=9 sm=10>
                     <div class="text-center subtitle-1 font-weight-bold">Explore Exams</div>
                 </v-col>
              </v-row>  
              <ExamList/>
+           </v-container>
     </div>
 </template>
 

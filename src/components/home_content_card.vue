@@ -11,25 +11,29 @@
             open-delay="20"
           >
             <v-card
-            :elevation="hover ? 12 : 2"
-            :class="{ 'on-hover': hover }"
+            :elevation="hover ? 0 : 0"
+            :class="{ 'v-card-hover': hover }"
             >
-              <v-card-title>
-                <span class="font-weight-light subtitle-2">Blog</span>
-              </v-card-title>
-
-              <v-card-text class="subtitle-1 font-weight-bold">
-                Compiled posts from various exam toppers for quick tips.
-              </v-card-text>
-
-              <v-card-actions>
-                <v-btn
-                  text
-                  class="subtitle-2"
+              <v-row justify="center">
+                <v-col
+                  cols="12"
+                  lg="3"
                 >
-                  Explore Blog
-                </v-btn>
-              </v-card-actions>
+                  <v-img class = "v-img" 
+                  :class="{ 'v-img-hover': hover }"
+                  :src="img0" 
+                  />
+                </v-col>
+              </v-row>
+
+              <v-card-text class="subtitle-1 font-weight-light">
+                <v-row justify="center">
+                    <strong>Blog</strong>
+                </v-row>
+                <v-container class="text-center" >
+                  Compiled details, quick tips and more for your exams.
+                </v-container>
+              </v-card-text>
             </v-card>
           </v-hover>
         </v-col>
@@ -42,25 +46,28 @@
             open-delay="20"
           >
             <v-card
-            :elevation="hover ? 12 : 2"
-            :class="{ 'on-hover': hover }"
+            :elevation="hover ? 0 : 0"
+            :class="{ 'v-card-hover': hover }"
             >
-              <v-card-title>
-                <span class="font-weight-light subtitle-2">Practice</span>
-              </v-card-title>
-
-              <v-card-text class="subtitle-1 font-weight-bold">
-                Practice previous year question papers with personalized in-depth analysis.
-              </v-card-text>
-
-              <v-card-actions>
-                <v-btn
-                  text
-                  class="subtitle-2"
+              <v-row justify="center">
+                <v-col
+                  cols="12"
+                  lg="3"
                 >
-                  Practice Now
-                </v-btn>
-              </v-card-actions>
+                  <v-img class = "v-img" :class="{ 'v-img-hover': hover }"
+                  :src="img1" 
+                  />
+                </v-col>
+              </v-row>
+
+              <v-card-text class="subtitle-1 font-weight-light">
+                <v-row justify="center">
+                    <strong>Practice</strong>
+                </v-row>
+                <v-container class="text-center" >
+                  Practice previous year question papers with personalized in-depth analysis.
+                </v-container>
+              </v-card-text>
             </v-card>
           </v-hover>
         </v-col>
@@ -73,56 +80,28 @@
             open-delay="20"
           >
             <v-card
-            :elevation="hover ? 12 : 2"
-            :class="{ 'on-hover': hover }"
+            :elevation="hover ? 0 : 0"
+            :class="{ 'v-card-hover': hover }"
             >
-              <v-card-title>
-                <span class="font-weight-light subtitle-2">Courses</span>
-              </v-card-title>
-
-              <v-card-text class="subtitle-1 font-weight-bold">
-                Best resources to study from. Including free notes, videos and slides.
-              </v-card-text>
-
-              <v-card-actions>
-                <v-btn
-                  text
-                  class="subtitle-2"
+              <v-row justify="center">
+                <v-col
+                  cols="12"
+                  lg="3"
                 >
-                  Explore Courses
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-hover>
-        </v-col>
-        <v-col
-          cols="12"
-          lg="4"
-        >
-          <v-hover
-            v-slot:default="{ hover }"
-            open-delay="20"
-          >
-            <v-card
-            :elevation="hover ? 12 : 2"
-            :class="{ 'on-hover': hover }"
-            >
-              <v-card-title>
-                <span class="font-weight-light subtitle-2">Exams For You</span>
-              </v-card-title>
+                  <v-img class = "v-img" :class="{ 'v-img-hover': hover }"
+                  :src="img2" 
+                  />
+                </v-col>
+              </v-row>
 
-              <v-card-text class="subtitle-1 font-weight-bold">
-                Literally! Get all the details of the exams you are eligible for.
+              <v-card-text class="subtitle-1 font-weight-light">
+                <v-row justify="center">
+                    <strong>Courses</strong>
+                </v-row>
+                <v-container class="text-center" >
+                  Best resources to study from. Including free notes, videos and slides.
+                </v-container>
               </v-card-text>
-
-              <v-card-actions>
-                <v-btn
-                  text
-                  class="subtitle-2"
-                >
-                  Examsforyou
-                </v-btn>
-              </v-card-actions>
             </v-card>
           </v-hover>
         </v-col>
@@ -131,12 +110,30 @@
   </div>
 </template>
 <style>
+.v-card {
+  transition: transform .2s;
+}
+
+.v-img {
+  transition: transform .2s;
+}
+
+.v-img-hover {
+  transform: scale(1.2);
+}
+.v-card-hover {
+  transform: scale(1.05);
+}
 </style>
 <script>
+
 export default {
   name: 'App',
   data () {
     return {
+      img0: require('@/assets/blog.svg'),
+      img1: require('@/assets/test.svg'),
+      img2: require('@/assets/classroom.svg'),
     }
   }
 }

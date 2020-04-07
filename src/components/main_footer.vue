@@ -1,11 +1,6 @@
 <template>
     <div>
         <v-container>
-            <v-row justify="center">
-                <v-col cols="12" lg="6" md="9" sm="10">
-                    <div class="text-center subtitle-1">Entrance and Recruitment Exams</div>
-                </v-col>
-            </v-row> 
             <v-row>
                 <v-col cols="12" lg="3" sm="4"
                 v-for="(item, index) in items"

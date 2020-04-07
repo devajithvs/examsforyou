@@ -16,6 +16,7 @@ export default new Vuetify({
         pure_complementary: '#000000',
         primary: '#ffffff',
         navbar:'#ffffff',
+        navbar_darker:'#f9f9f9',
 
         secondary: '#646464',
         primary_text: '#747474',
@@ -31,6 +32,7 @@ export default new Vuetify({
         logo_primary: '#ffffff',
 
         navbar:'#191C20',
+        navbar_darker:'#202D21',
         success: '#009966',
         pure_complementary: '#ffffff',
         primary: '#101010',
