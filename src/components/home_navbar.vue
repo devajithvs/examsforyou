@@ -8,19 +8,20 @@
             <v-toolbar-title class="text-uppercase hidden-md-and-up">
                 <Logo :isTextRequired="false"/>
             </v-toolbar-title> 
-            <div style="overflow: visible;" @mouseleave="expand = false">
+            <div style="overflow: visible;" class="dropdown" @mouseleave="expand = false">
                 <v-col
                   cols="12"
                   lg="3"
                 >
                     <v-btn 
                     text 
+                    flat
                     @click="expand = !expand"
                     @mouseover="expand = true"
                     class="hidden-xs-only ml-5 mr-5 login explore"
                     :class="expand ? 'navbar' : 'success'">
-                        <span :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">Explore</span>
-                        <i class="material-icons" :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">expand_more</i>
+                        <span class="no-capitalization ml-n1" :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">Explore</span>
+                        <v-icon size="15" class="mr-n1" :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">{{expand ? 'expand_less' : 'expand_more'}}</v-icon>
                     </v-btn>
                 </v-col>
                 <ExamListCard class="overlay" v-show="expand"/>
@@ -34,7 +35,7 @@
             
             <v-spacer></v-spacer>
             <v-btn text class="success hidden-xs-only mr-5 login">
-                <span class="white--text">Login</span>
+                <span class="white--text no-capitalization">Login</span>
             </v-btn>
             <i class="material-icons primary_text--text dark-mode-button hidden-sm-and-down" style="opacity: 0.9; width: auto;" v-bind:title="[($vuetify.theme.dark) ? 'Light Mode': 'Night Mode']" v-on:click="swapMode">{{ ($vuetify.theme.dark) ? 'brightness_5': 'brightness_2' }}</i> 
         </v-app-bar>
@@ -86,11 +87,16 @@
     .explore:hover::before {
         opacity: 0 !important;
       }
+    .dropdown{
+        position: relative;
+        display: inline-block;
+    }
     .overlay{
         position: absolute;
-        width: 90%;
-        left:0;
-        right:0;
+        min-width: 200px;
+        background-color: #f1f1f1;
+        width: 100%;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
     }

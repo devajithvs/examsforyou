@@ -6,16 +6,16 @@
                     <div class="text-center subtitle-1 font-weight-bold">Explore Exams</div>
                 </v-col>
              </v-row>  
-             <ExamList/>
+             <!-- <ExamList style="align-content: center;"/> -->
            </v-container>
     </div>
 </template>
 
 <script>
-import ExamList from './home_navbar_exam_list'
+// import ExamList from './home_navbar_exam_list'
 
 export default {
-  components: { ExamList },
+  // components: { ExamList },
   name: 'Test',
   data () {
     return {
