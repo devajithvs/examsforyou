@@ -1,32 +1,29 @@
 <template>
     <div id="primary">
       <div>
-        <v-row justify="left">
-          <v-col 
-          cols="12" 
-          lg="8"
-          >
-              <v-row justify="left">
-                <v-container >
-                  Super 30 fame Anand Kumar charges Re 1 to develop IIT JEE ...
-                </v-container>
-              </v-row>
-              <v-row justify="left">
-                <v-container >
-                  With the help of CSC, an IIT- JEE entrance exam module will be prepared which will be made available to students in rural India in just Re 1,” ...
-                </v-container>
-              </v-row>
-          </v-col>
-          <v-col 
-          cols="12" 
-          lg="3"
-          >
-          <v-img
-          src="https://images.indianexpress.com/2020/04/modi-trump-5.jpg?w=150&h=83&crop=1"
-          />
-        </v-col>
-      </v-row>
+        <v-card
+          class="mx-auto"
+          outlined
+        >
+          <v-list-item three-line>
+            <v-list-item-content class="mr-4">
+              <v-list-item-title class="mb-1" :class="$1  ? 'subtitle-1': 'headline'">JEE Main 2020, NEET 2020 new dates out: How to prepare for</v-list-item-title>
+              <v-list-item-subtitle>JEE Main 2020, NEET 2020 new dates out: How to prepare for exam amid Covid-19 lockdown. Here are some tips and strategies to score good</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-img
+            max-width="80"
+            contain
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyxTOKIYbShno-oNiAKbr3j8xHirh4rD_8GYaR6a1zRP1FahdodncZu9kmTlaBXywDH2V68uM-&s"
+          ></v-img>
 
+          </v-list-item>
+
+          <v-card-actions>
+            <v-container class="caption">
+              India Today - 9 hours ago
+            </v-container>
+          </v-card-actions>
+        </v-card>
         
       </div>
     </div>

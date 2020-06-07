@@ -24,7 +24,7 @@
                         <v-icon size="15" class="mr-n1" :class="(!$vuetify.theme.dark && expand) ? 'success--text' : 'white--text'">{{expand ? 'expand_less' : 'expand_more'}}</v-icon>
                     </v-btn>
                 </v-col>
-                <ExamListCard class="overlay" v-show="expand"/>
+                <ExamListCard class="overlay transparent" v-show="expand"/>
             </div>
 
             <v-text-field class="mt-5 ml-4 mr-4 hidden-sm-and-down"
@@ -103,7 +103,7 @@
 </style>
 
 <script>
-import ExamListCard from '@/components/home_navbar_exam_list'
+import ExamListCard from '@/components/home_navbar_exam_list4'
 import Logo from '@/components/company_logo'
 export default {
   name: 'App',

@@ -85,7 +85,7 @@
 
 <script>
  /*Other component*/
-import ExamNotification from './ExamNotification'
+import ExamNotification from './ExamInformation'
 import ExamBlog from './ExamBlog'
 import ExamPreviousPapers from './ExamPreviousPapers'
 import ExamStudyMaterial from './ExamStudyMaterial'
@@ -95,7 +95,7 @@ export default {
   data() {
     return {
       current_tab : 0,
-      info_sections : ["Exam Notifications", "Blog", "Attempt Previous Papers", "Study Material", "FAQs"],
+      info_sections : ["Exam Info", "Articles", "Attempt Previous Papers", "Study Material", "Discussions"],
     }
   }
 }
