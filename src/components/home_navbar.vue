@@ -103,7 +103,7 @@
 </style>
 
 <script>
-import ExamListCard from '@/components/home_navbar_exam_list4'
+import ExamListCard from '@/components/home_navbar_exam_list'
 import Logo from '@/components/company_logo'
 export default {
   name: 'App',

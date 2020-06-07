@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="megaMenu" style="min-width: 795px;">
         <v-row justify="left">
             <v-col class="main-col navbar">
                 <v-list dense>
@@ -35,8 +35,25 @@
 
 </template>
 <style type="text/css">
+
+.megaMenu {
+  position: absolute;
+  width: 795px;
+  padding: 15px 0 0; }
+
+.megaMenu:before {
+  color: white !IMPORTANT;
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 72px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff; }
     
-    .main-col{
+/*    .main-col{
         padding: 0 !IMPORTANT;
         height: inherit;
         position: relative;
@@ -50,7 +67,7 @@
         width: 100%;
         height: 100%;
         margin-left: 200px;
-    }
+    }*/
 </style>
 <script>
 export default {
