@@ -1,6 +1,65 @@
 <template>
     <div>
-        <v-container>
+        <div class="seo__container">
+          <h2>Explore Exams, Courses, Blogs and more</h2>
+          <div class="streams__list container flexbox">
+            <div class="engineering__list">
+              <h3>Engineering</h3>
+              <ul>
+                <li><a href="">JEE Main</a></li>
+                <li><a href="">JEE Advanced</a></li>
+                <li><a href="">Gate CH</a></li>
+                <li><a href="">Gate CE</a></li>
+                <li><a href="">Gate ME</a></li>
+                <li><a href="">Gate CS</a></li>
+                <li><a href="">Bitsat</a></li>
+                <li><a href="">KEAM</a></li>
+              </ul>
+            </div>
+            <div class="engineering__list">
+              <h3>Engineering</h3>
+              <ul>
+                <li><a href="">JEE Main</a></li>
+                <li><a href="">JEE Advanced</a></li>
+                <li><a href="">Gate CH</a></li>
+                <li><a href="">Gate CE</a></li>
+                <li><a href="">Gate ME</a></li>
+                <li><a href="">Gate CS</a></li>
+                <li><a href="">Bitsat</a></li>
+                <li><a href="">KEAM</a></li>
+              </ul>
+            </div>
+            <div class="engineering__list">
+              <h3>Engineering</h3>
+              <ul>
+                <li><a href="">JEE Main</a></li>
+                <li><a href="">JEE Advanced</a></li>
+                <li><a href="">Gate CH</a></li>
+                <li><a href="">Gate CE</a></li>
+                <li><a href="">Gate ME</a></li>
+                <li><a href="">Gate CS</a></li>
+                <li><a href="">Bitsat</a></li>
+                <li><a href="">KEAM</a></li>
+              </ul>
+            </div>
+            <div class="engineering__list">
+              <h3>Engineering</h3>
+              <ul>
+                <li><a href="">JEE Main</a></li>
+                <li><a href="">JEE Advanced</a></li>
+                <li><a href="">Gate CH</a></li>
+                <li><a href="">Gate CE</a></li>
+                <li><a href="">Gate ME</a></li>
+                <li><a href="">Gate CS</a></li>
+                <li><a href="">Bitsat</a></li>
+                <li><a href="">KEAM</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="divider-horizontal"></div>
+
+<!--         <v-container>
             <v-row>
                 <v-col cols="12" lg="3" sm="4"
                 v-for="(item, index) in items"
@@ -27,7 +86,7 @@
                     </div>   
                 </v-col>
             </v-row>   
-        </v-container>
+        </v-container> -->
     </div>
 </template>
 

@@ -1,18 +1,17 @@
 <template>
-  <v-app>
-    <Navbar/>
-    <v-content>
+  <main>
+    <header>
+      <Navbar/>
+    </header>
+    <content>
         <MainHeader/>
-        <ContentCards />
-        <ExploreExams/>
-    </v-content>
+        <ContentCards/>
+    </content>
     <FOOTER>
-      <v-divider></v-divider>
-      <SEOFooter class="navbar"/>
-      <v-divider></v-divider>
-      <CompanyFooter class="navbar"/>
+      <SEOFooter/>
+      <CompanyFooter/>
     </FOOTER>
-  </v-app>
+  </main>
 </template>
 
 <script>
@@ -21,10 +20,9 @@ import MainHeader from '@/components/home_main_content'
 import ContentCards from '@/components/home_content_card'
 import SEOFooter from '@/components/main_footer'
 import CompanyFooter from '@/components/company_footer'
-import ExploreExams from '@/components/main_explore_exams'
 export default {
   name: 'App',
-  components: { Navbar, MainHeader, ContentCards, SEOFooter, CompanyFooter, ExploreExams},
+  components: { Navbar, MainHeader, ContentCards, SEOFooter, CompanyFooter,},
   data () {
     return {
     }

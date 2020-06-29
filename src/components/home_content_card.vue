@@ -1,112 +1,34 @@
 <template>
   <div>
-    <v-container>
-      <v-row justify="center">
-        <v-col
-          cols="12"
-          lg="4"
-        >
-          <v-hover
-            v-slot:default="{ hover }"
-            open-delay="20"
-          >
-            <v-card
-            :elevation="hover ? 0 : 0"
-            :class="{ 'v-card-hover': hover }"
-            >
-              <v-row justify="center">
-                <v-col
-                  cols="12"
-                  lg="3"
-                >
-                  <v-img class = "v-img" 
-                  :class="{ 'v-img-hover': hover }"
-                  :src="img0" 
-                  />
-                </v-col>
-              </v-row>
-
-              <v-card-text class="subtitle-1 font-weight-light">
-                <v-row justify="center">
-                    <strong>Blog</strong>
-                </v-row>
-                <v-container class="text-center" >
-                  Compiled details, quick tips and more for your exams.
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-hover>
-        </v-col>
-        <v-col
-          cols="12"
-          lg="4"
-        >
-          <v-hover
-            v-slot:default="{ hover }"
-            open-delay="20"
-          >
-            <v-card
-            :elevation="hover ? 0 : 0"
-            :class="{ 'v-card-hover': hover }"
-            >
-              <v-row justify="center">
-                <v-col
-                  cols="12"
-                  lg="3"
-                >
-                  <v-img class = "v-img" :class="{ 'v-img-hover': hover }"
-                  :src="img1" 
-                  />
-                </v-col>
-              </v-row>
-
-              <v-card-text class="subtitle-1 font-weight-light">
-                <v-row justify="center">
-                    <strong>Practice</strong>
-                </v-row>
-                <v-container class="text-center" >
-                  Practice previous year question papers with personalized in-depth analysis.
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-hover>
-        </v-col>
-        <v-col
-          cols="12"
-          lg="4"
-        >
-          <v-hover
-            v-slot:default="{ hover }"
-            open-delay="20"
-          >
-            <v-card
-            :elevation="hover ? 0 : 0"
-            :class="{ 'v-card-hover': hover }"
-            >
-              <v-row justify="center">
-                <v-col
-                  cols="12"
-                  lg="3"
-                >
-                  <v-img class = "v-img" :class="{ 'v-img-hover': hover }"
-                  :src="img2" 
-                  />
-                </v-col>
-              </v-row>
-
-              <v-card-text class="subtitle-1 font-weight-light">
-                <v-row justify="center">
-                    <strong>Courses</strong>
-                </v-row>
-                <v-container class="text-center" >
-                  Best resources to study from. Including free notes, videos and slides.
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-hover>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="learn-with-us">
+      <h2>Learn with us</h2>
+      <div class="flexbox container">
+        <div class="practice__landing">
+          <img src="assets/practice_landing.svg" class="learn-with-us__icon" alt="">
+          <h3>Practice</h3>
+          <p>Practice previous year question papers with personalized in-depth analysis. </p>
+        </div>
+        <div class="blog__landing">
+          <img src="assets/blog_landing.svg" class="learn-with-us__icon" alt="">
+          <h3>Blog</h3>
+          <p>Compiled details, quick tips and more for your exams. </p>
+        </div>
+        <div class="resources__landing">
+          <img src="assets/resources_landing.svg" class="learn-with-us__icon" alt="">
+          <h3>Resources</h3>
+          <p> Best resources to study from. Including free notes, videos and slides. </p>
+        </div>
+      </div>
+    </div>
+    <div class="divider-horizontal"></div>
+    <div class="knowledge__landing container flexbox">
+      <img src="assets/offerings2.png" class="offerings" alt="">
+      <div class="knowledge__content">
+        <h3 class="underline__green__partial">Knowledge is free</h3>
+        <p>Find the materials, practice previous year papers; Learn at your own pace with quality feedbacks, all for free</p>
+      </div>
+    </div>
+    <div class="divider-horizontal"></div>
   </div>
 </template>
 <style>
