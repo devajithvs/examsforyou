@@ -40,6 +40,10 @@ input:focus::placeholder {
     color: transparent;
 }
 
+section {
+    margin-bottom: 40px;
+}
+
 .container {
     max-width: 90%;
     margin: 0px auto;

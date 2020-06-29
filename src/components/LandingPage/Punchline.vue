@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <section class="main">
     <div class="landing__main">
       <div class="landing__content">
         <h1 class="main__title">Ace Your Next Big Test</h1>
@@ -12,7 +12,7 @@
       <img src="@/assets/undraw_exams.svg" class="main-bg" alt="">
     </div>
     <div class="divider-horizontal"></div>
-  </div>
+  </section>
 </template>
 
 <style>

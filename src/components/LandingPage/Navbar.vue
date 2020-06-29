@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <section>
         <nav class="navbar container">
-          <img src="assets/menu.svg" class="icon menu__icon" alt="">
+          <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
           <div class="e4y__left">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon" alt="">
@@ -33,7 +33,7 @@
           <img src="@/assets/search_black.svg" class="search__icon" alt="">
         </nav>
         <div class="divider-horizontal"></div> 
-    </div>
+    </section>
 
 </template>
 <style>

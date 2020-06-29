@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <div class="learn-with-us">
       <h2>Learn with us</h2>
       <div class="flexbox container">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="divider-horizontal"></div>
-  </div>
+  </section>
 </template>
 <style>
 @import '../../css/main.css';
