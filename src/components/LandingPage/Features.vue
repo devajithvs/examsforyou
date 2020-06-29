@@ -32,7 +32,7 @@
   </div>
 </template>
 <style>
-@import '@/css/main.css';
+@import '../../css/main.css';
 </style>
 <script>
 
