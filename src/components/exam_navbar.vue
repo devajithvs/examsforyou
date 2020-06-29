@@ -79,7 +79,7 @@
 import Status from './exam_status'
 import Init from '../mixins/exam_init'
 import UpdateResponse from '../mixins/updateResponse'
-import Logo from '@/components/company_logo'
+import Logo from './exam_status'
 
 export default {
     mixins: [Init, UpdateResponse],

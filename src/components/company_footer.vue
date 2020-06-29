@@ -9,10 +9,9 @@
 </template>
 
 <script>
-import Logo from '@/components/company_logo'
 export default {
     name: 'App',
-    components: { Logo },
+    components: {},
     data () {
     }
 }
