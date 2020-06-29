@@ -9,7 +9,7 @@
         </button>  
       </div>
       
-      <img src="../assets/undraw_exams.svg" class="main-bg" alt="">
+      <img src="@/assets/undraw_exams.svg" class="main-bg" alt="">
     </div>
     <div class="divider-horizontal"></div>
   </div>

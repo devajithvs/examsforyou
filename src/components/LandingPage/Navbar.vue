@@ -3,8 +3,8 @@
         <nav class="navbar container">
           <img src="assets/menu.svg" class="icon menu__icon" alt="">
           <div class="e4y__left">
-            <img src="../assets/Logo_only.svg" class="icon logo__icon" alt="">
-            <img src="../assets/Logo_text.svg" class="icon logotext__icon" alt="">
+            <img src="@/assets/Logo_only.svg" class="icon logo__icon" alt="">
+            <img src="@/assets/Logo_text.svg" class="icon logotext__icon" alt="">
             <div style="overflow: visible;" class="dropdown" @mouseleave="expand = false">
                 <button
                 @click="expand = !expand"
@@ -38,7 +38,7 @@
 </template>
 <style>
 
-    @import '../css/main.css';
+    @import '@/css/main.css';
     .explore:hover::before {
         opacity: 0 !important;
     }

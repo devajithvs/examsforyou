@@ -1,27 +1,28 @@
 <template>
-    <v-app>
-    <Navbar/>
-    <v-content>
-      <ExamInfoContainer/>
-    </v-content>
+  <main>
+    <header>
+      <Navbar/>
+    </header>
+    <content>
+        <MainPunchLine/>
+        <Features/>
+    </content>
     <FOOTER>
-      <v-divider></v-divider>
-      <SEOFooter class="navbar"/>
-      <v-divider></v-divider>
-      <CompanyFooter class="navbar"/>
+      <SEOFooter/>
+      <CompanyFooter/>
     </FOOTER>
-  </v-app>
-    
+  </main>
 </template>
 
-  
 <script>
-
-import ExamInfoContainer from '@/components/ExamInfoPage/ExamDetails'
-import Navbar from '@/components/home_navbar'
+import Navbar from '@/components/LandingPage/Navbar'
+import MainPunchLine from '@/components/LandingPage/Punchline'
+import Features from '@/components/LandingPage/Features'
+import SEOFooter from '@/components/SEOExamListFooter'
+import CompanyFooter from '@/components/CompanyFooter'
 export default {
   name: 'App',
-  components: { Navbar , ExamInfoContainer },
+  components: { Navbar, MainPunchLine, Features, SEOFooter, CompanyFooter,},
   data () {
     return {
     }

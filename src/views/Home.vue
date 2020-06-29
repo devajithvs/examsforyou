@@ -4,8 +4,8 @@
       <Navbar/>
     </header>
     <content>
-        <MainHeader/>
-        <ContentCards/>
+        <MainPunchLine/>
+        <Features/>
     </content>
     <FOOTER>
       <SEOFooter/>
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import Navbar from '@/components/home_navbar'
-import MainHeader from '@/components/home_main_content'
-import ContentCards from '@/components/home_content_card'
-import SEOFooter from '@/components/main_footer'
-import CompanyFooter from '@/components/company_footer'
+import Navbar from '@/components/LandingPage/Navbar'
+import MainPunchLine from '@/components/LandingPage/Punchline'
+import Features from '@/components/LandingPage/Features'
+import SEOFooter from '@/components/SEOExamListFooter'
+import CompanyFooter from '@/components/CompanyFooter'
 export default {
   name: 'App',
-  components: { Navbar, MainHeader, ContentCards, SEOFooter, CompanyFooter,},
+  components: { Navbar, MainPunchLine, Features, SEOFooter, CompanyFooter,},
   data () {
     return {
     }
