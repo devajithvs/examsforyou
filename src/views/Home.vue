@@ -13,6 +13,9 @@
     </FOOTER>
   </main>
 </template>
+<style>
+ @import '../css/main.css';
+</style>
 
 <script>
 import Navbar from '@/components/LandingPage/Navbar'
