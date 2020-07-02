@@ -12,10 +12,10 @@
                 class="explore explore-button button success"
                 :class="expand ? 'ghost-on-hover' : ''"
                 >
-                    <div class="explore-content">
-                    <span class="bold explore-text ">Explore</span>
-                    <span class="icon down__icon "></span>
-                </div>
+                    <div class="button-content">
+                      <span class="bold explore-text font-18">Explore</span>
+                      <span class="icon down__icon"></span>
+                    </div>
                 </button>
                 <ExamListCard v-show="expand"/>
             </div>
@@ -28,7 +28,9 @@
           </div>
          
           <button class="login-button button success">
-            <span class="bold">Login</span>
+            <div class="button-content">
+              <span class="bold font-18">Login</span>
+            </div>
           </button>
 
           <img src="@/assets/search_black.svg" class="search__icon" alt="">

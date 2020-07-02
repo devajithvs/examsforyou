@@ -31,9 +31,7 @@
     <div class="divider-horizontal"></div>
   </section>
 </template>
-<style>
-@import '../../css/main.css';
-</style>
+
 <script>
 
 export default {

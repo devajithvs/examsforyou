@@ -15,18 +15,12 @@
   </section>
 </template>
 
-<style>
-
-</style>
-
 <script>
 
 export default {
   name: 'App',
   data () {
     return {
-      // img: require('@/assets/undraw_online_test.svg'),
-      // img: require('@/assets/undraw_exams.svg'),
     }
   }
 }

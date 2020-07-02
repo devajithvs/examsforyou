@@ -4,11 +4,9 @@
       <Navbar/>
     </header>
     <content>
-        <MainPunchLine/>
-        <Features/>
+        <ExamInfoContainer/>
     </content>
     <FOOTER>
-      <SEOFooter/>
       <CompanyFooter/>
     </FOOTER>
   </main>
@@ -16,13 +14,11 @@
 
 <script>
 import Navbar from '@/components/LandingPage/Navbar'
-import MainPunchLine from '@/components/LandingPage/Punchline'
-import Features from '@/components/LandingPage/Features'
-import SEOFooter from '@/components/SEOExamListFooter'
+import ExamInfoContainer from '@/components/ExamInfoPage/ExamDetails'
 import CompanyFooter from '@/components/CompanyFooter'
 export default {
   name: 'App',
-  components: { Navbar, MainPunchLine, Features, SEOFooter, CompanyFooter,},
+  components: { Navbar, ExamInfoContainer, CompanyFooter,},
   data () {
     return {
     }
