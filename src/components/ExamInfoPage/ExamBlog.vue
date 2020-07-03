@@ -1,30 +1,24 @@
 <template>
-    <div id="primary">
-      <div>
-        <v-card
-          class="mx-auto"
-          outlined
-        >
-          <v-list-item three-line>
-            <v-list-item-content class="mr-4">
-              <v-list-item-title class="mb-1" :class="$1  ? 'subtitle-1': 'headline'">JEE Main 2020, NEET 2020 new dates out: How to prepare for</v-list-item-title>
-              <v-list-item-subtitle>JEE Main 2020, NEET 2020 new dates out: How to prepare for exam amid Covid-19 lockdown. Here are some tips and strategies to score good</v-list-item-subtitle>
-            </v-list-item-content>
-            <v-img
-            max-width="80"
-            contain
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyxTOKIYbShno-oNiAKbr3j8xHirh4rD_8GYaR6a1zRP1FahdodncZu9kmTlaBXywDH2V68uM-&s"
-          ></v-img>
-
-          </v-list-item>
-
-          <v-card-actions>
-            <v-container class="caption">
+    <div id="news" class="examinfo__content container">
+      <ExamNotification/>
+      <div class="exam-info left-info">
+        <div class="card news-card bg-white flexbox space-between"
+        v-for="index in 10" :key="index">
+          <div class="news-text">
+            <div class="gray-1 font-18 font-bold">JEE Main 2020, NEET 2020 new dates out: How to prepare for...</div>
+            <div class="gray-2 font-10">
               India Today - 9 hours ago
-            </v-container>
-          </v-card-actions>
-        </v-card>
-        
+            </div>
+            <p class="font-15">JEE Main 2020, NEET 2020 new dates out: How to prepare for exam amid Covid-19 lockdown. Here are some tips and strategies to score good</p>
+          </div>
+          <img class="news-image ml-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyxTOKIYbShno-oNiAKbr3j8xHirh4rD_8GYaR6a1zRP1FahdodncZu9kmTlaBXywDH2V68uM-&s">   
+        </div>
       </div>
     </div>
 </template>
+<script>
+import ExamNotification from './ExamNotification'
+export default {
+  components: { ExamNotification, },
+}
+</script>

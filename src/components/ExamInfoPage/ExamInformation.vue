@@ -1,42 +1,20 @@
 <template>
   <div class="examinfo__content container">
-    <div class="exam-notification card bg-white">
-      <h2 class="font-16 text-center primary mb-5">JEE Main Updates and Notifications</h2>
-      <div class="divider-horizontal mt-2 mb-2"></div>
-      <div class="notifications mb-1">
-        <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-        <span class="icon right__icon-black"></span>
-      </div>
-      <div class="divider-horizontal mt-2 mb-2"></div>
-      <div class="notifications mb-1">
-        <span class="font-15 width-90 notification-text">Je available in the first week of July</span>
-        <span class="icon right__icon-black"></span>
-      </div>
-      <div class="divider-horizontal mt-2 mb-2"></div>
-      <div class="notifications mb-1">
-        <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-        <span class="icon right__icon-black"></span>
-      </div>
-      <div class="divider-horizontal mt-2 mb-2"></div>
-      <div class="notifications mb-1">
-        <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-        <span class="icon right__icon-black"></span>
-      </div> 
-    </div>
+    <ExamNotification/>
     <div class="exam-info card bg-white">
-      <div class="quick-links container mb-5">
+      <div class="quick-links mb-5">
         <h4 class="font-16 text-center">Quick-links</h4>
-        <div class="ql-icons flexbox mt-5">
-          <div class="ql-link">
-            <img src="@/assets/dates.svg" class="center" alt="">
+        <div class="space-around flexbox mt-5">
+          <div class="ql-link flexbox-vertical">
+            <img src="@/assets/dates.svg" alt="">
             <h5 class="font-16 text-center mt-2">Dates</h5>
           </div>
-          <div class="ql-link">
-            <img src="@/assets/application.svg" class="center" alt="">
+          <div class="ql-link flexbox-vertical">
+            <img src="@/assets/application.svg" alt="">
             <h5 class="font-16 text-center mt-2">Application</h5>
           </div>
-          <div class="ql-link">
-            <img src="@/assets/syllabus.svg" class="center" alt="">
+          <div class="ql-link flexbox-vertical">
+            <img src="@/assets/syllabus.svg" alt="">
             <h5 class="font-16 text-center mt-2">Syllabus</h5>
           </div>
         </div>
@@ -59,3 +37,10 @@
     </div>
   </div>
 </template>
+
+<script>
+import ExamNotification from './ExamNotification'
+export default {
+  components: { ExamNotification, },
+}
+</script>

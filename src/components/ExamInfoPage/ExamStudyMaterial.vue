@@ -1,27 +1,53 @@
 <template>
-    <div class="primary" id="primary">
-      <div class="primary_text">
-        <v-container>
-          <v-row align="center">
-            <v-col cols="12" lg="9">
-              <v-row justify="center" align="center" class="mt-10 mb-3">
-                <span class="exam-name display-2 primary--text text-truncate" id="exam-name">Study materials</span>
-              </v-row>
-              <v-row justify="center" align="center ml-3 mb-2">
-                <span class="exam-name text-truncate"><a class="" href="http://nta.ac.in/Engineeringexam">http://nta.ac.in/Engineeringexam</a></span>
-              </v-row>
-              <v-row align="center ml-3 mb-5">
-                <span class="exam-name primary--text">Joint Entrance Examination (Main) is conducted for admission to B.E/B.Tech and B.arch programs in NITs, IIITs and other Centrally Funded Technical Institutions etc. NTA will be organizing JEE Main from the year 2019. The exam was being conducted by the CBSE until 2018 earlier. JEE Main will be held twice a year in January and April in online mode only.Around 130000 students compete for 11000 seats every year. </span>
-              </v-row>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-divider vertical></v-divider>
-            <v-col lg="2">
-              <span class="exam-name subtitle primary--text text-truncate">Conducted yearly</span>  
-              <span class="exam-name subtitle primary--text text-truncate">Mode: online and offline</span>  
-            </v-col>
-          </v-row>
-        </v-container>
+    <div id="previous-papers" class="examinfo__content container">
+      <ExamNotification/>
+      <div class="exam-index card bg-white">
+        <h2 class="font-16 text-center primary mb-5">JEE Main Updates and Notifications</h2>
+        <div class="divider-horizontal mt-2 mb-2"></div>
+        <div class="notifications mb-1">
+          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
+          <span class="icon right__icon-black"></span>
+        </div>
+        <div class="divider-horizontal mt-2 mb-2"></div>
+        <div class="notifications mb-1">
+          <span class="font-15 width-90 notification-text">Je available in the first week of July</span>
+          <span class="icon right__icon-black"></span>
+        </div>
+        <div class="divider-horizontal mt-2 mb-2"></div>
+        <div class="notifications mb-1">
+          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
+          <span class="icon right__icon-black"></span>
+        </div>
+        <div class="divider-horizontal mt-2 mb-2"></div>
+        <div class="notifications mb-1">
+          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
+          <span class="icon right__icon-black"></span>
+        </div> 
       </div>
+
+      <div class="exam-material left-info grid-3 card bg-white">
+        <div class="qp-card card bg-white shadow"
+        v-for="index in 10" :key="index">
+
+          <div class="font-18">JEE Mains Previous Paper 1</div>
+          <div class="gray-2 font-10">Held On: 9 Jan 2019 </div>
+          <div class="flexbox space-between mt-3"
+            v-for="item in exam_info"
+            :key="item.title"
+          >
+            <span class="font-15">{{ item.title }}</span>
+            <span class="font-15 gray-1"> {{ item.value }}</span>
+          </div>
+          <div class="divider-horizontal-primary mt-2 mb-2"></div>
+          <button class="button success white center-button">Attempt</button>
+        </div>
+      </div>
+
     </div>
 </template>
+<script>
+import ExamNotification from './ExamNotification'
+export default {
+  components: { ExamNotification, },
+}
+</script>

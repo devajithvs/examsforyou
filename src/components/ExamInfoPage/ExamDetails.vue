@@ -8,7 +8,7 @@
                 <div class="admit-card-icon mr-1 mt-1"></div>
                 <p class="exam-admit-card white font-10">Admit Card Date<br>03, July, 2020 (Tentative)</p>
             </div>
-            <button class="button visit-website bg-complementary mt-1">
+            <button class="button center-button bg-complementary mt-1">
               <span class="font-bold font-15">Visit Website</span>
             </button>  
         </div>
@@ -24,28 +24,26 @@
         </a>
     </div>
     <div>
-      <ExamNotification v-if="current_tab == 0"/>
+      <ExamInformation v-if="current_tab == 0"/>
       <ExamBlog v-if="current_tab == 1"/>
       <ExamPreviousPapers v-if="current_tab == 2"/>
       <ExamStudyMaterial v-if="current_tab == 3"/>
-      <ExamFAQ v-if="current_tab == 4"/>
     </div>
   </section>
 </template>
 
 <script>
  /*Other component*/
-import ExamNotification from './ExamInformation'
+import ExamInformation from './ExamInformation'
 import ExamBlog from './ExamBlog'
 import ExamPreviousPapers from './ExamPreviousPapers'
 import ExamStudyMaterial from './ExamStudyMaterial'
-import ExamFAQ from './ExamFAQ'
 export default {
-  components: { ExamNotification, ExamBlog, ExamPreviousPapers, ExamStudyMaterial, ExamFAQ },
+  components: { ExamInformation, ExamBlog, ExamPreviousPapers, ExamStudyMaterial },
   data() {
     return {
       current_tab : 0,
-      info_sections : ["Exam Info", "Articles", "Attempt Previous Papers", "Study Material", "Discussions"],
+      info_sections : ["Exam Info", "Articles", "Attempt Previous Papers", "Study Material"],
     }
   }
 }
