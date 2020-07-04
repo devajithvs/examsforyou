@@ -2,44 +2,27 @@
     <div id="previous-papers" class="examinfo__content container">
       <ExamNotification/>
       <div class="exam-index card bg-white">
-        <h2 class="font-16 text-center primary mb-5">JEE Main Updates and Notifications</h2>
-        <div class="divider-horizontal mt-2 mb-2"></div>
-        <div class="notifications mb-1">
-          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-          <span class="icon right__icon-black"></span>
-        </div>
-        <div class="divider-horizontal mt-2 mb-2"></div>
-        <div class="notifications mb-1">
-          <span class="font-15 width-90 notification-text">Je available in the first week of July</span>
-          <span class="icon right__icon-black"></span>
-        </div>
-        <div class="divider-horizontal mt-2 mb-2"></div>
-        <div class="notifications mb-1">
-          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-          <span class="icon right__icon-black"></span>
-        </div>
-        <div class="divider-horizontal mt-2 mb-2"></div>
-        <div class="notifications mb-1">
-          <span class="font-15 width-90 notification-text">JEE Main 2020 admit card to be available in the first week of July</span>
-          <span class="icon right__icon-black"></span>
-        </div> 
+        <h2 class="font-20 gray-1 mb-2">Index</h2>
+        <div class="divider-horizontal mb-1"></div>
+          <span class="display-block font-16 width-90 gray-1">Video Lectures</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1 ml-2">Physics</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1 ml-2">Chemistry</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1 ml-2">Mathematics</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1">Notes</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1">Video Solutions</span>
+          <span class="display-block font-16 width-90 gray-1 mt-1">Text Solutions</span>
       </div>
-
-      <div class="exam-material left-info grid-3 card bg-white">
-        <div class="qp-card card bg-white shadow"
-        v-for="index in 10" :key="index">
-
-          <div class="font-18">JEE Mains Previous Paper 1</div>
-          <div class="gray-2 font-10">Held On: 9 Jan 2019 </div>
-          <div class="flexbox space-between mt-3"
-            v-for="item in exam_info"
-            :key="item.title"
-          >
-            <span class="font-15">{{ item.title }}</span>
-            <span class="font-15 gray-1"> {{ item.value }}</span>
+      <div class="exam-material card bg-white">
+        <h1 class="mb-2">Video Lectures</h1>
+        <div class="divider-horizontal mb-1"></div>
+        <span class="display-block font-16 width-90 gray-1"><span class="primary">#</span> Physics</span>
+        <div class="grid-3">
+          <div class="min-width-10 card bg-white shadow"
+          v-for="index in 10" :key="index">
+            <img src="https://i.ytimg.com/vi/QgnY-JolIPM/hqdefault.jpg" style="width:8em; height:auto;"/>
+            <div class="font-18 hover-blue"> Conic Sections- Mathematics : 16 formulas in 10 Seconds</div>
+            <div class="gray-2 font-10">By Ravikumar |Xpertz| Xpertz Trivandrum</div>
           </div>
-          <div class="divider-horizontal-primary mt-2 mb-2"></div>
-          <button class="button success white center-button">Attempt</button>
         </div>
       </div>
 

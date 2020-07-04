@@ -80,6 +80,14 @@ header section {
     max-width: 70%;
 }
 
+.width-20 {
+    max-width: 20%;
+}
+
+.width-5e {
+    width: 11em;
+}
+
 .flexbox {
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +151,22 @@ header section {
 
 .ml-1 {
     margin-left: 0.4rem;
+}
+
+.ml-0 {
+    margin-left: 0em;
+}
+
+.ml-2 {
+    margin-left: 0.8rem;
+}
+
+.ml-3 {
+    margin-left: 1rem;
+}
+
+.ml-5 {
+    margin-left: 2em;
 }
 
 .mr-1 {
@@ -510,12 +534,24 @@ header section {
     border-radius: 1em;
 }
 
+.exams-content {
+    flex: 1 1 20em;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .news-card:first-of-type {
     margin: 2vh 1vw 0;
 }
 
 .qp-card {
     min-width: 12em;
+}
+
+.min-width-10 {
+    min-width: 10em;
 }
 
 .qp-card + .qp-card {
@@ -686,8 +722,17 @@ header section {
 }
 
 .left-info {
+    flex-wrap: nowrap;
     padding: 0px 16px;
     position: relative;
+}
+
+.sort {
+    display: none;
+}
+
+.examinations-cards {
+    flex: 1;
 }
 
 @media(max-width:320px) {
@@ -739,6 +784,10 @@ header section {
         grid-row: 1;
     }
 
+    .display-block {
+        display: block;
+    }
+
     .notifications {
         cursor: pointer;
         display: flex;
@@ -746,7 +795,7 @@ header section {
         align-items: center;
     }
 
-    .notification-text:hover {
+    .hover-blue:hover {
         color: blue;
     }
 
@@ -808,6 +857,16 @@ header section {
 }
 
 @media(min-width:1202px) {
+
+
+    .sort {
+        flex: 0 0 23%;
+        align-self: flex-start;
+    }
+
+    .examinations-cards {
+        flex: 0 0 74%
+    }
 
     .exam-material {
         grid-column: 2 / -2;

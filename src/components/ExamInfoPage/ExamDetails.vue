@@ -28,6 +28,7 @@
       <ExamBlog v-if="current_tab == 1"/>
       <ExamPreviousPapers v-if="current_tab == 2"/>
       <ExamStudyMaterial v-if="current_tab == 3"/>
+      <ExamList v-if="current_tab == 4"/>
     </div>
   </section>
 </template>
@@ -38,12 +39,13 @@ import ExamInformation from './ExamInformation'
 import ExamBlog from './ExamBlog'
 import ExamPreviousPapers from './ExamPreviousPapers'
 import ExamStudyMaterial from './ExamStudyMaterial'
+import ExamList from './ExamListPage'
 export default {
-  components: { ExamInformation, ExamBlog, ExamPreviousPapers, ExamStudyMaterial },
+  components: { ExamInformation, ExamBlog, ExamPreviousPapers, ExamStudyMaterial, ExamList },
   data() {
     return {
       current_tab : 0,
-      info_sections : ["Exam Info", "Articles", "Attempt Previous Papers", "Study Material"],
+      info_sections : ["Exam Info", "Articles", "Attempt Previous Papers", "Study Material", "Exam List"],
     }
   }
 }
