@@ -1,4 +1,4 @@
-megaMenu<template>
+<template>
     <div class="megaMenu-container">
        <div class="pt-2 bg-white round-border-5 shadow">
             <div class="flex">

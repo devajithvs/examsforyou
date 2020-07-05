@@ -9,22 +9,22 @@
           </div>
           <div class="divider-horizontal mt-1 mb-3"></div>
           <div class="container">
-            <span class="display-block font-15 width-90 gray-1">SORT BY</span>
-            <div class="radio-container font-15 width-90 gray-1 mt-1 ml-1">
+            <span class="display-block font-15 max-width-90 gray-1">SORT BY</span>
+            <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1">
               <input type="radio" id="date-option" name="sort-order">
               <label for="date-option">Dates</label>
             </div>
-            <div class="radio-container font-15 width-90 gray-1 mt-1 ml-1">
+            <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1">
               <input type="radio" id="popular-option" name="sort-order">
               <label for="popular-option">Popularity</label>
             </div>
 
-            <span class="display-block font-15 width-90 gray-1 mt-3">EXAM LEVEL</span>
-            <div class="checkbox-container font-15 width-90 gray-1 mt-1 ml-1">
+            <span class="display-block font-15 max-width-90 gray-1 mt-3">EXAM LEVEL</span>
+            <div class="checkbox-container font-15 max-width-90 gray-1 mt-1 ml-1">
               <input type="checkbox" id="ug-option">
               <label for="f-option">UG</label>
             </div>
-            <div class="checkbox-container font-15 width-90 gray-1 mt-1 ml-1">
+            <div class="checkbox-container font-15 max-width-90 gray-1 mt-1 ml-1">
               <input type="checkbox" id="pg-option">
               <label for="f-option">PG</label>
             </div>
