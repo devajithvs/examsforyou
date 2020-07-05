@@ -1,10 +1,10 @@
 <template>
-  <section class="main">
-    <div class="landing__main">
+  <section class="pt-3 mt-5">
+    <div class="landing__main align-center space-around">
       <div class="landing__content">
-        <h1 class="main__title">Ace Your Next Big Test</h1>
-        <p class="main__intro">Attempt previous years exams with analytics, interactive digital reports and more absolutely FREE</p>
-        <button class="button success">
+        <h1 class="font-30 gray-1 text-center">Ace Your Next Big Test</h1>
+        <p class="line-ht-15 text-center font-19 font-light gray-1 mt-0">Attempt previous years exams with analytics, interactive digital reports and more absolutely FREE</p>
+        <button class="button getting-started-btn success uppercase">
           <span>Get Started</span>
         </button>  
       </div>

@@ -1,33 +1,33 @@
-<template>
+megaMenu<template>
     <div class="megaMenu-container">
-       <div class="megaMenu round-border-5 shadow">
-            <div class="mega-content">
-                <ul class="mega-col">
-                    <li class="mega-row dark-1 hover-darker mpt-1"
+       <div class="pt-2 bg-white round-border-5 shadow">
+            <div class="flex">
+                <ul class="flex-vertical space-around width-50">
+                    <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1"
                         v-for="(item, index) in exam_list_level1"
                         :key="index"
                         @click="current_item_1 = item"
                         @mouseover="current_item_1 = item"
                         >
-                        <div class="icon exam-icon" :class="exam_list_level1_icons[index]">
+                        <div class="icon" :class="exam_list_level1_icons[index]">
                         </div>
-                        <div class="item">
+                        <div class="width-50">
                             {{ item }}
                         </div>
                         <span class="icon right__icon-black"></span>
                     </li>
                 </ul>
-                <ul class="mega-col secondary">
-                    <li class="mega-row mb-1 dark-1">
-                        <div class="item-2 mega-col-title">
+                <ul class="flex-vertical space-around width-50 secondary">
+                    <li class="cursor-pointer flex space-around align-center font-16 mb-1 gray-1">
+                        <div class="width-80 font-18 mb-2">
                             {{current_item_1}}
                         </div>
                     </li>
-                    <li class="mega-row mb-1 dark-1"
+                    <li class="cursor-pointer flex space-around align-center font-16 mb-1 gray-1"
                         v-for="(item, index) in exam_list_level2[current_item_1]"
                         :key="index"
                         >
-                        <a class="item-2">
+                        <a class="width-80">
                             {{ item }}
                         </a>
                     </li>

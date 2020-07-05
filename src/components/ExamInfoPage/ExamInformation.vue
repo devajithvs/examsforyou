@@ -2,9 +2,9 @@
   <div class="examinfo__content container">
     <ExamNotification/>
     <div class="exam-info card bg-white">
-      <div class="quick-links mb-5">
+      <div class="mb-5">
         <h4 class="font-16 text-center">Quick-links</h4>
-        <div class="space-around flexbox mt-5">
+        <div class="flex flex-wrap space-around mt-5">
           <div class="ql-link flexbox-vertical">
             <img src="@/assets/dates.svg" alt="">
             <h5 class="font-16 text-center mt-2">Dates</h5>

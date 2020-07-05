@@ -1,9 +1,9 @@
 <template>
     <div id="news" class="examinfo__content container">
       <ExamNotification/>
-      <div class="flexbox exam-info space-between">
+      <div class="flex exam-info space-between">
         <div class="exam-index card bg-white sort">
-          <div class="flexbox space-between">
+          <div class="flex space-between align-center">
             <span class="font-16 gray-1">Sort and Filter</span>
             <a href=""><span class="font-15 primary">Clear All</span></a>
           </div>
@@ -30,10 +30,13 @@
             </div>
           </div>
           </div>
+
+
           <div class="left-info examinations-cards">
-            <div class="card bg-white flexbox space-between flex-wrap"
+            <div class="font-12 gray-2 card">Showing 6 Results</div>
+            <div class="card bg-white flex space-between flex-wrap align-center"
             v-for="index in 10" :key="index">
-              <div class="news-card flexbox space-between exams-content">
+              <div class="news-card flex align-center space-between exams-content">
                 <img class="news-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyxTOKIYbShno-oNiAKbr3j8xHirh4rD_8GYaR6a1zRP1FahdodncZu9kmTlaBXywDH2V68uM-&s">   
                 <div class="ml-2">
                   <div class="gray-1 font-17 font-bold">Joint Entrance Examination Main (JEE Main)</div>

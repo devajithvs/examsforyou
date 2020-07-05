@@ -1,58 +1,58 @@
 <template>
     <div>
-        <div class="seo__container">
-          <h2>Explore Exams, Courses, Blogs and more</h2>
-          <div class="streams__list container flexbox">
-            <div class="engineering__list">
-              <h3>Engineering</h3>
+        <div class="gray-2">
+          <h2 class="font-20 text-center">Explore Exams, Courses, Blogs and more</h2>
+          <div class="container flex space-around flex-wrap">
+            <div id="engineering__list" class="margin-20">
+              <h3 class="font-19">Engineering</h3>
               <ul>
-                <li><a href="">JEE Main</a></li>
-                <li><a href="">JEE Advanced</a></li>
-                <li><a href="">Gate CH</a></li>
-                <li><a href="">Gate CE</a></li>
-                <li><a href="">Gate ME</a></li>
-                <li><a href="">Gate CS</a></li>
-                <li><a href="">Bitsat</a></li>
-                <li><a href="">KEAM</a></li>
+                <li><a class="gray-2" href="">JEE Main</a></li>
+                <li><a class="gray-2" href="">JEE Advanced</a></li>
+                <li><a class="gray-2" href="">Gate CH</a></li>
+                <li><a class="gray-2" href="">Gate CE</a></li>
+                <li><a class="gray-2" href="">Gate ME</a></li>
+                <li><a class="gray-2" href="">Gate CS</a></li>
+                <li><a class="gray-2" href="">Bitsat</a></li>
+                <li><a class="gray-2" href="">KEAM</a></li>
               </ul>
             </div>
-            <div class="engineering__list">
+            <div id="engineering__list" class="margin-20">
               <h3>Engineering</h3>
               <ul>
-                <li><a href="">JEE Main</a></li>
-                <li><a href="">JEE Advanced</a></li>
-                <li><a href="">Gate CH</a></li>
-                <li><a href="">Gate CE</a></li>
-                <li><a href="">Gate ME</a></li>
-                <li><a href="">Gate CS</a></li>
-                <li><a href="">Bitsat</a></li>
-                <li><a href="">KEAM</a></li>
+                <li><a class="gray-2" href="">JEE Main</a></li>
+                <li><a class="gray-2" href="">JEE Advanced</a></li>
+                <li><a class="gray-2" href="">Gate CH</a></li>
+                <li><a class="gray-2" href="">Gate CE</a></li>
+                <li><a class="gray-2" href="">Gate ME</a></li>
+                <li><a class="gray-2" href="">Gate CS</a></li>
+                <li><a class="gray-2" href="">Bitsat</a></li>
+                <li><a class="gray-2" href="">KEAM</a></li>
               </ul>
             </div>
-            <div class="engineering__list">
+            <div id="engineering__list" class="margin-20">
               <h3>Engineering</h3>
               <ul>
-                <li><a href="">JEE Main</a></li>
-                <li><a href="">JEE Advanced</a></li>
-                <li><a href="">Gate CH</a></li>
-                <li><a href="">Gate CE</a></li>
-                <li><a href="">Gate ME</a></li>
-                <li><a href="">Gate CS</a></li>
-                <li><a href="">Bitsat</a></li>
-                <li><a href="">KEAM</a></li>
+                <li><a class="gray-2" href="">JEE Main</a></li>
+                <li><a class="gray-2" href="">JEE Advanced</a></li>
+                <li><a class="gray-2" href="">Gate CH</a></li>
+                <li><a class="gray-2" href="">Gate CE</a></li>
+                <li><a class="gray-2" href="">Gate ME</a></li>
+                <li><a class="gray-2" href="">Gate CS</a></li>
+                <li><a class="gray-2" href="">Bitsat</a></li>
+                <li><a class="gray-2" href="">KEAM</a></li>
               </ul>
             </div>
-            <div class="engineering__list">
+            <div id="engineering__list" class="margin-20">
               <h3>Engineering</h3>
               <ul>
-                <li><a href="">JEE Main</a></li>
-                <li><a href="">JEE Advanced</a></li>
-                <li><a href="">Gate CH</a></li>
-                <li><a href="">Gate CE</a></li>
-                <li><a href="">Gate ME</a></li>
-                <li><a href="">Gate CS</a></li>
-                <li><a href="">Bitsat</a></li>
-                <li><a href="">KEAM</a></li>
+                <li><a class="gray-2" href="">JEE Main</a></li>
+                <li><a class="gray-2" href="">JEE Advanced</a></li>
+                <li><a class="gray-2" href="">Gate CH</a></li>
+                <li><a class="gray-2" href="">Gate CE</a></li>
+                <li><a class="gray-2" href="">Gate ME</a></li>
+                <li><a class="gray-2" href="">Gate CS</a></li>
+                <li><a class="gray-2" href="">Bitsat</a></li>
+                <li><a class="gray-2" href="">KEAM</a></li>
               </ul>
             </div>
           </div>

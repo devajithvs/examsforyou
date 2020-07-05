@@ -1,6 +1,46 @@
 <template>
-    <nav>
-        <v-app-bar app class="navbar">            
+    <section class="bg-white">
+        <nav class="navbar container flex space-between align-center">
+            <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
+            <div class="e4y__left">
+                <img src="@/assets/Logo_only.svg" class="icon logo__icon" alt="">
+                <img src="@/assets/Logo_text.svg" class="icon logotext__icon" alt="">
+                <div class="height-auto font-15 gray-2 center" id="exam-name">{{exam_name}}</div>
+                <div class="megamenu-overflow" @mouseleave="expand = false">
+                    <button
+                    @click="expand = !expand"
+                    @mouseover="expand = true"
+                    class="explore explore-button button success"
+                    :class="expand ? 'ghost-on-hover' : ''"
+                    >
+                        <div class="button-content">
+                            <span class="bold explore-text font-18">Explore</span>
+                            <span class="icon down__icon"></span>
+                        </div>
+                    </button>
+                    <ExamListCard v-show="expand"/>
+                </div>
+                <form class="search-container">
+                    <div class="search-form">
+                        <input class="search-bar" placeholder="What do you want to learn?" autocomplete="on" type="text">
+                    </div>
+                    <button id="search-button" type="submit"></button>
+                </form>
+            </div>
+            
+            <button class="login-button button success">
+            <div class="button-content">
+                <span class="bold font-18">Login</span>
+            </div>
+            </button>
+
+            <img src="@/assets/search_black.svg" class="search__icon" alt="">
+        </nav>
+        <div class="divider-horizontal"></div> 
+    </section>
+</template>
+<style lang="css">
+     /* <v-app-bar app class="navbar">            
             <v-app-bar-nav-icon class="primary_text--text hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase hidden-sm-and-down">
                 <Logo :isTextRequired="true"/>
@@ -67,23 +107,19 @@
                 </v-list-item-content>
             </v-list-item>
         </v-list>
-        </v-navigation-drawer>
-    </nav>
-</template>
-<style lang="scss">
-    @import '../sass/exam.scss';
+        </v-navigation-drawer> */
+    @import '../css/main.css';
 </style>
 
 <script>
  /*Other component*/
-import Status from './exam_status'
+// import Status from './exam_status'
 import Init from '../mixins/exam_init'
 import UpdateResponse from '../mixins/updateResponse'
-import Logo from './exam_status'
 
 export default {
     mixins: [Init, UpdateResponse],
-    components: { Status, Logo },
+    // components: { Status, },
     beforeMount(){
       this.initialize();
       this.updateResponse();

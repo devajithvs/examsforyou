@@ -7,7 +7,7 @@
 
           <div class="font-18">JEE Mains Previous Paper 1</div>
           <div class="gray-2 font-10">Held On: 9 Jan 2019 </div>
-          <div class="flexbox space-between mt-3"
+          <div class="flex space-between mt-3"
             v-for="item in exam_info"
             :key="item.title"
           >

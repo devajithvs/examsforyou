@@ -2,9 +2,9 @@
     <div id="news" class="examinfo__content container">
       <ExamNotification/>
       <div class="exam-info left-info">
-        <div class="card news-card bg-white flexbox space-between"
+        <div class="card news-card bg-white flex space-between"
         v-for="index in 10" :key="index">
-          <div class="news-text">
+          <div>
             <div class="gray-1 font-18 font-bold">JEE Main 2020, NEET 2020 new dates out: How to prepare for...</div>
             <div class="gray-2 font-10">
               India Today - 9 hours ago

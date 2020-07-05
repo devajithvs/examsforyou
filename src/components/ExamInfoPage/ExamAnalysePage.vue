@@ -1,55 +1,127 @@
 <template>
   <div class="examinfo__content container">
-    <ExamNotification/>
-    <div class="exam-info card bg-white">
-      <div class="quick-links mb-5 container">
-        <h4 class="font-19 mb-0">Metrics</h4>
-        <p class="font-15 mt-0 mb-5">Overall Performance based on practice tests and previous papers</p>
-        <div class="space-between flexbox mt-5">
-          <div class="qp-card card bg-white">
 
-            <img src="@/assets/dates.svg" alt="">
-            <h5 class="font-16 text-center mb-0 font-normal">Accuracy</h5>
-            <p class="font-18 font-bold mt-1 text-center">80%</p>
-            <div class="divider-horizontal-primary mt-2 mb-2"></div>
-            <button class="button success white center-button">Attempt</button>
-          </div>
-          <!-- <div class="ql-link flexbox-vertical">
-            <img src="@/assets/dates.svg" alt="">
-            <h5 class="font-16 text-center mt-2">Dates</h5>
-          </div>
-          <div class="ql-link flexbox-vertical">
-            <img src="@/assets/application.svg" alt="">
-            <h5 class="font-16 text-center mt-2">Application</h5>
-          </div>
-          <div class="ql-link flexbox-vertical">
-            <img src="@/assets/syllabus.svg" alt="">
-            <h5 class="font-16 text-center mt-2">Syllabus</h5>
-          </div> -->
+
+    <div class="exam-notification card bg-white">
+      <h2 class="font-16 text-center primary mb-1">Checklist</h2>
+      <div class="divider-horizontal mt-0 mb-1"></div>
+      <ProgressBar class="mb-2" v-bind:progress="50"/>
+      <span class="display-block font-16 gray-1 text-center">SORT BY</span>
+      <div class="width-40 center">
+        <div class="radio-container font-15 gray-1 mt-1 flex space-between">
+          <label for="date-option">Deadline</label>
+          <input type="radio" id="date-option" name="sort-order">
+        </div>
+        <div class="radio-container font-15 gray-1 mt-1 flex space-between">
+          <label for="popular-option">Priority</label>
+          <input type="radio" id="popular-option" name="sort-order">
         </div>
       </div>
-      <div class="container">
-        <h3 class="font-18">About JEE Main 2020</h3>
-        <p class="mt-1 pt-1 font-16">National Testing Agency will conduct JEE Main 2020 from July 18 to 23. Previously, the exam was postponed due to the outbreak of COVID-19.  The authorities have closed the JEE Main 2020 application form correction along with exam centre correction from May 25 to 31. The JEE Main application form submission facility was also opened from May 19 to 24. The details of JEE Main 2020 admit card will be released tentatively on July 3. NTA has closed the application form correction facility along with exam centre change facility on May 3. The application form was released on February 7 and the last date to complete the JEE Main registration was March 12, 2020. The computer based test will be conducted for two papers - JEE Main Paper 1 for B.Tech/ B.E and Paper 2 for B.Arch/ B.Planning. JEE Main 2020 result will be announced in online mode and will be valid for the current admission year only. JEE Main ranks will be used for admissions to  UG engineering programmes offered by 31 NITs, 25 IIITs and 28 CFTIs in addition to admission in states like Odisha, Madhya Pradesh, Haryana, Uttarakhand, Punjab, Bihar, Jharkhand and Nagaland and many other private universities and institutes. JEE Main is held twice a year. Candidates can appear for both and the better of the two scores will be considered for ranking purposes. About 8,69,010 candidates appeared for the January session of JEE Main which was held from January 6 to 9 in 570 exam centres. 9 students scored 100 percentile as per the JEE Main result (January) for Paper I which was declared on January 17. The result for Paper 2 was announced on January 23.</p>
+        
+      <div class="display-block font-16 gray-1 text-center mt-3">3 Tasks Remaining</div>
+      <div class="card-small bg-white">
+        <div class="font-18">Physics</div>
+        <div class="gray-2 font-10">Study Thermodynamics</div>
+        <div class="flex space-between mt-3">
+          <span class="font-10 primary">By 8th August</span>
+          <span class="font-10 gray-2">Mark as done</span>
+        </div>
       </div>
-      <div class="container">
-        <h3 class="font-18">JEE Main Dates</h3>
-        <p class="mt-1 pt-1 font-16">July 2: JEE Main 2020 postponed/cancelled, MHRD to reveal tomorrow. Read more</p>
-        <p class="mt-1 pt-1 font-16">June 26: JEE Main 2020 exam dates unchanged, says HRD Minister; to be reviewed in July 1st week. Read more</p>
-        <p class="mt-1 pt-1 font-16">June 24: JEE Main 2020 to be postponed again; 5 reasons to know why. Read more</p>
-        <p class="mt-1 pt-1 font-16">June 16: JEE Main 2020: Educationists demand to cancel the exam. Read more</p>
-        <p class="mt-1 pt-1 font-16">May 25: NTA to release JEE Main 2020 admit card 15 days prior to the exam. Read more</p>
-        <p class="mt-1 pt-1 font-16">May 20: JEE Main 2020: National Test Abhyas App is now available on Android. Read more</p>
-        <p class="mt-1 pt-1 font-16">May 19: JEE Main 2020: HRD Minister to make a major announcement for students who dropped the idea to study abroad. Read more</p>
-        <p class="mt-1 pt-1 font-16">May 5. HRD Minister announced JEE Main 2020 April Session dates on May 05. The exam will be held from July 18-23 in online mode. Read More</p>
+      <div class="card-small bg-white">
+        <div class="font-18">Physics</div>
+        <div class="gray-2 font-10">Study Thermodynamics</div>
+        <div class="flex space-between mt-3">
+          <span class="font-10 primary">By 8th August</span>
+          <span class="font-10 gray-2">Mark as done</span>
+        </div>
       </div>
+      <div class="card-small bg-white">
+        <div class="font-18">Physics</div>
+        <div class="gray-2 font-10">Study Thermodynamics</div>
+        <div class="flex space-between mt-3">
+          <span class="font-10 primary">By 8th August</span>
+          <span class="font-10 gray-2">Mark as done</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="exam-info card bg-white">
+      <div class="quick-links mb-5 container">
+        <h4 class="font-20 mb-0">Metrics</h4>
+        <p class="font-16 mt-0 gray-1">Overall Performance based on practice tests and previous papers</p>
+        <div class="space-around flex flex-wrap mt-3 mb-2">
+          <div class="min-width-10 card bg-white shadow">
+
+            <img src="@/assets/accuracy.svg" class="center mb-0" alt="">
+            <h5 class="font-18 text-center mb-0 mt-2 font-normal">Accuracy</h5>
+            <p class="font-19 font-bold mt-1 mb-2 text-center gray-2">80%</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Better than <span class="primary">95%</span> Students</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Social Average: <span class="complementary">50%</span></p>
+            
+          </div>
+
+          <div class="min-width-10 card bg-white shadow">
+
+            <img src="@/assets/stamina.svg" class="center mb-0" alt="">
+            <h5 class="font-18 text-center mb-0 mt-2 font-normal">Stamina</h5>
+            <p class="font-19 font-bold mt-1 mb-2 text-center gray-2">3 min 5 second</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Better than <span class="primary">55%</span> Students</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Social Average: <span class="complementary">3 min 43 sec</span></p>
+            
+          </div>
+
+          <div class="min-width-10 card bg-white shadow">
+
+            <img src="@/assets/speed.svg" class="center mb-0" alt="">
+            <h5 class="font-18 text-center mb-0 mt-2 font-normal">Speed</h5>
+            <p class="font-19 font-bold mt-1 mb-2 text-center gray-2">1 min 9 sec</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Better than <span class="primary">65%</span> Students</p>
+            <p class="font-12 mt-0 mb-0 text-center gray-2">Social Average: <span class="complementary">5 min 43 sec</span></p>
+            
+          </div>
+
+        </div>
+      </div>
+      <div class="quick-links mb-5 container">
+        <h4 class="font-20 mb-0 mt-0">Suggestions</h4>
+        <p class="font-16 mt-0 mb-5 gray-1">Personalised suggestions based on the exams you wrote</p>
+        <div class="mt-3 mb-2">
+          <div class="grid-3">
+            <div class="min-width-10 card bg-white shadow"
+            v-for="index in 5" :key="index">
+              <img src="https://i.ytimg.com/vi/QgnY-JolIPM/hqdefault.jpg" class="center" style="width:8em; height:auto;"/>
+              <div class="font-18 hover-blue"> Conic Sections- Mathematics : 16 formulas in 10 Seconds</div>
+              <div class="gray-2 font-10">By Ravikumar |Xpertz| Xpertz Trivandrum</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-links mb-5 container">
+        <h4 class="font-20 mb-0 mt-0">Common Mistakes</h4>
+        <p class="font-16 mt-0 mb-5 gray-1">The most common mistakes you make and steps to remedy them</p>
+        <div class="mt-3 mb-2">
+          <div class="grid-3">
+            <div class="min-width-10 card bg-white shadow"
+            v-for="index in 5" :key="index">
+              <img src="@/assets/stamina.svg" class="center mb-0" alt="">
+              <h5 class="font-18 text-center mb-0 mt-2 font-normal">Sign Check</h5>
+              <p class="font-19 font-bold mt-1 mb-2 text-center gray-2">15%</p>
+              <p class="font-12 mt-0 mb-0 text-center gray-2">Review your signs before even attempting the question</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script>
-import ExamNotification from './ExamNotification'
+import ProgressBar from './ProgressBar'
 export default {
-  components: { ExamNotification, },
+  components: { ProgressBar, },
 }
 </script>

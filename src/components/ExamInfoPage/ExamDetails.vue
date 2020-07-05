@@ -1,12 +1,12 @@
 <template>
     <section>
-      <div class="exam__header bg-primary">
-        <div class="exam-header-content container">
+      <div class="bg-primary">
+        <div class="container">
             <p class="font-10 white mb-1"><a href="" class="white">HOME</a>&nbsp;>>&nbsp;<a href="" class="white">JEE MAIN</a></p>
-            <h1 class="exam-name white font-20 text-center">Joint Entrance Examination Main (JEE Main)</h1>
-            <div class="admit-card flexbox mt-1">
-                <div class="admit-card-icon mr-1 mt-1"></div>
-                <p class="exam-admit-card white font-10">Admit Card Date<br>03, July, 2020 (Tentative)</p>
+            <h1 class="white font-20 text-center">Joint Entrance Examination Main (JEE Main)</h1>
+            <div class="flex align-center justify-center mt-1">
+                <div class="icon admit-card-icon mr-1 mt-1"></div>
+                <p class="white font-10">Admit Card Date<br>03, July, 2020 (Tentative)</p>
             </div>
             <button class="button center-button bg-complementary mt-1">
               <span class="font-bold font-15">Visit Website</span>
@@ -15,7 +15,7 @@
     </div>
     <div class="divider-horizontal"></div>
     <div class="tabs gray-2">
-        <a class="tab-element font-bold font-15 hover-darker" 
+        <a class="tab-element cursor-pointer font-bold font-15 hover-darker" 
         v-for="(item, index) in info_sections" @click="current_tab = index"
         :key="index"
         :class="current_tab==index ? 'selected' : ''"
