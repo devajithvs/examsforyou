@@ -14,8 +14,8 @@
          
           <div class="flex align-center">
             <span class="gray-2 mr-1">Time Left:</span>
-            <span class="icon right__icon-black"></span>
-            <span class="gray-2 mr-3" id="time-left">{{timerCount}}</span>
+            <img src="@/assets/timer.svg" class="icon" alt="">
+            <span class="gray-2 mr-5" id="time-left">{{timerCount}}</span>
             <button class="navbar-button button success">
                 <span class="font-bold font-18">Submit</span>
             </button>

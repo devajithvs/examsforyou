@@ -269,6 +269,10 @@ header section {
     margin-right: 1rem;
 }
 
+.mr-5 {
+    margin-right: 2rem;
+}
+
 .margin-20 {
     margin: 20px;
 }
@@ -417,7 +421,6 @@ header section {
 }
 
 .ql-link {
-    display: inline-block;
     width: 4em;
 }
 
@@ -515,7 +518,7 @@ header section {
 
 .button {
     cursor: pointer;
-    padding: 1em 1em;
+    padding: 0.8em 0.8em;
     border-radius: 0.25em;
     border: 1px solid transparent;
 }
@@ -739,6 +742,16 @@ header section {
         grid-row: 1;
     }
 
+    .exam-question-container {
+        grid-column: 1 / -3;
+        grid-row: 1;
+    }
+
+    .exam-status-container {
+        display: inline-block;
+        grid-column: -3 / span 2;
+    }
+
     .exam-material {
         grid-column: 1 / -2;
         grid-row: 1;
@@ -871,6 +884,11 @@ header section {
     .examinfo__content {
         display: grid;
         grid-template-columns: repeat(4,minmax(0, 1fr)) 
+    }
+
+    .exam_grid {
+        display: grid;
+        grid-template-columns: repeat(6,minmax(0, 1fr))
     }
 
     .navbar {

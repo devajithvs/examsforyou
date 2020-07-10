@@ -1,10 +1,12 @@
 <template>
-  <v-app class="grey">
-    <Navbar/>
-    <v-content>
+  <main>
+    <header>
+      <Navbar/>
+    </header>
+    <content>
       <Exam/>
-    </v-content>
-  </v-app>
+    </content>
+  </main>
 </template>
 
 <script>
