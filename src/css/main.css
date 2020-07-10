@@ -469,20 +469,6 @@ header section {
     cursor: pointer;
 }
 
-.ghost-on-hover {
-    background-color: transparent;
-    border: 2px solid var(--clr-primary);
-}
-
-.ghost-on-hover span{
-    color: var(--clr-primary);
-    border:none
-}
-
-.ghost-on-hover .down__icon{
-    background-image: url("../assets/down_green.svg");
-}
-
 .hover-darker:hover {
     background: var(--clr-gray3);
 }
@@ -531,6 +517,20 @@ header section {
     color: var(--clr-white);
     display: inline-block;
     vertical-align: middle;
+}
+
+.ghost-on-hover {
+    background-color: transparent;
+    border: 2px solid var(--clr-primary);
+}
+
+.ghost-on-hover span{
+    color: var(--clr-primary);
+    border:none
+}
+
+.ghost-on-hover .down__icon{
+    background-image: url("../assets/down_green.svg");
 }
 
 .progress-bar {
