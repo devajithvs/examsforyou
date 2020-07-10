@@ -28,9 +28,7 @@
           </div>
          
           <button class="navbar-button button success">
-            <div class="button-content">
-              <span class="font-bold font-18">Login</span>
-            </div>
+            <span class="font-bold font-18">Login</span>
           </button>
 
           <img src="@/assets/search_black.svg" class="search__icon" alt="">
