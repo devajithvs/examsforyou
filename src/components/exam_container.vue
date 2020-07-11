@@ -17,7 +17,7 @@
           <span class="subtitle-1 hidden-xs-only">Mark for review</span>
         </div>
         <div class="divider-horizontal"></div> 
-        <div class="container question mt-1 mb-1">
+        <div class="container question mt-1 mb-1" style="height: 25vh">
           <p> {{question_no[current_section] + 1}}) {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
         </div>
         <div class="divider-horizontal"></div> 
@@ -33,30 +33,20 @@
         
         <div class="container mt-3 mb-1 flex space-between">
           <div class="">
-            <button class="button success mr-3 height-3">
+            <button v-on:click="prevQuestion()" class="button success mr-3 height-3">
               <span class="font-bold font-18">Previous</span>
             </button>
-            <button class="button success ml-2  height-3">
+            <button v-on:click="clearSelection()" class="button success ml-2 height-3">
               <span class="font-bold font-18">Clear Selection</span>
             </button>
           </div>
-          <button class="button success  height-3">
+          <button v-on:click="nextQuestion()" class="button success height-3">
             <span class="font-bold font-18">Next</span>
           </button>
         </div>
       </div>
     </div>
-
-    <div class="exam-status-container">
-      <div class="tabs gray-2">
-        <a class="tab-element cursor-pointer font-bold font-15">&nbsp;Instructions</a>
-        <a class="tab-element cursor-pointer font-bold font-15">&nbsp;Question Paper</a>
-      </div>
-      <div class="card bg-white">
-        <p class="mt-1 pt-1 font-16">National Testing Agency will conduct JEE Main 2020 from July 18 to 23. Previously, the exam was postponed due to the outbreak of COVID-19.  The authorities have closed the JEE Main 2020 application form correction along with exam centre correction from May 25 to 31. The JEE Main application form submission facility was also opened from May 19 to 24. The details of JEE Main 2020 admit card will be released tentatively on July 3. NTA has closed the application form correction facility along with exam centre change facility on May 3. The application form was released on February 7 and the last date to complete the JEE Main registration was March 12, 2020. The computer based test will be conducted for two papers - JEE Main Paper 1 for B.Tech/ B.E and Paper 2 for B.Arch/ B.Planning. JEE Main 2020 result will be announced in online mode and will be valid for the current admission year only. JEE Main ranks will be used for admissions to  UG engineering programmes offered by 31 NITs, 25 IIITs and 28 CFTIs in addition to admission in states like Odisha, Madhya Pradesh, Haryana, Uttarakhand, Punjab, Bihar, Jharkhand and Nagaland and many other private universities and institutes. JEE Main is held twice a year. Candidates can appear for both and the better of the two scores will be considered for ranking purposes. About 8,69,010 candidates appeared for the January session of JEE Main which was held from January 6 to 9 in 570 exam centres. 9 students scored 100 percentile as per the JEE Main result (January) for Paper I which was declared on January 17. The result for Paper 2 was announced on January 23.</p>
-      </div>
-    </div>
-    
+    <Status/>
   </div>
 </template>
 
@@ -150,20 +140,18 @@
     //     </v-tabs-items>
     //   </v-container>
     // </div>
-
-  // @import '../sass/exam.scss';
 </style>
 
 
 <script>
  /*Other component*/
 import {mapState} from 'vuex'
-// import Status from './exam_status'
+import Status from './exam_status'
 import UpdateResponse from '../mixins/updateResponse'
 
 export default {
   mixins: [UpdateResponse],
-  // components: { Status },
+  components: { Status },
   data(){
     return{
     }
