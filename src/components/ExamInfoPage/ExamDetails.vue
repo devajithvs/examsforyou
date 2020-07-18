@@ -1,6 +1,6 @@
 <template>
-    <section>
-      <div class="bg-primary">
+    <section class="on-top">
+      <div class="bg-primary extra-margin-top">
         <div class="container">
             <p class="font-10 white mb-1"><a href="" class="white">HOME</a>&nbsp;>>&nbsp;<a href="" class="white">JEE MAIN</a></p>
             <h1 class="white font-20 text-center">Joint Entrance Examination Main (JEE Main)</h1>

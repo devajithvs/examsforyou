@@ -1,11 +1,14 @@
 <template>
-    <section class="bg-white">
-        <nav class="navbar container flex space-between">
+    <section class="bg-white fixed full-width on-top">
+        <div @mouseleave="expand = false">
+          <ExamListCard v-show="expand"/>
+        </div>
+        <nav class="navbar container flex space-between " style="overflow:hidden;">
           <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
           <div class="e4y__left flex ml-2">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
-            <div id="megamenu" @mouseleave="expand = false">
+            <div id="megamenu">
                 <button
                 @click="expand = !expand"
                 @mouseover="expand = true"
@@ -17,7 +20,6 @@
                       <span class="icon down__icon"></span>
                     </div>
                 </button>
-                <ExamListCard v-show="expand"/>
             </div>
             <form class="search-container ml-2">
                 <div class="search-form">
@@ -33,7 +35,6 @@
 
           <img src="@/assets/search_black.svg" class="search__icon" alt="">
         </nav>
-        <div class="divider-horizontal"></div> 
     </section>
 </template>
 

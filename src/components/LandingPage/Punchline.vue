@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-3 mt-5">
+  <section class="pt-3 extra-margin-top">
     <div class="landing__main align-center space-around">
       <div class="landing__content">
         <h1 class="font-30 gray-1 text-center">Ace Your Next Big Test</h1>

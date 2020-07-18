@@ -118,6 +118,10 @@ header section {
 * === WIDTH and HEIGHTS ===
 */
 
+.full-width {
+    width: 100%;
+}
+
 .max-width-90 {
     max-width: 90%;
 }
@@ -162,6 +166,10 @@ header section {
 * === DISPLAYS, ALIGNMENT, POSITION ===
 */
 
+.fixed {
+    position: fixed;
+}
+
 .display-block {
     display: block;
 }
@@ -205,6 +213,10 @@ header section {
 /*
 * — Margins —
 */
+.extra-margin-top {
+    margin-top: calc(2em + 40px);
+}
+
 .mb-0 {
     margin-bottom: 0;
 }
@@ -418,6 +430,18 @@ header section {
 * — Alignment and spacing —
 */
 
+.on-top {
+    z-index: 10;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .navbar {
     height: 60px;
 }
@@ -489,6 +513,19 @@ header section {
 /*
 * === EFFECTS ===
 */
+
+
+/*
+* --- overflow ---
+*/
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
 
 .cursor-pointer {
     cursor: pointer;
@@ -596,6 +633,7 @@ header section {
     display: inline-block;
     padding-bottom: 5px;
     position: relative;
+    z-index: -1;
 }
 
 .underline__green__partial::after {
@@ -662,11 +700,13 @@ header section {
 }
 
 .megaMenu-container {
-    z-index: 1;
+    z-index: 11;
     background-color: transparent;
-    position: absolute;
+    position: fixed;
     width: 460px;
-    padding: 25px 5px 10px 10px;
+    left: 350px;
+    /* top: 70px; */
+    padding: 95px 5px 10px 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -676,7 +716,7 @@ header section {
     z-index:2;
     content: "";
     position: absolute;
-    top: 15px;
+    top: 85px;
     left: 72px;
     width: 0;
     height: 0;
@@ -700,6 +740,7 @@ header section {
 }
 
 .search-container input {
+    z-index:12;
     margin: 2px 4px 2px 8px;
 }
 

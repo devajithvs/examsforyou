@@ -1,5 +1,5 @@
 <template>
-    <div class="megaMenu-container" >
+    <div class="megaMenu-container fixed">
        <div class="pt-2 bg-white round-border-5 shadow">
             <div class="flex">
                 <ul class="flex-vertical space-around width-50">
