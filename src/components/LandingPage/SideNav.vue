@@ -1,13 +1,12 @@
 <template>
-    <div class="megaMenu-container fixed">
-       <div class="pt-2 bg-white round-border-5 shadow">
+    <div class="sideMenu-container sidenav-width">
+       <div class="bg-white round-border-5 shadow full-height">
             <div class="flex">
-                <ul class="flex-vertical space-around width-50">
+                <ul class="flex-vertical space-around full-width" v-show="!currentItem">
                     <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1"
                         v-for="(item, index) in exam_list_level1"
                         :key="index"
-                        @click="current_item_1 = item"
-                        @mouseover="current_item_1 = item"
+                        @click="currentItem = item"
                         >
                         <div class="icon" :class="exam_list_level1_icons[index]">
                         </div>
@@ -17,19 +16,22 @@
                         <span class="icon right__icon-black"></span>
                     </li>
                 </ul>
-                <ul class="flex-vertical space-around width-50 secondary">
-                    <li class="cursor-pointer flex space-around align-center font-16 mb-1 gray-1">
-                        <div class="width-80 font-18 mb-2">
-                            {{current_item_1}}
+                <ul class="flex-vertical space-around secondary full-width" v-show="currentItem">
+                    <li class="cursor-pointer flex space-around align-center font-18 gray-1 mb-3" @click="currentItem = ''">
+                        <span class="icon right__icon-black rotate180"></span>
+                        <div class="font-18 width-80">
+                            {{currentItem}}
                         </div>
                     </li>
-                    <li class="cursor-pointer flex space-around align-center font-16 mb-1 gray-1"
-                        v-for="(item, index) in exam_list_level2[current_item_1]"
+                    <div class="divider-horizontal mb-3"></div>
+                    <li class="cursor-pointer flex space-around align-center font-18 mb-3 gray-1"
+                        v-for="(item, index) in exam_list_level2[currentItem]"
                         :key="index"
                         >
                         <a class="width-80">
                             {{ item }}
                         </a>
+                        <span class="icon right__icon-black"></span>
                     </li>
                 </ul>
             </div>
@@ -40,13 +42,27 @@
 
 <script>
 export default {
-  name: 'App',
+    props: {
+        currentItem: {
+            type: String,
+        },
+    },
     computed: {
+        // answer: {
+        //         get () {
+        //         return currentItem
+        //         },
+
+        //         set (value) {
+        //             if (value.length > 1){
+        //                 value.shift();
+        //             }
+        //         }
+        // },
     },
     data () {
         return {
-            current_item_1 : '',
-            
+            // currentItem : '',
             exam_list_level1_icons: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL_SERVICES', 'FOREIGN_STUDY', 'SCHOOL'],
             exam_list_level1: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL SERVICES', 'FOREIGN STUDY', 'SCHOOL'],
             exam_list_level2: {

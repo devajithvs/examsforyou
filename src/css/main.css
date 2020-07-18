@@ -151,6 +151,10 @@ header section {
     max-width: 12em;
 }
 
+.full-height {
+    height: 100%;
+}
+
 .height-auto {
     overflow: hidden;
     height: 1%;
@@ -527,6 +531,10 @@ header section {
 }
 
 
+.rotate180 {
+    transform: rotate(180deg);
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -566,6 +574,10 @@ header section {
 /*
 * === CUSTOM ELEMENTS ===
 */
+
+.sidenav-width {
+    width: 250px;
+}
 
 .button {
     cursor: pointer;
@@ -704,11 +716,20 @@ header section {
     background-color: transparent;
     position: fixed;
     width: 460px;
-    left: 350px;
-    /* top: 70px; */
-    padding: 95px 5px 10px 10px;
+    left: 325px;
+    padding: 85px 5px 10px 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.sideMenu-container {
+    z-index: 11;
+    background-color: transparent;
+    position: fixed;
+    top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    height: calc(100% - 60px)
 }
 
 /* triangle on top of megaMenu */
@@ -716,7 +737,7 @@ header section {
     z-index:2;
     content: "";
     position: absolute;
-    top: 85px;
+    top: 75px;
     left: 72px;
     width: 0;
     height: 0;
@@ -951,6 +972,10 @@ header section {
     .knowledge__content {
         width: 30vw;
         height: auto;
+    }
+
+    .sidenav-width {
+        width: 300px;
     }
 }
 

@@ -1,10 +1,14 @@
 <template>
     <section class="bg-white fixed full-width on-top">
+        <div >
+          <SideNavCard v-show="sidemenu" v-bind:currentItem="''"/>
+        </div>
         <div @mouseleave="expand = false">
           <ExamListCard v-show="expand"/>
         </div>
         <nav class="navbar container flex space-between " style="overflow:hidden;">
-          <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
+          <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
+          <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
           <div class="e4y__left flex ml-2">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
@@ -35,16 +39,19 @@
 
           <img src="@/assets/search_black.svg" class="search__icon" alt="">
         </nav>
+        <div class="divider-horizontal"></div>
     </section>
 </template>
 
 <script>
 import ExamListCard from '@/components/home_navbar_exam_list'
+import SideNavCard from '@/components/LandingPage/SideNav'
 export default {
   name: 'App',
-  components: { ExamListCard,},
+  components: { ExamListCard, SideNavCard,},
   data: () => ({
     expand: false,
+    sidemenu: false,
     }),
     methods: {        
     },
