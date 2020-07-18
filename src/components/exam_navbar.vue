@@ -2,26 +2,22 @@
     <section class="bg-white">
         <nav class="navbar container flex space-between">
           <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
-          <div class="e4y__left flex ml-2">
+          <div class="e4y__left flex ml-2 baseline sm-mr-auto">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
-            <div  class="flex align-flex-end ml-1">
-                <span class="gray-2" id="exam-name">
-                    {{exam_name}}
-                </span>
-            </div>
+            <span class="gray-2 display-lg" id="exam-name">
+                {{exam_name}}
+            </span>
           </div>
          
           <div class="flex align-center">
-            <span class="gray-2 mr-1">Time Left:</span>
+            <span class="gray-2 mr-1 display-lg">Time Left:</span>
             <img src="@/assets/timer.svg" class="icon" alt="">
             <span class="gray-2 mr-5" id="time-left">{{timerCount}}</span>
             <button class="navbar-button button success">
                 <span class="font-bold font-18">Submit</span>
             </button>
           </div>
-
-          <img src="@/assets/search_black.svg" class="search__icon" alt="">
         </nav>
         <div class="divider-horizontal"></div> 
     </section>

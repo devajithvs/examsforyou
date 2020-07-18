@@ -182,6 +182,10 @@ header section {
     align-items: center;
 }
 
+.baseline {
+    align-items: flex-end;
+}
+
 .align-flex-end {
     align-items: flex-end;
 }
@@ -849,6 +853,10 @@ header section {
     display: none;
 }
 
+.display-md-and-up, .display-lg {
+    display: none;
+}
+
 @media(max-width:320px) {
     .learn-with-us__icon {
         width: 20vw;
@@ -879,8 +887,16 @@ header section {
     }
 }
 
+@media(max-width:802px) {
+    .sm-mr-auto {
+        margin-right: auto;
+    }
+}
 @media(min-width:802px) {
 
+    .display-md-and-up {
+        display: inline-block;
+    }
     
     .examinfo__content {
         display: grid;
@@ -980,6 +996,10 @@ header section {
 }
 
 @media(min-width:1202px) {
+
+    .display-lg {
+        display: inline-block;
+    }
 
     nav .menu__icon, .search__icon {
         display: none;
