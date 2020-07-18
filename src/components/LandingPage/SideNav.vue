@@ -48,21 +48,9 @@ export default {
         },
     },
     computed: {
-        // answer: {
-        //         get () {
-        //         return currentItem
-        //         },
-
-        //         set (value) {
-        //             if (value.length > 1){
-        //                 value.shift();
-        //             }
-        //         }
-        // },
     },
     data () {
         return {
-            // currentItem : '',
             exam_list_level1_icons: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL_SERVICES', 'FOREIGN_STUDY', 'SCHOOL'],
             exam_list_level1: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL SERVICES', 'FOREIGN STUDY', 'SCHOOL'],
             exam_list_level2: {

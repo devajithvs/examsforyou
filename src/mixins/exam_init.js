@@ -7,8 +7,8 @@ export default {
       this.setNightMode();
     },
     initializeQuizVariables: function(){
-      // localStorage.removeItem("userAttemptsData");
-      // localStorage.removeItem("sessionData");
+      localStorage.removeItem("userAttemptsData");
+      localStorage.removeItem("sessionData");
       let i,j;
       this.$store.state.store.sessionData = JSON.parse(localStorage.getItem("sessionData"));
       this.$store.state.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));

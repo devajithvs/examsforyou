@@ -25,7 +25,7 @@
         <div class="container question mt-1 mb-1">
           <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1"
           v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id">
-            <input type="radio" v-model="answer" :value="index" id="index" name="sort-order">
+            <input type="radio" :checked="answer = index" :value="index" id="index" name="sort-order">
             <label for="date-option">{{String.fromCharCode(index+65)}}) {{option.option}}</label>
           </div>
         </div>
@@ -33,10 +33,10 @@
         
         <div class="container mt-3 mb-1 flex space-between">
           <div class="">
-            <button v-on:click="prevQuestion()" class="button success mr-3 height-3">
+            <button v-on:click="prevQuestion()" class="button bg-gray-2 mr-3 height-3">
               <span class="font-bold font-18">Previous</span>
             </button>
-            <button v-on:click="clearSelection()" class="button success ml-2 height-3">
+            <button v-on:click="clearSelection()" class="button bg-gray-2 ml-2 height-3">
               <span class="font-bold font-18">Clear Selection</span>
             </button>
           </div>

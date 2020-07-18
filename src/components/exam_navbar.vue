@@ -1,7 +1,9 @@
 <template>
     <section class="bg-white">
+        <SideNavCard v-show="sidemenu" v-bind:currentItem="''"/>
         <nav class="navbar container flex space-between">
-          <img src="@/assets/menu.svg" class="icon menu__icon" alt="">
+          <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
+          <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
           <div class="e4y__left flex ml-2 baseline sm-mr-auto">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
@@ -29,19 +31,20 @@
 
 <script>
  /*Other component*/
-// import Status from './exam_status'
 import Init from '../mixins/exam_init'
 import UpdateResponse from '../mixins/updateResponse'
+import SideNavCard from '@/components/LandingPage/SideNav'
 
 export default {
     mixins: [Init, UpdateResponse],
-    // components: { Status, },
+    components: { SideNavCard, },
     beforeMount(){
       this.initialize();
       this.updateResponse();
     },
     data () {
         return{
+            sidemenu: false,
             drawer: false,
             timerCount: '00:00:00',
         }

@@ -6,7 +6,7 @@
         <div @mouseleave="expand = false">
           <ExamListCard v-show="expand"/>
         </div>
-        <nav class="navbar container flex space-between " style="overflow:hidden;">
+        <nav class="navbar container flex space-between" style="overflow:hidden;">
           <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
           <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
           <div class="e4y__left flex ml-2">
@@ -52,10 +52,10 @@ export default {
   data: () => ({
     expand: false,
     sidemenu: false,
-    }),
-    methods: {        
-    },
-    computed: {  
-    }
+  }),
+  methods: {        
+  },
+  computed: {  
+  }
 }
 </script>

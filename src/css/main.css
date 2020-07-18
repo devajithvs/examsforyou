@@ -514,6 +514,10 @@ header section {
     color: var(--clr-gray2);
 }
 
+.bg-gray-2 {
+    background-color: var(--clr-gray2);
+}
+
 .gray-3 {
     color: var(--clr-gray3);
 }
