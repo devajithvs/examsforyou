@@ -599,6 +599,10 @@ header section {
     border: 1px solid transparent;
 }
 
+.button-less-ht {
+    padding: 0.5em 0.8em;
+}
+
 .button span{
     cursor: pointer;
     color: var(--clr-white);
@@ -778,20 +782,6 @@ header section {
     margin: 2px 4px 2px 8px;
 }
 
-.status-icon .ans-and-review {
-    background: var(--clr-primary);
-    width: 15px;
-    height: 15px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    right: -4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .pallet {
     cursor:pointer;
     float: left;
@@ -810,6 +800,7 @@ header section {
 }
 
 .status-icon {
+    overflow: visible;
     height: 35px;
     width: 35px;
     position: relative;
@@ -821,19 +812,27 @@ header section {
 }
 
 .status-icon-ans-and-review {
-    object-fit: contain;
-    font-size: 0.6rem;
-    position: relative;
-    bottom: 0;
-    right: -0.7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.5rem;
+    margin: auto;
 }
 
 .status-icon.marked-for-review, .status-icon.answered-and-marked-for-review  {
     background-color: #5960b7;
     color: #fff;
+}
+
+.status-icon .ans-and-review {
+    background: var(--clr-primary);
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
 
 .status-icon.answered {

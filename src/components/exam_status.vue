@@ -73,7 +73,7 @@ import {mapState} from 'vuex'
 import UpdateResponse from '../mixins/updateResponse'
 export default {
     mixins: [UpdateResponse],
-    computed: {
+        computed: {
         statusTitle() {
             return this.exam_sections[this.current_section].name + ' (' + this.exam_sections[this.current_section].questions.length + ')';
         },

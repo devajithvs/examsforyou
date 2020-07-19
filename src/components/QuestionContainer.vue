@@ -11,16 +11,16 @@
           </a>
       </div>
       <div class="card bg-white">
-        <div class="container mt-1 mb-1 flex space-between">
-          <span class="text-center justify-center">Question {{question_no[current_section] + 1}} - Single choice question</span>
-          <span class="subtitle-1 hidden-xs-only flex">
-            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small" alt="Mark for review" v-on:click="reviewSwap">
-            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small" alt="Mark for review" v-on:click="reviewSwap">
-            <span>Mark for review</span>
+        <div class="container mt-1 mb-1 flex space-between font-18">
+          <span class="text-center justify-center font-18">Question {{question_no[current_section] + 1}} - Single choice question</span>
+          <span class="subtitle-1 flex align-center">
+            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small mr-1" alt="Mark for review" v-on:click="reviewSwap">
+            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small mr-1" alt="Mark for review" v-on:click="reviewSwap">
+            <span class="display-md-and-up">Mark for review</span>
           </span>
         </div>
         <div class="divider-horizontal"></div> 
-        <div class="container question mt-1 mb-1" style="height: 25vh">
+        <div class="container question mt-1 mb-1 font-18" style="height: 25vh">
           <p> {{question_no[current_section] + 1}}) {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
         </div>
         <div class="divider-horizontal"></div> 
@@ -34,17 +34,17 @@
         </div>
         <div class="divider-horizontal"></div>
         
-        <div class="container mt-3 mb-1 flex space-between">
-          <div class="">
-            <button v-on:click="prevQuestion()" class="button bg-gray-2 mr-3 height-3">
-              <span class="font-bold font-18">Previous</span>
+        <div class="container mb-1 flex space-between flex-wrap justify-center">
+          <div class="font-15 flex flex-wrap">
+            <button v-on:click="prevQuestion()" class="button button-less-ht bg-gray-2 mr-3 mt-2">
+              <span class="font-bold">Previous</span>
             </button>
-            <button v-on:click="clearSelection()" class="button bg-gray-2 ml-2 height-3">
-              <span class="font-bold font-18">Clear Selection</span>
+            <button v-on:click="clearSelection()" class="button button-less-ht bg-gray-2 mt-2">
+              <span class="font-bold">Clear Selection</span>
             </button>
           </div>
-          <button v-on:click="nextQuestion()" class="button success height-3">
-            <span class="font-bold font-18">Next</span>
+          <button v-on:click="nextQuestion()" class="button button-less-ht success mt-2">
+            <span class="font-bold">Next</span>
           </button>
         </div>
       </div>
