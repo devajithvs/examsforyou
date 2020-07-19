@@ -73,7 +73,6 @@ export default {
                     let minutes = ('0' + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
                     let seconds = ('0' + Math.floor((distance % (1000 * 60)) / 1000)).slice(-2);
                     this.timerCount = hours+ ":" + minutes + ":" + seconds;
-                    console.log("hello")
                     if (distance <= 0) {
                         alert("Time's up! Restart?");
                         localStorage.removeItem("expire_date");

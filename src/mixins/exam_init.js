@@ -4,7 +4,6 @@ export default {
     initialize: function(){
       this.initializeQuizVariables();
       this.updateTime();
-      this.setNightMode();
     },
     initializeQuizVariables: function(){
       localStorage.removeItem("userAttemptsData");
@@ -27,17 +26,6 @@ export default {
 
       this.$store.commit('selectCurrentQuestion');
       localStorage.setItem("userAttemptsData", JSON.stringify(this.$store.state.store.userAttemptsData));
-    },
-    
-    setNightMode: function(){
-      // localStorage.removeItem("night_mode_status");
-      var mode = JSON.parse(localStorage.getItem("night_mode_status"));
-      if(mode===null) {
-        mode = false;
-        localStorage.setItem("night_mode_status", JSON.stringify(mode));
-      }
-      this.$vuetify.theme.dark = mode;
-      localStorage.setItem("night_mode_status", JSON.stringify(this.$vuetify.theme.dark));
     },
     updateTime: function() {
         // this.$store.state.store.sessionData.expire_date = null

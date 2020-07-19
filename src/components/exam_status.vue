@@ -72,8 +72,11 @@
 import {mapState} from 'vuex'
 import UpdateResponse from '../mixins/updateResponse'
 export default {
+    mixins: [UpdateResponse],
     computed: {
-        mixins: [UpdateResponse],
+        statusTitle() {
+            return this.exam_sections[this.current_section].name + ' (' + this.exam_sections[this.current_section].questions.length + ')';
+        },
         ...mapState({
             exam_sections: state => state.store.exam_sections,
             question_no: state => state.store.sessionData.question_no,
@@ -81,9 +84,6 @@ export default {
             userAttemptsData: state => state.store.userAttemptsData,
             sessionStats: state => state.store.sessionStats,
         }),
-        statusTitle() {
-            return this.exam_sections[this.current_section].name + ' (' + this.exam_sections[this.current_section].questions.length + ')';
-        },
     },
     methods: {
       selectQuestion: function(block) {

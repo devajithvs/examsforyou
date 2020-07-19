@@ -70,6 +70,11 @@ header section {
     background-position: center;
 }
 
+.icon-small {
+    height: 1em;
+    width: 1em;
+}
+
 .down__icon {
     background-image: url("../assets/down.svg");
 }
