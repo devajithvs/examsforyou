@@ -6,10 +6,10 @@
                     {{exam_name}}
                 </span>
             </div>
-            <button class="navbar-button button success center mb-5">
+            <button class="navbar-button sidenav-button button success center">
                 <span class="font-bold font-18">Submit</span>
             </button>
-            <div class="flex space-around width-80 center">
+            <div class="flex space-around width-80 center mt-5">
                 <a class="cursor-pointer font-bold font-15 gray-2">
                     <img src="@/assets/instructions.svg" class="icon icon-small" alt="Instructions">
                     Instructions
@@ -24,7 +24,7 @@
                 <span class="text-center justify-center">{{statusTitle}}</span>
                 </div>
                 <div class="divider-horizontal"></div> 
-                <div id="question-stats" class="container mt-1 mb-1 font-15" style="height: 150px">
+                <div id="question-stats" class="container mt-1 mb-1 font-15" style="min-height: 150px">
                     <div v-on:click="selectQuestion(block)" v-for="block in userAttemptsData[current_section]" v-bind:key="block.id" class="status-icon pallet" v-bind:class="[block.class, block.selected ? 'current-question': '']"> 
                         <span>{{block.id+1}}</span>
                         <div class="ans-and-review" v-if="block.class === 'answered-and-marked-for-review'">
@@ -83,7 +83,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import UpdateResponse from '../mixins/updateResponse'
+import UpdateResponse from '@/mixins/updateResponse'
 export default {
     mixins: [UpdateResponse],
     computed: {

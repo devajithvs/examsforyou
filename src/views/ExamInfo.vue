@@ -14,7 +14,7 @@
 
 <script>
 import Navbar from '@/components/LandingPage/Navbar'
-import ExamInfoContainer from '@/components/ExamInfoPage/ExamDetails'
+import ExamInfoContainer from '@/components/ExamInfoPage/ExamInfoMain'
 import CompanyFooter from '@/components/CompanyFooter'
 export default {
   name: 'App',

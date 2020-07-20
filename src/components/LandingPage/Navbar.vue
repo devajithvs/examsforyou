@@ -1,14 +1,16 @@
 <template>
     <section class="bg-white fixed full-width on-top">
         <div >
-          <SideNavCard v-show="sidemenu" v-bind:currentItem="''"/>
+          <SideNavCard :class="sidemenu? 'sidenav-show':'sidenav-hidden'" v-bind:currentItem="''"/>
         </div>
         <div @mouseleave="expand = false">
           <ExamListCard v-show="expand"/>
         </div>
-        <nav class="navbar container flex space-between" style="overflow:hidden;">
-          <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
-          <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
+        <nav class="navbar container flex space-between">
+          <div class="full-height menu__icon" :class="sidemenu? 'blurall':''" @click="sidemenu = !sidemenu">
+            <img src="@/assets/menu.svg" class="icon vertical-center" alt="" v-show="!sidemenu">
+            <img src="@/assets/close.svg" class="icon vertical-center" alt="" v-show="sidemenu">
+          </div>
           <div class="e4y__left flex ml-2">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
@@ -44,7 +46,7 @@
 </template>
 
 <script>
-import ExamListCard from '@/components/home_navbar_exam_list'
+import ExamListCard from '@/components/LandingPage/ExploreExams'
 import SideNavCard from '@/components/LandingPage/SideNav'
 export default {
   name: 'App',

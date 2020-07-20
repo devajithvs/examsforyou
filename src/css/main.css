@@ -71,8 +71,8 @@ header section {
 }
 
 .icon-small {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 20px;
+    width: 20px;
 }
 
 .icon-xsm {
@@ -160,6 +160,10 @@ header section {
     max-width: 12em;
 }
 
+.height-70 {
+    height: 70%
+}
+
 .full-height {
     height: 100%;
 }
@@ -208,10 +212,19 @@ header section {
     justify-content: center;
     align-items: center;
 }
+.vertical-center {
+    height: 100%;
+    vertical-align: middle;
+}
 
 .text-center {
     align-self: center;
     text-align: center;
+}
+
+.text-left {
+    align-self: left;
+    text-align: left;
 }
 
 .text-center-absolute {
@@ -546,6 +559,19 @@ header section {
 /*
 * --- overflow ---
 */
+
+.const-flex {
+    flex-basis: 30px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.const-flex-2 {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 100%;
+}
+
 .overflow-auto {
     overflow: auto;
 }
@@ -554,6 +580,9 @@ header section {
     overflow: hidden;
 }
 
+.overflow-scroll {
+    overflow: scroll;
+}
 
 .rotate180 {
     transform: rotate(180deg);
@@ -772,6 +801,39 @@ header section {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid var(--clr-white);
+}
+
+.navbar-button {
+    max-height: 40px;
+    min-width: 100px;
+    margin: auto 0;
+}
+
+.sidenav-button {
+    margin: 0.5em auto;
+}
+
+.sidenav-hidden {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.sidenav-show {
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.blurall:after {
+    content: "";
+    display: block;
+    position: fixed;
+    opacity: 0.2;   
+    top: 60px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
+    transition-delay: 0.1s;
 }
 
 .secondary {
@@ -1087,13 +1149,6 @@ header section {
         margin-right: auto;
         width: 300px;
         height: auto;
-    }
-
-    .navbar-button {
-        height: 40px;
-        width: 100px;
-        margin: auto 0;
-        padding: 0 0;
     }
 
     .search-container {

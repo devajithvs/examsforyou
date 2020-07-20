@@ -12,11 +12,11 @@
       </div>
       <div class="card bg-white">
         <div class="container mt-1 mb-1 flex space-between font-18">
-          <span class="text-center justify-center">Question {{question_no[current_section] + 1}} - Single choice question</span>
+          <span class="text-left mr-1">Question {{question_no[current_section] + 1}} - Single choice question</span>
           <span class="subtitle-1 flex align-center">
-            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small pr-1" alt="Mark for review" v-on:click="reviewSwap">
-            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small pr-1" alt="Mark for review" v-on:click="reviewSwap">
-            <span class="display-md-and-up">Mark for review</span>
+            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small" alt="Mark for review" v-on:click="reviewSwap">
+            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small" alt="Mark for review" v-on:click="reviewSwap">
+            <span class="display-md-and-up ml-1">Mark for review</span>
           </span>
         </div>
         <div class="divider-horizontal"></div> 
@@ -41,7 +41,7 @@
               <span class="font-bold">Previous</span>
             </button>
             <button v-on:click="clearSelection()" class="button button-less-ht bg-gray-2 mt-2">
-              <span class="font-bold">Clear </span>
+              <span class="font-bold">Clear</span>
               <span class="font-bold display-md-and-up ml-1">Selection</span>
             </button>
           </div>
@@ -55,7 +55,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import UpdateResponse from '../mixins/updateResponse'
+import UpdateResponse from '@/mixins/updateResponse'
 export default {
   mixins: [UpdateResponse],
   data(){

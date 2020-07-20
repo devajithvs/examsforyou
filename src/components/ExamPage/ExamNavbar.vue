@@ -1,9 +1,11 @@
 <template>
     <section class="bg-white fixed full-width on-top">
-        <SideNavCard v-show="sidemenu"/>
+        <SideNavCard :class="sidemenu? 'sidenav-show':'sidenav-hidden'"/>
         <nav class="navbar container flex space-between">
-          <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
-          <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
+          <div class="full-height menu__icon" :class="sidemenu? 'blurall':''" @click="sidemenu = !sidemenu">
+            <img src="@/assets/menu.svg" class="icon vertical-center" alt="" v-show="!sidemenu">
+            <img src="@/assets/close.svg" class="icon vertical-center" alt="" v-show="sidemenu">
+          </div>
           <div class="e4y__left flex ml-2 baseline sm-mr-auto">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
@@ -25,15 +27,10 @@
     </section>
 </template>
 
-<style lang="css">
-   @import '../css/main.css';
-</style>
-
 <script>
- /*Other component*/
-import Init from '../mixins/exam_init'
-import UpdateResponse from '../mixins/updateResponse'
-import SideNavCard from '@/components/ExamSideNav'
+import Init from '@/mixins/exam_init'
+import UpdateResponse from '@/mixins/updateResponse'
+import SideNavCard from '@/components/ExamPage/ExamSideNav'
 
 export default {
     mixins: [Init, UpdateResponse],
@@ -45,7 +42,6 @@ export default {
     data () {
         return{
             sidemenu: false,
-            drawer: false,
             timerCount: '00:00:00',
         }
     },

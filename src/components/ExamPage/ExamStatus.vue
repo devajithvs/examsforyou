@@ -73,7 +73,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import UpdateResponse from '../mixins/updateResponse'
+import UpdateResponse from '@/mixins/updateResponse'
 export default {
     mixins: [UpdateResponse],
     computed: {

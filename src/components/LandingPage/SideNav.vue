@@ -1,9 +1,9 @@
 <template>
     <div class="sideMenu-container sidenav-width">
-       <div class="bg-white round-border-5 shadow full-height">
+       <div class="bg-white shadow full-height">
             <div class="container flex-vertical space-between full-height">
-                <ul class="flex-vertical space-around full-width" v-show="!currentItem">
-                    <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1"
+                <ul class="flex-vertical space-around full-width const-flex-2" v-show="!currentItem">
+                    <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1 const-flex"
                         v-for="(item, index) in exam_list_level1"
                         :key="index"
                         @click="currentItem = item"
@@ -17,14 +17,14 @@
                     </li>
                 </ul>
                 <ul class="flex-vertical space-around secondary full-width" v-show="currentItem">
-                    <li class="cursor-pointer flex space-around align-center font-18 gray-1 mb-3" @click="currentItem = ''">
+                    <li class="cursor-pointer flex space-around align-center font-18 gray-1 mb-3 const-flex" @click="currentItem = ''">
                         <span class="icon right__icon-black rotate180"></span>
                         <div class="font-18 width-80">
                             {{currentItem}}
                         </div>
                     </li>
                     <div class="divider-horizontal mb-3"></div>
-                    <li class="cursor-pointer flex space-around align-center font-18 mb-3 gray-1"
+                    <li class="cursor-pointer flex space-around align-center font-18 mb-3 gray-1 const-flex"
                         v-for="(item, index) in exam_list_level2[currentItem]"
                         :key="index"
                         >
@@ -34,7 +34,7 @@
                         <span class="icon right__icon-black"></span>
                     </li>
                 </ul>
-                <button class="navbar-button button success center mb-5 width-80">
+                <button class="navbar-button sidenav-button button success center mb-5 width-80 const-flex">
                     <span class="font-bold font-18">Login</span>
                 </button>
             </div>

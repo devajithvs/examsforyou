@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Navbar from '@/components/exam_navbar'
-import Status from '@/components/exam_status'
-import QuestionContainer from '@/components/QuestionContainer'
+import Navbar from '@/components/ExamPage/ExamNavbar'
+import Status from '@/components/ExamPage/ExamStatus'
+import QuestionContainer from '@/components/ExamPage/QuestionContainer'
 export default {
   name: 'App',
   components: { Navbar, Status, QuestionContainer },
