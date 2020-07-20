@@ -1,7 +1,7 @@
 <template>
     <div id="news" class="examinfo__content container">
-      <ExamNotification/>
-      <div class="flex exam-info space-between">
+      <ExamNotification class="mt-5"/>
+      <div class="flex exam-info space-between mt-5">
         <div class="exam-index card bg-white sort">
           <div class="flex space-between align-center">
             <span class="font-16 gray-1">Sort and Filter</span>
@@ -58,7 +58,7 @@
 <style lang="css">
 </style>
 <script>
-import ExamNotification from './ExamNotification'
+import ExamNotification from '@/components/ExamInfoPage/ExamNotification'
 export default {
   components: { ExamNotification, },
 }

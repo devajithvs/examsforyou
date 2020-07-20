@@ -14,32 +14,16 @@
         </div>
     </div>
     <div class="divider-horizontal"></div>
-    <div class="tabs gray-2">
-        <a class="tab-element cursor-pointer font-bold font-15 hover-darker" 
-        v-for="(item, index) in info_sections" @click="current_tab = index"
-        :key="index"
-        :class="current_tab==index ? 'selected' : ''"
-        >
-          {{item}}
-        </a>
-    </div>
     <div>
-      <ExamDetails v-if="current_tab == 0"/>
-      <ExamArticles v-if="current_tab == 1"/>
-      <ExamPreviousPapers v-if="current_tab == 2"/>
-      <ExamStudyMaterial v-if="current_tab == 3"/>
+      <ExamAnalyseContent/>
     </div>
   </section>
 </template>
 
 <script>
- /*Other component*/
-import ExamDetails from './ExamDetails'
-import ExamArticles from './ExamArticles'
-import ExamPreviousPapers from './ExamPreviousPapers'
-import ExamStudyMaterial from './ExamStudyMaterial'
+import ExamAnalyseContent from './ExamAnalyseContent'
 export default {
-  components: { ExamDetails, ExamArticles, ExamPreviousPapers, ExamStudyMaterial },
+  components: { ExamAnalyseContent },
   data() {
     return {
       current_tab : 0,
