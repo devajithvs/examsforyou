@@ -1,5 +1,5 @@
 <template>
-    <div class="exam-question-container">
+    <div class="exam-question-container extra-margin-top-1">
       <div class="tabs gray-2">
           <a class="tab-element cursor-pointer font-bold font-15 hover-darker" 
           v-for="item in exam_sections"
@@ -12,22 +12,23 @@
       </div>
       <div class="card bg-white">
         <div class="container mt-1 mb-1 flex space-between font-18">
-          <span class="text-center justify-center font-18">Question {{question_no[current_section] + 1}} - Single choice question</span>
+          <span class="text-center justify-center">Question {{question_no[current_section] + 1}} - Single choice question</span>
           <span class="subtitle-1 flex align-center">
-            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small mr-1" alt="Mark for review" v-on:click="reviewSwap">
-            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small mr-1" alt="Mark for review" v-on:click="reviewSwap">
+            <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small pr-1" alt="Mark for review" v-on:click="reviewSwap">
+            <img v-else src="@/assets/bookmark_outline.svg" class="icon icon-small pr-1" alt="Mark for review" v-on:click="reviewSwap">
             <span class="display-md-and-up">Mark for review</span>
           </span>
         </div>
         <div class="divider-horizontal"></div> 
-        <div class="container question mt-1 mb-1 font-18" style="height: 25vh">
+        <div class="container question mt-1 mb-1 font-18" style="height: 150px">
           <p> {{question_no[current_section] + 1}}) {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
         </div>
         <div class="divider-horizontal"></div> 
 
         <div class="container question mt-1 mb-1">
           <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1"
-          v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id">
+          v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"
+          >
             <input type="radio" v-model="answer" @change="answer = option.id" :value="index" id="index" name="sort-order">
             <label for="date-option">{{String.fromCharCode(index+65)}}) {{option.option}}</label>
           </div>
@@ -40,7 +41,8 @@
               <span class="font-bold">Previous</span>
             </button>
             <button v-on:click="clearSelection()" class="button button-less-ht bg-gray-2 mt-2">
-              <span class="font-bold">Clear Selection</span>
+              <span class="font-bold">Clear </span>
+              <span class="font-bold display-md-and-up ml-1">Selection</span>
             </button>
           </div>
           <button v-on:click="nextQuestion()" class="button button-less-ht success mt-2">

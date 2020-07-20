@@ -71,8 +71,12 @@ header section {
 }
 
 .icon-small {
-    height: 1em;
-    width: 1em;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.icon-xsm {
+    height: 0.4rem;
 }
 
 .down__icon {
@@ -174,7 +178,6 @@ header section {
 /*
 * === DISPLAYS, ALIGNMENT, POSITION ===
 */
-
 .fixed {
     position: fixed;
 }
@@ -226,8 +229,16 @@ header section {
 /*
 * — Margins —
 */
+.extra-margin-top-1 {
+    margin-top: calc(1em + 40px);
+}
+
 .extra-margin-top {
     margin-top: calc(2em + 40px);
+}
+
+.margin-auto {
+    margin: auto;
 }
 
 .mb-0 {
@@ -594,7 +605,7 @@ header section {
 
 .button {
     cursor: pointer;
-    padding: 0.8em 0.8em;
+    padding: 0.4em 0.8em;
     border-radius: 0.25em;
     border: 1px solid transparent;
 }
@@ -606,7 +617,6 @@ header section {
 .button span{
     cursor: pointer;
     color: var(--clr-white);
-    display: inline-block;
     vertical-align: middle;
 }
 
@@ -631,6 +641,7 @@ header section {
 
 .getting-started-btn {
     display: block;
+    padding: 0.8em;
     margin: 20px auto 0px;
     width: 200px
 }
@@ -785,17 +796,12 @@ header section {
 .pallet {
     cursor:pointer;
     float: left;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
 }
 
 .status-label {
     margin-left: 8px;
     color: #646464;
-    font-weight: 400;
-    line-height: normal;
     text-align: left;
 }
 
@@ -809,11 +815,6 @@ header section {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.status-icon-ans-and-review {
-    font-size: 0.5rem;
-    margin: auto;
 }
 
 .status-icon.marked-for-review, .status-icon.answered-and-marked-for-review  {
@@ -857,11 +858,11 @@ header section {
 }
     
 
-.navbar-button, .search-container, .logotext__icon, .exam-notification, .exam-index, .sort {
+.search-container, .logotext__icon, .exam-notification, .exam-index, .sort {
     display: none;
 }
 
-.display-md-and-up, .display-lg {
+.display-md-and-up, .display-lg-and-up {
     display: none;
 }
 
@@ -928,7 +929,6 @@ header section {
     }
 
     .exam-status-container {
-        display: inline-block;
         grid-column: -3 / span 2;
     }
 
@@ -1005,7 +1005,7 @@ header section {
 
 @media(min-width:1202px) {
 
-    .display-lg {
+    .display-lg-and-up {
         display: inline-block;
     }
 
@@ -1090,7 +1090,6 @@ header section {
     }
 
     .navbar-button {
-        display: inline-block;
         height: 40px;
         width: 100px;
         margin: auto 0;

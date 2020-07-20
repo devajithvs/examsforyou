@@ -1,22 +1,22 @@
 <template>
-    <section class="bg-white">
-        <SideNavCard v-show="sidemenu" v-bind:currentItem="''"/>
+    <section class="bg-white fixed full-width on-top">
+        <SideNavCard v-show="sidemenu"/>
         <nav class="navbar container flex space-between">
           <img src="@/assets/menu.svg" class="icon menu__icon" alt="" v-show="!sidemenu" @click="sidemenu = !sidemenu">
           <img src="@/assets/close.svg" class="icon menu__icon" alt="" v-show="sidemenu" @click="sidemenu = !sidemenu">
           <div class="e4y__left flex ml-2 baseline sm-mr-auto">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">
             <img src="@/assets/Logo_text.svg" class="icon logotext__icon mr-2" alt="">
-            <span class="gray-2 display-lg" id="exam-name">
+            <span class="gray-2 display-lg-and-up" id="exam-name">
                 {{exam_name}}
             </span>
           </div>
          
           <div class="flex align-center">
-            <span class="gray-2 mr-1 display-lg">Time Left:</span>
+            <span class="gray-2 mr-1 display-lg-and-up">Time Left:</span>
             <img src="@/assets/timer.svg" class="icon" alt="">
             <span class="gray-2 mr-5" id="time-left">{{timerCount}}</span>
-            <button class="navbar-button button success">
+            <button class="display-lg-and-up navbar-button button success">
                 <span class="font-bold font-18">Submit</span>
             </button>
           </div>
@@ -33,7 +33,7 @@
  /*Other component*/
 import Init from '../mixins/exam_init'
 import UpdateResponse from '../mixins/updateResponse'
-import SideNavCard from '@/components/LandingPage/SideNav'
+import SideNavCard from '@/components/ExamSideNav'
 
 export default {
     mixins: [Init, UpdateResponse],

@@ -16,7 +16,7 @@
                 <button
                 @click="expand = !expand"
                 @mouseover="expand = true"
-                class="navbar-button button success ml-2"
+                class="display-lg-and-up navbar-button button success ml-2"
                 :class="expand ? 'ghost-on-hover' : ''"
                 >
                     <div class="flex center align-center">
@@ -33,7 +33,7 @@
             </form>
           </div>
          
-          <button class="navbar-button button success">
+          <button class="display-lg-and-up navbar-button button success">
             <span class="font-bold font-18">Login</span>
           </button>
 

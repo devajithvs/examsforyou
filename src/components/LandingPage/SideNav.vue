@@ -1,7 +1,7 @@
 <template>
     <div class="sideMenu-container sidenav-width">
        <div class="bg-white round-border-5 shadow full-height">
-            <div class="flex">
+            <div class="container flex-vertical space-between full-height">
                 <ul class="flex-vertical space-around full-width" v-show="!currentItem">
                     <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1"
                         v-for="(item, index) in exam_list_level1"
@@ -34,10 +34,12 @@
                         <span class="icon right__icon-black"></span>
                     </li>
                 </ul>
+                <button class="navbar-button button success center mb-5 width-80">
+                    <span class="font-bold font-18">Login</span>
+                </button>
             </div>
        </div>
     </div>
-
 </template>
 
 <script>
