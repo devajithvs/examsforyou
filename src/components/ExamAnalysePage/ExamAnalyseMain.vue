@@ -1,17 +1,16 @@
 <template>
-    <section class="on-top">
-      <div class="bg-primary extra-margin-top">
-        <div class="container">
-            <p class="font-10 white mb-1"><a href="" class="white">HOME</a>&nbsp;>>&nbsp;<a href="" class="white">JEE MAIN</a></p>
-            <h1 class="white font-20 text-center">Joint Entrance Examination Main (JEE Main)</h1>
-            <div class="flex align-center justify-center mt-1">
-                <div class="icon admit-card-icon mr-1 mt-1"></div>
-                <p class="white font-10">Admit Card Date<br>03, July, 2020 (Tentative)</p>
+  <section class="on-top">
+    <div class="bg-primary clear-navbar">
+      <div class="container">
+          <PWD v-bind:CurrentDir="['Home', 'Analyse']"/>
+          <div class="flex align-center justify-center mt-3 mb-5">
+            <img src="@/assets/analyse.svg" class="mr-1" alt="">
+            <div class="">
+              <p class="white font-20 font-bold mb-0">Analyse</p>
+              <p class="white font-15 mt-0">Analyse helps you keep track of your progress with personalized analytics</p>
             </div>
-            <button class="button center-button bg-complementary mt-1">
-              <span class="font-bold font-15">Visit Website</span>
-            </button>  
-        </div>
+          </div>
+      </div>
     </div>
     <div class="divider-horizontal"></div>
     <div>
@@ -21,9 +20,10 @@
 </template>
 
 <script>
+import PWD from '@/components/PWD'
 import ExamAnalyseContent from './ExamAnalyseContent'
 export default {
-  components: { ExamAnalyseContent },
+  components: { PWD, ExamAnalyseContent },
   data() {
     return {
       current_tab : 0,

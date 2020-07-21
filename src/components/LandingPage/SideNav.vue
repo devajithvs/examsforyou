@@ -2,14 +2,13 @@
     <div class="sideMenu-container sidenav-width">
        <div class="bg-white shadow full-height">
             <div class="container flex-vertical space-between full-height">
-                <ul class="flex-vertical space-around full-width const-flex-2" v-show="!currentItem">
+                <ul class="flex-vertical full-width const-flex-2" v-show="!currentItem">
                     <li class="cursor-pointer flex space-around align-center font-16 gray-1 hover-darker pt-1 pb-1 const-flex"
                         v-for="(item, index) in exam_list_level1"
                         :key="index"
                         @click="currentItem = item"
                         >
-                        <div class="icon" :class="exam_list_level1_icons[index]">
-                        </div>
+                        <img :src="require('@/assets/categoryicons/' + exam_list_level1_icons[index] + '.svg')" class="icon">
                         <div class="width-50">
                             {{ item }}
                         </div>
@@ -53,7 +52,7 @@ export default {
     },
     data () {
         return {
-            exam_list_level1_icons: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL_SERVICES', 'FOREIGN_STUDY', 'SCHOOL'],
+            exam_list_level1_icons: ['engineering', 'medical', 'bank', 'mba', 'civilservices', 'foreignstudy', 'school'],
             exam_list_level1: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL SERVICES', 'FOREIGN STUDY', 'SCHOOL'],
             exam_list_level2: {
                 'ENGINEERING' : ['JEE Main', 'JEE Advanced', 'BITSAT', 'GATE'],

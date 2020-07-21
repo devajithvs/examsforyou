@@ -79,42 +79,14 @@ header section {
     height: 0.4rem;
 }
 
+/* TODO remove these */
+
 .down__icon {
     background-image: url("../assets/down.svg");
 }
 
-/* TODO remove these */
-
 .right__icon-black {
     background-image: url("../assets/right_black.svg");
-}
-
-.ENGINEERING {
-    background-image: url("../assets/categoryicons/engineering.svg");
-}
-
-.MEDICAL {
-    background-image: url("../assets/categoryicons/medicine.svg");
-}
-
-.BANK {
-    background-image: url("../assets/categoryicons/bank.svg");
-}
-
-.MBA {
-    background-image: url("../assets/categoryicons/mba.svg");
-}
-
-.CIVIL_SERVICES {
-    background-image: url("../assets/categoryicons/civilservices.svg");
-}
-
-.FOREIGN_STUDY {
-    background-image: url("../assets/categoryicons/foreignstudies.svg");
-}
-
-.SCHOOL {
-    background-image: url("../assets/categoryicons/school.svg");
 }
 
 .admit-card-icon {
@@ -162,6 +134,10 @@ header section {
 
 .height-70 {
     height: 70%
+}
+
+.height-6em {
+    height: 6em;
 }
 
 .full-height {
@@ -244,6 +220,10 @@ header section {
 */
 .extra-margin-top-1 {
     margin-top: calc(1em + 40px);
+}
+
+.clear-navbar {
+    margin-top: 60px;
 }
 
 .extra-margin-top {
@@ -569,7 +549,7 @@ header section {
 .const-flex-2 {
     flex-shrink: 0;
     flex-grow: 0;
-    flex-basis: 100%;
+    flex-basis: 300px;
 }
 
 .overflow-auto {
@@ -636,7 +616,7 @@ header section {
     cursor: pointer;
     padding: 0.4em 0.8em;
     border-radius: 0.25em;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 }
 
 .button-less-ht {
@@ -1143,6 +1123,10 @@ header section {
 
     .navbar {
         height: 70px;
+    }
+
+    .clear-navbar {
+        margin-top: 70px;
     }
 
     .offerings-img {

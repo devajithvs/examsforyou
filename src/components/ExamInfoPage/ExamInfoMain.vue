@@ -1,8 +1,8 @@
 <template>
     <section class="on-top">
-      <div class="bg-primary extra-margin-top">
+      <div class="bg-primary clear-navbar">
         <div class="container">
-            <p class="font-10 white mb-1"><a href="" class="white">HOME</a>&nbsp;>>&nbsp;<a href="" class="white">JEE MAIN</a></p>
+            <PWD v-bind:CurrentDir="['Home', 'Engineering']"/>
             <h1 class="white font-20 text-center">Joint Entrance Examination Main (JEE Main)</h1>
             <div class="flex align-center justify-center mt-1">
                 <div class="icon admit-card-icon mr-1 mt-1"></div>
@@ -33,17 +33,17 @@
 </template>
 
 <script>
- /*Other component*/
+import PWD from '@/components/PWD'
 import ExamDetails from './ExamDetails'
 import ExamArticles from './ExamArticles'
 import ExamPreviousPapers from './ExamPreviousPapers'
 import ExamStudyMaterial from './ExamStudyMaterial'
 export default {
-  components: { ExamDetails, ExamArticles, ExamPreviousPapers, ExamStudyMaterial },
+  components: { PWD, ExamDetails, ExamArticles, ExamPreviousPapers, ExamStudyMaterial },
   data() {
     return {
       current_tab : 0,
-      info_sections : ["Exam Details", "Articles", "Attempt Previous Papers", "Study Material", "Exam List", "ExamAnalyse"],
+      info_sections : ["Exam Details", "Articles", "Attempt Previous Papers", "Study Material"],
     }
   }
 }

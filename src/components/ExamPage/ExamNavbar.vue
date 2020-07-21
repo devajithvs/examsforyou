@@ -3,8 +3,7 @@
         <SideNavCard :class="sidemenu? 'sidenav-show':'sidenav-hidden'"/>
         <nav class="navbar container flex space-between">
           <div class="full-height menu__icon" :class="sidemenu? 'blurall':''" @click="sidemenu = !sidemenu">
-            <img src="@/assets/menu.svg" class="icon vertical-center" alt="" v-show="!sidemenu">
-            <img src="@/assets/close.svg" class="icon vertical-center" alt="" v-show="sidemenu">
+            <img :src="sidemenu? require('@/assets/close.svg') : require('@/assets/menu.svg')" class="icon vertical-center">
           </div>
           <div class="e4y__left flex ml-2 baseline sm-mr-auto">
             <img src="@/assets/Logo_only.svg" class="icon logo__icon mr-2" alt="">

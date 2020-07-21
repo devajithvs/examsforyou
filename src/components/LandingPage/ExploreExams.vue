@@ -9,8 +9,7 @@
                         @click="current_item_1 = item"
                         @mouseover="current_item_1 = item"
                         >
-                        <div class="icon" :class="exam_list_level1_icons[index]">
-                        </div>
+                        <img :src="require('@/assets/categoryicons/' + exam_list_level1_icons[index] + '.svg')" class="icon">
                         <div class="width-50">
                             {{ item }}
                         </div>
@@ -47,7 +46,7 @@ export default {
         return {
             current_item_1 : '',
             
-            exam_list_level1_icons: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL_SERVICES', 'FOREIGN_STUDY', 'SCHOOL'],
+            exam_list_level1_icons: ['engineering', 'medical', 'bank', 'mba', 'civilservices', 'foreignstudy', 'school'],
             exam_list_level1: ['ENGINEERING', 'MEDICAL', 'BANK', 'MBA', 'CIVIL SERVICES', 'FOREIGN STUDY', 'SCHOOL'],
             exam_list_level2: {
                 'ENGINEERING' : ['JEE Main', 'JEE Advanced', 'BITSAT', 'GATE'],
