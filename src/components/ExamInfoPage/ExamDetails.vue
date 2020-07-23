@@ -6,12 +6,12 @@
         <h4 class="font-16 text-center">Quick-links</h4>
         <div class="flex flex-wrap space-around mt-5">
           <div class="ql-link flexbox-vertical">
-            <img src="@/assets/dates.svg" alt="">
-            <h5 class="font-16 text-center mt-2">Dates</h5>
+            <img src="@/assets/application.svg" alt="">
+            <h5 class="font-16 text-center mt-2">Overview</h5>
           </div>
           <div class="ql-link flexbox-vertical">
-            <img src="@/assets/application.svg" alt="">
-            <h5 class="font-16 text-center mt-2">Application</h5>
+            <img src="@/assets/dates.svg" alt="">
+            <h5 class="font-16 text-center mt-2">Dates</h5>
           </div>
           <div class="ql-link flexbox-vertical">
             <img src="@/assets/syllabus.svg" alt="">
@@ -20,8 +20,8 @@
         </div>
       </div>
       <div class="container">
-        <h3 class="font-18">About JEE Main 2020</h3>
-        <p class="mt-1 pt-1 font-16">National Testing Agency will conduct JEE Main 2020 from July 18 to 23. Previously, the exam was postponed due to the outbreak of COVID-19.  The authorities have closed the JEE Main 2020 application form correction along with exam centre correction from May 25 to 31. The JEE Main application form submission facility was also opened from May 19 to 24. The details of JEE Main 2020 admit card will be released tentatively on July 3. NTA has closed the application form correction facility along with exam centre change facility on May 3. The application form was released on February 7 and the last date to complete the JEE Main registration was March 12, 2020. The computer based test will be conducted for two papers - JEE Main Paper 1 for B.Tech/ B.E and Paper 2 for B.Arch/ B.Planning. JEE Main 2020 result will be announced in online mode and will be valid for the current admission year only. JEE Main ranks will be used for admissions to  UG engineering programmes offered by 31 NITs, 25 IIITs and 28 CFTIs in addition to admission in states like Odisha, Madhya Pradesh, Haryana, Uttarakhand, Punjab, Bihar, Jharkhand and Nagaland and many other private universities and institutes. JEE Main is held twice a year. Candidates can appear for both and the better of the two scores will be considered for ranking purposes. About 8,69,010 candidates appeared for the January session of JEE Main which was held from January 6 to 9 in 570 exam centres. 9 students scored 100 percentile as per the JEE Main result (January) for Paper I which was declared on January 17. The result for Paper 2 was announced on January 23.</p>
+        <h3 class="font-18">What is JEE Main?</h3>
+        <p class="mt-1 pt-1 font-16">{{jee_main["briefDescription"]}}</p>
       </div>
       <div class="container">
         <h3 class="font-18">JEE Main Dates</h3>
@@ -39,8 +39,14 @@
 </template>
 
 <script>
+import exams_list_details from '@/assets/json_files/exam_details.json';
 import ExamNotification from './ExamNotification'
 export default {
   components: { ExamNotification, },
+  data() {
+    return {
+      jee_main: exams_list_details["jee-main"],
+    }
+  }
 }
 </script>

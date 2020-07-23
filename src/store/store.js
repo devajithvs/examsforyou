@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import json from '@/assets/sampledata.json';
+import exam_questions_data from '@/assets/json_files/sampledata.json';
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         store: {
-            exam_sections: json.question_paper.sections,
-            exam_details: json.question_paper.exam_details,
-            exam_name: json.question_paper.exam_details.name + " " + json.question_paper.exam_details.year,
+            exam_sections: exam_questions_data.question_paper.sections,
+            exam_details: exam_questions_data.question_paper.exam_details,
+            exam_name: exam_questions_data.question_paper.exam_details.name + " " + exam_questions_data.question_paper.exam_details.year,
             sessionData: {},
             expire_date: {},
             userAttemptsData: [],
