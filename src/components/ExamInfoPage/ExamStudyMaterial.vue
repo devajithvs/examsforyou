@@ -1,6 +1,6 @@
 <template>
     <div id="previous-papers" class="examinfo__content container">
-      <ExamNotification/>
+      <ExamNotification :examNotifications="exam_notifications" :examName="exam_name"/>
       <div class="exam-index card bg-white">
         <h2 class="font-20 gray-1 mb-2">Index</h2>
         <div class="divider-horizontal mb-1"></div>
@@ -32,5 +32,16 @@
 import ExamNotification from './ExamNotification'
 export default {
   components: { ExamNotification, },
+  props: {
+    examDetails: {
+      type: Object,
+    },  
+  },
+  data() {
+    return {
+      exam_notifications: this.examDetails["notifications"],
+      exam_name: this.examDetails["overview"][1]["description"],
+    }
+  }
 }
 </script>

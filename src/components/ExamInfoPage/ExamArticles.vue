@@ -1,6 +1,6 @@
 <template>
     <div id="news" class="examinfo__content container">
-      <ExamNotification/>
+      <ExamNotification :examNotifications="exam_notifications" :examName="exam_name"/>
       <div class="exam-info left-info">
         <div class="card news-card bg-white flex space-between"
         v-for="index in 10" :key="index">
@@ -20,5 +20,16 @@
 import ExamNotification from './ExamNotification'
 export default {
   components: { ExamNotification, },
+  props: {
+    examDetails: {
+      type: Object,
+    },  
+  },
+  data() {
+    return {
+      exam_notifications: this.examDetails["notifications"],
+      exam_name: this.examDetails["overview"][1]["description"],
+    }
+  }
 }
 </script>

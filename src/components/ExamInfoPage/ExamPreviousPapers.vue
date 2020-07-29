@@ -1,6 +1,6 @@
 <template>
     <div id="previous-papers" class="examinfo__content container">
-      <ExamNotification/>
+      <ExamNotification :examNotifications="exam_notifications" :examName="exam_name"/>
       <div class="exam-info left-info grid-3">
         <div class="qp-card card bg-white"
         v-for="index in 10" :key="index">
@@ -25,8 +25,15 @@
 import ExamNotification from './ExamNotification'
 export default {
   components: { ExamNotification, },
+    props: {
+    examDetails: {
+      type: Object,
+    },  
+  },
   data () {
     return {
+      exam_notifications: this.examDetails["notifications"],
+      exam_name: this.examDetails["overview"][1]["description"],
       exam_info: [
         { title: 'Questions', value: '180' },
         { title: 'Duration', value: '120 Minutes' },
@@ -36,5 +43,3 @@ export default {
   }
 }
 </script>
-
-San Francisco
