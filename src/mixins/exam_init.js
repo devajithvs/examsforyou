@@ -13,13 +13,14 @@ export default {
       this.$store.state.store.userAttemptsData = JSON.parse(localStorage.getItem("userAttemptsData"));
       if(this.$store.state.store.userAttemptsData===null || this.$store.state.store.sessionData ===null) {
         this.$store.state.store.userAttemptsData = [];
+        console.log("Test")
         this.$store.state.store.sessionData = {question_no: [0,0,0], current_section: 0, expire_date: null}
         this.$store.state.store.userAttemptsData = new Array(this.$store.state.store.exam_sections.length);
 
         for(j=0; j < this.$store.state.store.exam_sections.length; j++){ 
           this.$store.state.store.userAttemptsData[j] = new Array(this.$store.state.store.exam_sections[j].questions.length);
           for (i = 0; i < this.$store.state.store.exam_sections[j].questions.length; i++) {
-            this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: [], class:"not-visited"};
+            this.$store.state.store.userAttemptsData[j][i] ={id:i, selected: false ,marked_for_review: false, answer: null, class:"not-visited"};
           }         
         }
       }

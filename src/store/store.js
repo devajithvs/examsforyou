@@ -12,7 +12,6 @@ export const store = new Vuex.Store({
             sessionData: {},
             expire_date: {},
             userAttemptsData: [],
-            night_mode_status: false,
             sessionStats:  {answered:0, not_answered:0, not_visited:'', marked_for_review:0, answered_and_marked_for_review:0},
         },      
     },
@@ -81,7 +80,7 @@ export const store = new Vuex.Store({
         },
         clearSelection(state){
             const newRow = this.state.store.userAttemptsData[state.store.sessionData.current_section].slice(0);
-            newRow[state.store.sessionData.question_no[state.store.sessionData.current_section]].answer = [];
+            newRow[state.store.sessionData.question_no[state.store.sessionData.current_section]].answer = null;
             Vue.set(state.store.userAttemptsData, state.store.sessionData.current_section, newRow);
         },
         setClass(state, className){

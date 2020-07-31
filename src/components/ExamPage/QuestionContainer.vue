@@ -21,16 +21,16 @@
         </div>
         <div class="divider-horizontal"></div> 
         <div class="container question mt-1 mb-1 font-18" style="height: 150px">
-          <p> {{question_no[current_section] + 1}}) {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
+          <span>{{question_no[current_section] + 1}})&nbsp;<span v-html="exam_sections[current_section].questions[question_no[current_section]].question"/></span>
         </div>
         <div class="divider-horizontal"></div> 
 
-        <div class="container question mt-1 mb-1">
-          <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1"
+        <div class="container question mt-1 mb-1" style="height: 150px">
+          <div class="radio-container font-15 max-width-90 gray-1 mt-1 ml-1" style="overflow: hidden;"
           v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"
           >
-            <input type="radio" v-model="answer" @change="answer = option.id" :value="index" id="index" name="sort-order">
-            <label for="date-option">{{String.fromCharCode(index+65)}}) {{option.option}}</label>
+            <input type="radio" v-model="answer" :value="index" id="index" name="sort-order">
+            <label for="date-option">{{String.fromCharCode(index+65)}}) <span v-html="option.option"/></label>
           </div>
         </div>
         <div class="divider-horizontal"></div>
@@ -54,6 +54,8 @@
 </template> 
 
 <script>
+// <p> {{question_no[current_section] + 1}}) {{exam_sections[current_section].questions[question_no[current_section]].question}} </p>
+
 import {mapState} from 'vuex'
 import UpdateResponse from '@/mixins/updateResponse'
 export default {
@@ -68,9 +70,6 @@ export default {
           return this.$store.state.store.userAttemptsData[this.$store.state.store.sessionData.current_section][this.$store.state.store.sessionData.question_no[this.$store.state.store.sessionData.current_section]].answer
         },
         set (value) {
-          if (value.length > 1){
-            value.shift();
-          }
           this.$store.commit('setOption', value)
           this.updateResponse();
         }
