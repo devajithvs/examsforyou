@@ -11,7 +11,7 @@
           </a>
       </div>
       <div class="card bg-white">
-        <div class="container mt-1 mb-1 flex space-between font-18">
+        <div class="container mt-1 mb-2 flex space-between font-18">
           <span class="text-left mr-1">Question {{question_no[current_section] + 1}} - Single choice question</span>
           <span class="subtitle-1 flex align-center">
             <img v-if="userAttemptsData[current_section][question_no[current_section]].marked_for_review" src="@/assets/bookmark.svg" class="icon icon-small" alt="Mark for review" v-on:click="reviewSwap">
@@ -20,8 +20,13 @@
           </span>
         </div>
         <div class="divider-horizontal"></div> 
-        <div class="container question mt-1 mb-1 font-18" style="height: 150px">
-          <span>{{question_no[current_section] + 1}})&nbsp;<span v-html="exam_sections[current_section].questions[question_no[current_section]].question"/></span>
+        <div class="container question font-18" style="height: 150px">
+          <p></p>
+          <span>{{question_no[current_section] + 1}})&nbsp;
+            <span v-html="exam_sections[current_section].questions[question_no[current_section]].question"/>
+            <span v-for="(image, index) in exam_sections[current_section].questions[question_no[current_section]].question_images" v-bind:key="index"
+            v-html="image"/>
+          </span>
         </div>
         <div class="divider-horizontal"></div> 
 
@@ -30,7 +35,7 @@
           v-for="(option, index) in exam_sections[current_section].questions[question_no[current_section]].options" v-bind:key="option.id"
           >
             <input type="radio" v-model="answer" :value="index" id="index" name="sort-order">
-            <label for="date-option">{{String.fromCharCode(index+65)}}) <span v-html="option.option"/></label>
+            <label for="date-option">{{String.fromCharCode(index+65)}}) <span v-html="option.option"/> <span v-for="(image, index) in option.option_images" v-bind:key="index" v-html="image"/></label>
           </div>
         </div>
         <div class="divider-horizontal"></div>
